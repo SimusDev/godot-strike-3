@@ -13,7 +13,7 @@ func _ready() -> void:
 	movement.state_machine.state_enter.connect(_on_state_enter)
 	movement.state_machine.state_exit.connect(_on_state_exit)
 	state_machine_playback = tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
-
+	visible = !is_multiplayer_authority()
 
 func _on_state_enter(state:SD_State):
 	state_machine_playback.travel(state.name)
