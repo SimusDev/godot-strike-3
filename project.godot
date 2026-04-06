@@ -42,8 +42,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 SimusDev="*uid://cvfrshw18g5he"
-SimpleGrass="*uid://bfq0snth8sj3h"
 s_Networking="*uid://gm42x8cbv3h8"
+SimpleGrass="*uid://bfq0snth8sj3h"
 
 [display]
 
