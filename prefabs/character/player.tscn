@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bnx8jtayp4apq"]
 
 [ext_resource type="PackedScene" uid="uid://dgmj4cxp8xi62" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCrouch.tscn" id="1_4pcmp"]
-[ext_resource type="Script" uid="uid://bhay2hx584scl" path="res://prefabs/character/player.gd" id="1_ugkum"]
+[ext_resource type="Script" path="res://prefabs/character/player.gd" id="1_ugkum"]
 [ext_resource type="Script" uid="uid://cf6vy8vtl307n" path="res://components/entity/c_health.gd" id="2_e30c5"]
 [ext_resource type="Script" uid="uid://dllp8gui22y0w" path="res://components/character/c_character_attributes.gd" id="2_l4gda"]
 [ext_resource type="PackedScene" uid="uid://be7h2lkvpihn3" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeMovement.tscn" id="2_vab5e"]
@@ -9,6 +9,9 @@
 [ext_resource type="Script" uid="uid://daucbkbqcc48w" path="res://components/c_player_ui_instantiator.gd" id="4_hus3y"]
 [ext_resource type="PackedScene" uid="uid://ony44d7xshul" path="res://interface/player_ui.tscn" id="5_ljx0b"]
 [ext_resource type="PackedScene" uid="uid://bb30gdt6q8ij" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCamera.tscn" id="6_axr2b"]
+[ext_resource type="Script" uid="uid://be1vafcn3gb7c" path="res://components/ViewModelShake3D.gd" id="10_d7let"]
+[ext_resource type="PackedScene" uid="uid://bhpvswf0cab4v" path="res://objects/concrete_obstacle/concrete_obstacle.glb" id="11_o3y1h"]
+[ext_resource type="Script" uid="uid://rxovr3miec2t" path="res://components/viewmodel_sway.gd" id="12_gck7o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_axr2b"]
 size = Vector3(1, 1.9718323, 1)
@@ -62,6 +65,25 @@ script = ExtResource("3_vab5e")
 node = NodePath("..")
 metadata/_custom_type_script = "uid://d1jwapkumdp1u"
 
+[node name="ViewModelShake3D" type="Node3D" parent="Camera" unique_id=357465771 node_paths=PackedStringArray("player", "camera_root", "crouching_node", "sprinting_node")]
+script = ExtResource("10_d7let")
+player = NodePath("../..")
+camera_root = NodePath("..")
+crouching_node = NodePath("../../Movement")
+crouched_property = &"is_crouched"
+sprinting_node = NodePath("../../Movement")
+sprinting_property = &"is_sprinting"
+metadata/_custom_type_script = "uid://be1vafcn3gb7c"
+
+[node name="Sketchfab_Scene" parent="Camera/ViewModelShake3D" unique_id=310789611 instance=ExtResource("11_o3y1h")]
+transform = Transform3D(0.094, 0, 0, 0, 0.094, 0, 0, 0, 0.094, 0.128, -0.082, -0.224)
+
+[node name="viewmodel" type="Node3D" parent="Camera/ViewModelShake3D" unique_id=1857739935]
+
+[node name="ViewModelSway" type="Node" parent="Camera/ViewModelShake3D" unique_id=281605061]
+script = ExtResource("12_gck7o")
+metadata/_custom_type_script = "uid://rxovr3miec2t"
+
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1485583177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00843811, 0)
 shape = SubResource("BoxShape3D_axr2b")
@@ -84,3 +106,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2764381, 0)
 [node name="CeillingDetection" type="RayCast3D" parent="." unique_id=1485031884]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00016915798)
 target_position = Vector3(0, 1.5, 0)
+
+[editable path="Camera"]
