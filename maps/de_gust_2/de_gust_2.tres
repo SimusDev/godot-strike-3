@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="R_GameMap" format=3 uid="uid://cwrlepxa8euk4"]
+
+[ext_resource type="Script" uid="uid://dfhf2ro40fh4w" path="res://components/r_game_map.gd" id="1_d5tyo"]
+[ext_resource type="PackedScene" uid="uid://bcu5yg3i06q8h" path="res://maps/de_gust_2/de_gust_2.tscn" id="1_wpmv2"]
+
+[resource]
+script = ExtResource("1_d5tyo")
+name = &"Gust 2"
+prefab = ExtResource("1_wpmv2")
+metadata/_custom_type_script = "uid://dfhf2ro40fh4w"
