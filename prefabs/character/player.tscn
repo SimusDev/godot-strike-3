@@ -22,14 +22,32 @@ script = ExtResource("4_hus3y")
 _scenes = Array[PackedScene]([ExtResource("5_ljx0b")])
 metadata/_custom_type_script = "uid://daucbkbqcc48w"
 
-[node name="Crouch" parent="." unique_id=2100100958 node_paths=PackedStringArray("camera", "movement", "collision_normal") instance=ExtResource("1_4pcmp")]
+[node name="Crouch" parent="." unique_id=2100100958 node_paths=PackedStringArray("camera", "movement", "collision_normal", "collision_crouch", "ceiling_detection", "crouch_camera_position") instance=ExtResource("1_4pcmp")]
 camera = NodePath("../Camera")
 movement = NodePath("../Movement")
 collision_normal = NodePath("../Collision")
+collision_crouch = NodePath("../CollisionCrouch")
+ceiling_detection = NodePath("../CeillingDetection")
+crouch_camera_position = NodePath("../CrouchCameraPosition")
 
-[node name="Movement" parent="." unique_id=240765583 instance=ExtResource("2_vab5e")]
+[node name="Movement" parent="." unique_id=240765583 node_paths=PackedStringArray("actor") instance=ExtResource("2_vab5e")]
+actor = NodePath("..")
+key_forward = "move_forward"
+key_backward = "move_backward"
+key_left = "move_left"
+key_right = "move_right"
+key_jump = "jump"
+key_sprint = "sprint"
+key_crouch = "crouch"
 
-[node name="Camera" parent="." unique_id=1107208501 instance=ExtResource("6_axr2b")]
+[node name="Camera" parent="." unique_id=1107208501 node_paths=PackedStringArray("body") instance=ExtResource("6_axr2b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5285465, 0)
+body = NodePath("..")
+
+[node name="SimusNetTransform" type="Node" parent="Camera" unique_id=2011054302 node_paths=PackedStringArray("node")]
+script = ExtResource("3_vab5e")
+node = NodePath("..")
+metadata/_custom_type_script = "uid://d1jwapkumdp1u"
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1485583177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00843811, 0)
@@ -46,3 +64,10 @@ mesh = SubResource("CapsuleMesh_vab5e")
 script = ExtResource("3_vab5e")
 node = NodePath("..")
 metadata/_custom_type_script = "uid://d1jwapkumdp1u"
+
+[node name="CrouchCameraPosition" type="Node3D" parent="." unique_id=377077401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2764381, 0)
+
+[node name="CeillingDetection" type="RayCast3D" parent="." unique_id=1485031884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00016915798)
+target_position = Vector3(0, 1.5, 0)
