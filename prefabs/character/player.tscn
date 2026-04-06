@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bnx8jtayp4apq"]
 
 [ext_resource type="PackedScene" uid="uid://dgmj4cxp8xi62" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCrouch.tscn" id="1_4pcmp"]
-[ext_resource type="Script" path="res://prefabs/character/player.gd" id="1_ugkum"]
+[ext_resource type="Script" uid="uid://bhay2hx584scl" path="res://prefabs/character/player.gd" id="1_ugkum"]
 [ext_resource type="Script" uid="uid://cf6vy8vtl307n" path="res://components/entity/c_health.gd" id="2_e30c5"]
 [ext_resource type="Script" uid="uid://dllp8gui22y0w" path="res://components/character/c_character_attributes.gd" id="2_l4gda"]
 [ext_resource type="PackedScene" uid="uid://be7h2lkvpihn3" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeMovement.tscn" id="2_vab5e"]
@@ -73,7 +73,6 @@ crouching_node = NodePath("../../Movement")
 crouched_property = &"is_crouched"
 sprinting_node = NodePath("../../Movement")
 sprinting_property = &"is_sprinting"
-metadata/_custom_type_script = "uid://be1vafcn3gb7c"
 
 [node name="Sketchfab_Scene" parent="Camera/ViewModelShake3D" unique_id=310789611 instance=ExtResource("11_o3y1h")]
 transform = Transform3D(0.094, 0, 0, 0, 0.094, 0, 0, 0, 0.094, 0.128, -0.082, -0.224)
@@ -82,7 +81,6 @@ transform = Transform3D(0.094, 0, 0, 0, 0.094, 0, 0, 0, 0.094, 0.128, -0.082, -0
 
 [node name="ViewModelSway" type="Node" parent="Camera/ViewModelShake3D" unique_id=281605061]
 script = ExtResource("12_gck7o")
-metadata/_custom_type_script = "uid://rxovr3miec2t"
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1485583177]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00843811, 0)

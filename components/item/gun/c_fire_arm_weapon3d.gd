@@ -1,0 +1,2 @@
+extends C_Item3D
+class_name C_FirearmWeapon3D
