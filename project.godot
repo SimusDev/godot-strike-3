@@ -43,6 +43,7 @@ config/icon="res://icon.svg"
 
 SimusDev="*uid://cvfrshw18g5he"
 s_Networking="*uid://gm42x8cbv3h8"
+s_GameObjects="*uid://capygr3bjxjvp"
 SimpleGrass="*uid://bfq0snth8sj3h"
 
 [display]

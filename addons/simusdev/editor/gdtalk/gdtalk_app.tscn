@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://qw1iu5kwng66"]
+
+[ext_resource type="Script" uid="uid://b5jby7qdpxc5c" path="res://addons/simusdev/editor/gdtalk/gdtalk_app.gd" id="1_w77dw"]
+
+[node name="GdtalkApp" type="Control" unique_id=1691232530]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_w77dw")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1097255167]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.5
+offset_top = -165.0
+offset_right = 209.5
+offset_bottom = 165.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Server" type="Button" parent="VBoxContainer" unique_id=716450755]
+layout_mode = 2
+text = "Server"
+
+[node name="Connect" type="Button" parent="VBoxContainer" unique_id=1298939809]
+layout_mode = 2
+text = "Connect"
+
+[node name="_IP" type="LineEdit" parent="VBoxContainer" unique_id=1777607025]
+layout_mode = 2
+text = "localhost"
+placeholder_text = "IP"
+alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Server" to="." method="_on_server_pressed"]
+[connection signal="pressed" from="VBoxContainer/Connect" to="." method="_on_connect_pressed"]
