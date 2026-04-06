@@ -283,8 +283,13 @@ func _on_variable_replicate_request(og_packet_size: int, packet_type: SimusNet.P
 static func _hook_snapshot(data: Dictionary[StringName, Variant], property: String, object: Object) -> bool:
 	var value: Variant = object.get(property)
 	if value is Array or value is Dictionary:
-		return value.size() == data.get_or_add(property, value.size())
-	return data.get_or_add(property, value) == object.get(property)
+		var last: Variant = value.size() == data.get_or_add(property, value.size())
+		data.set(property, value.size())
+		return last
+	
+	var last: Variant = data.get_or_add(property, value) == object.get(property)
+	data.set(property, value)
+	return last
 
 static func send(object: Object, property: String, target_peers: PackedInt32Array = [], log_error: bool = true) -> void:
 	var handler: SimusNetVarConfigHandler = SimusNetVarConfigHandler.get_or_create(object)

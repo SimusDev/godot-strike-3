@@ -11,11 +11,22 @@ class_name C_ItemContainer3D
 
 var _ref: Node
 
+var _logger := SD_Logger.new(self)
+
+const INPUTS: Array[StringName] = [
+	"slot1",
+	"slot2",
+	"slot3",
+	"slot4",
+	"slot5",
+	"slot6",
+	"slot7",
+	"slot8",
+	"slot9",
+	"slot0",
+]
+
 func _ready() -> void:
-	var enable_input: bool = false
-	if player:
-		enable_input = player.is_local()
-	
 	SimusNetVars.register(
 		self, [
 			"_object"
@@ -33,20 +44,32 @@ func _ready() -> void:
 		.flag_set_channel(s_Networking.CHANNELS.ITEM)
 	)
 	
+	var enable_input: bool = false
+	if player:
+		await SD_Nodes.async_for_ready(player)
+		enable_input = player.is_local()
+	
 	set_process_input(enable_input)
+
+func _input(event: InputEvent) -> void:
+	for i in INPUTS:
+		if Input.is_action_just_pressed(i):
+			request_switch(INPUTS.find(i))
 
 func request_switch(slot: int) -> void:
 	SimusNetRPC.invoke_on_server(_request_switch_rpc, slot)
 
 func _request_switch_rpc(slot: int) -> void:
-	if slot > _objects.size() - 1:
+	if slot > _objects.size() - 1 or _objects.is_empty():
 		return
 	
-	
+	set_object(_objects[slot])
 
 func set_object(object: R_WorldObject) -> void:
 	if _object == object:
 		return
+	
+	_object = object
 	
 	if !is_node_ready():
 		await ready
@@ -56,4 +79,17 @@ func set_object(object: R_WorldObject) -> void:
 		
 		if _ref.is_inside_tree():
 			await _ref.tree_exited
+	
+	if !is_instance_valid(object):
+		return
+	
+	if !object.viewmodel:
+		_logger.debug("%s viewmodel is null!" % object, SD_ConsoleCategories.WARNING)
+		#return
+	
+	if object.viewmodel:
+		_ref = object.viewmodel.instantiate_by_type(type)
+		if is_instance_valid(_ref):
+			_ref.set_multiplayer_authority(get_multiplayer_authority())
+			add_child(_ref, true)
 	

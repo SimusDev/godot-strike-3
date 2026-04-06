@@ -1,0 +1,11 @@
+Model Information:
+* title:	[Minecraft]  FBS Knife Model
+* source:	https://sketchfab.com/3d-models/minecraft-fbs-knife-model-547c61fdcb434404b226268ca8d1919e
+* author:	BasicModel (https://sketchfab.com/BasicModel)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "[Minecraft]  FBS Knife Model" (https://sketchfab.com/3d-models/minecraft-fbs-knife-model-547c61fdcb434404b226268ca8d1919e) by BasicModel (https://sketchfab.com/BasicModel) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

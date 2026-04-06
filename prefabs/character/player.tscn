@@ -14,6 +14,13 @@
 [ext_resource type="Script" uid="uid://rxovr3miec2t" path="res://components/viewmodel_sway.gd" id="12_gck7o"]
 [ext_resource type="Script" uid="uid://d11cf51hw1h10" path="res://components/entity/c_footsteps.gd" id="13_gck7o"]
 [ext_resource type="PackedScene" uid="uid://djlnelowb05hc" path="res://prefabs/character/model/skeleton/animated_model.tscn" id="14_881ch"]
+[ext_resource type="Script" path="res://components/ViewModelShake3D.gd" id="10_d7let"]
+[ext_resource type="Script" uid="uid://c6esg0ocl7ids" path="res://components/item/item_container3D.gd" id="12_881ch"]
+[ext_resource type="Script" path="res://components/viewmodel_sway.gd" id="12_gck7o"]
+[ext_resource type="Script" uid="uid://d11cf51hw1h10" path="res://components/entity/c_footsteps.gd" id="13_gck7o"]
+[ext_resource type="Script" uid="uid://byr4yde8cnrlk" path="res://components/object/r_world_object.gd" id="13_sjklb"]
+[ext_resource type="Resource" uid="uid://dfyn7hgdrk6qe" path="res://resources/item/weapon/melee/knife.tres" id="14_c4m1b"]
+[ext_resource type="Resource" uid="uid://ckdoexw003ojg" path="res://resources/item/weapon/desert_eagle.tres" id="15_xjhnu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gck7o"]
 radius = 0.2
@@ -81,10 +88,13 @@ crouched_property = &"is_crouched"
 sprinting_node = NodePath("../../Movement")
 sprinting_property = &"is_sprinting"
 
-[node name="Sketchfab_Scene" parent="Camera/ViewModelShake3D" unique_id=310789611 instance=ExtResource("11_o3y1h")]
-transform = Transform3D(0.094, 0, 0, 0, 0.094, 0, 0, 0, 0.094, 0.128, -0.082, -0.224)
-
-[node name="viewmodel" type="Node3D" parent="Camera/ViewModelShake3D" unique_id=1857739935]
+[node name="viewmodel" type="Node3D" parent="Camera/ViewModelShake3D" unique_id=1381282563 node_paths=PackedStringArray("player")]
+script = ExtResource("12_881ch")
+type = 1
+_objects = Array[ExtResource("13_sjklb")]([ExtResource("14_c4m1b"), ExtResource("15_xjhnu")])
+player = NodePath("../../..")
+_object = ExtResource("14_c4m1b")
+metadata/_custom_type_script = "uid://c6esg0ocl7ids"
 
 [node name="ViewModelSway" type="Node" parent="Camera/ViewModelShake3D" unique_id=281605061]
 script = ExtResource("12_gck7o")
