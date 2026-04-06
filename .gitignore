@@ -1,0 +1,11 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+.settings/
+.builds/
+local_data/
+server_info.ini
+saves/
+.vs/
+*.csproj
+*.sln

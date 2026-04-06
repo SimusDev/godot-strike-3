@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://jofeluedcubq"]
+
+[ext_resource type="Script" uid="uid://lub2rtpdwo1w" path="res://addons/simusdev/SimusNet/tests/game.gd" id="1_ttprg"]
+[ext_resource type="PackedScene" uid="uid://c1mk3av3gs8ao" path="res://addons/simusdev/SimusNet/tests/identity.tscn" id="2_wld4m"]
+
+[node name="Game" type="Node2D" unique_id=1790847888]
+script = ExtResource("1_ttprg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=299752245]
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer" unique_id=1132768794]
+unique_name_in_owner = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -284.5
+offset_top = -33.0
+offset_right = 284.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "localhost"
+placeholder_text = "IP"
+
+[node name="host" type="Button" parent="CanvasLayer" unique_id=1981278698]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -284.5
+offset_top = -92.0
+offset_right = 284.5
+offset_bottom = -43.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "HOST"
+
+[node name="connect" type="Button" parent="CanvasLayer" unique_id=2040309212]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -284.5
+offset_top = 29.0
+offset_right = 284.5
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "CONNECT"
+
+[node name="Timer" type="Timer" parent="." unique_id=1640778487]
+autostart = true
+
+[node name="Identity" parent="." unique_id=1247788897 instance=ExtResource("2_wld4m")]
+
+[connection signal="pressed" from="CanvasLayer/host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="CanvasLayer/connect" to="." method="_on_connect_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
