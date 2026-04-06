@@ -1,0 +1,1 @@
+class_name CT_SpawnPoint extends Node3D

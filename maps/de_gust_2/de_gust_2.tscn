@@ -120,7 +120,7 @@ shader_parameter/starmap_flip_u = false
 shader_parameter/starmap_flip_v = false
 shader_parameter/starmap_alignment = Vector3(2.68288, -0.25891, 0.40101)
 shader_parameter/star_rotation_offset = 9.38899
-shader_parameter/star_rotation = -10.690375964202945
+shader_parameter/star_rotation = -11.658108575736792
 shader_parameter/star_tilt = -1.2915436464758039
 shader_parameter/star_field_color = Color(1, 1, 1, 1)
 shader_parameter/star_field_texture = ExtResource("14_yip6t")
@@ -135,8 +135,8 @@ shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_intensity = 10.0
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.10677882, 0.10677882)
-shader_parameter/cirrus_position2 = Vector2(0.10677882, 0.10677882)
+shader_parameter/cirrus_position1 = Vector2(0.30472663, 0.30472663)
+shader_parameter/cirrus_position2 = Vector2(0.30472663, 0.30472663)
 shader_parameter/cirrus_day_color = Color(0.824, 0.875, 1, 1)
 shader_parameter/cirrus_horizon_light_color = Color(0.98, 0.43, 0.15, 1)
 shader_parameter/cirrus_night_color = Color(0.09, 0.094, 0.129, 1)
@@ -149,7 +149,7 @@ shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_intensity = 0.6
 shader_parameter/cumulus_size = 0.5
-shader_parameter/cumulus_position = Vector2(0.533838, 0.533838)
+shader_parameter/cumulus_position = Vector2(1.5235916, 1.5235916)
 shader_parameter/cumulus_texture = ExtResource("11_ywxqy")
 shader_parameter/cumulus_day_color = Color(0.823529, 0.87451, 1, 1)
 shader_parameter/cumulus_horizon_light_color = Color(0.98, 0.43, 0.15, 1)
@@ -162,7 +162,7 @@ shader_parameter/azimuthal_grid_rotation_offset = 0.03
 shader_parameter/show_equatorial_grid = false
 shader_parameter/equatorial_grid_color = Color(0, 0.75, 1, 1)
 shader_parameter/equatorial_grid_rotation_offset = 0.03
-shader_parameter/moon_matrix = Basis(-2.9802319e-08, -0.7616849, 0.6479475, -0.8074082, 0.38228452, 0.44938886, -0.5899931, -0.5231582, -0.6149908)
+shader_parameter/moon_matrix = Basis(0, -0.6878772, 0.725827, -0.9732863, -0.16664611, -0.15793303, 0.2295948, -0.7064375, -0.6695014)
 
 [sub_resource type="Sky" id="Sky_3obig"]
 sky_material = SubResource("ShaderMaterial_oevad")
@@ -487,29 +487,29 @@ mesh = SubResource("BoxMesh_jgtov")
 environment = SubResource("Environment_qeevv")
 camera_attributes = SubResource("CameraAttributesPractical_0m1dc")
 script = ExtResource("16_h2rng")
-current_time = 9.988506666668346
+current_time = 13.674879999999
 moon_energy = 0.3
 wind_direction = 2.35619451204804
 metadata/_custom_type_script = "uid://deo0gxkmk2ahd"
 
 [node name="SunLight" type="DirectionalLight3D" parent="Sky3D" unique_id=1980879775]
-transform = Transform3D(0, -0.902699, 0.4302727, 0.6659207, 0.32099316, 0.6734338, -0.7460226, 0.28652748, 0.6011259, 0.4302727, 0.6734338, 0.6011259)
+transform = Transform3D(0, -0.90603566, -0.42320132, 0.66442835, -0.31628036, 0.67712754, -0.747352, -0.28118697, 0.60199577, -0.42320132, 0.67712754, 0.60199577)
 shadow_enabled = true
 
 [node name="MoonLight" type="DirectionalLight3D" parent="Sky3D" unique_id=1435577167]
-transform = Transform3D(0, -0.80740833, -0.5899931, -0.761685, 0.38228458, -0.5231582, 0.64794755, 0.44938892, -0.6149908, -0.5899931, -0.5231582, -0.6149908)
+transform = Transform3D(0, -0.9732863, 0.2295948, -0.6878772, -0.16664611, -0.7064375, 0.72582704, -0.15793303, -0.6695015, 0.2295948, -0.7064375, -0.6695015)
 light_color = Color(0.572549, 0.776471, 0.956863, 1)
 light_energy = 0.0
 
 [node name="SkyDome" type="Node" parent="Sky3D" unique_id=105496859]
 script = ExtResource("17_xbqx0")
-sun_azimuth = -2.5203557
-sun_altitude = -0.83195233
-moon_azimuth = -5.5185294
-moon_altitude = -2.1213489
+sun_azimuth = -3.7543273
+sun_altitude = -0.82694423
+moon_azimuth = -0.33036608
+moon_altitude = -2.3552485
 wind_direction = 2.35619451204804
 
 [node name="TimeOfDay" type="Node" parent="Sky3D" unique_id=476685899]
 script = ExtResource("18_xjduu")
 dome_path = NodePath("../SkyDome")
-current_time = 9.988506666668346
+current_time = 13.674879999999
