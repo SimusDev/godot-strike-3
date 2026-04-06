@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bnx8jtayp4apq"]
 
 [ext_resource type="PackedScene" uid="uid://dgmj4cxp8xi62" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCrouch.tscn" id="1_4pcmp"]
+[ext_resource type="Script" uid="uid://bhay2hx584scl" path="res://prefabs/character/player.gd" id="1_ugkum"]
 [ext_resource type="PackedScene" uid="uid://be7h2lkvpihn3" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeMovement.tscn" id="2_vab5e"]
 [ext_resource type="Script" uid="uid://d1jwapkumdp1u" path="res://addons/simusdev/SimusNet/SimusNetTransform.gd" id="3_vab5e"]
 [ext_resource type="Script" uid="uid://daucbkbqcc48w" path="res://components/c_player_ui_instantiator.gd" id="4_hus3y"]
@@ -16,9 +17,11 @@ size = Vector3(1, 1.5115128, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vab5e"]
 
 [node name="Player" type="CharacterBody3D" unique_id=144244501]
+script = ExtResource("1_ugkum")
 
-[node name="C_PlayerUIInstantiator" type="Node" parent="." unique_id=1783389691]
+[node name="C_PlayerUIInstantiator" type="Node" parent="." unique_id=1783389691 node_paths=PackedStringArray("_player")]
 script = ExtResource("4_hus3y")
+_player = NodePath("..")
 _scenes = Array[PackedScene]([ExtResource("5_ljx0b")])
 metadata/_custom_type_script = "uid://daucbkbqcc48w"
 
