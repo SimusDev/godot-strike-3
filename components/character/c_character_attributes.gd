@@ -8,5 +8,7 @@ func _ready() -> void:
 		self,
 		[
 			"team"
-		], SimusNetVarConfig.new().flag_mode_server_only().flag_replication()
+		], SimusNetVarConfig.new().flag_mode_server_only().
+		flag_reliable(s_Networking.CHANNELS.ENTITY_ATTRIBUTES)
+		.flag_replication()
 	)

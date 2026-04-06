@@ -35,7 +35,7 @@ Shortcuts/density_decrement=Object(Shortcut,"resource_local_to_scene":false,"res
 [application]
 
 config/name="GodotStrike3"
-run/main_scene="uid://bnx8jtayp4apq"
+run/main_scene="uid://f2dnofttqgpp"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -43,6 +43,7 @@ config/icon="res://icon.svg"
 
 SimusDev="*uid://cvfrshw18g5he"
 SimpleGrass="*uid://bfq0snth8sj3h"
+s_Networking="*uid://gm42x8cbv3h8"
 
 [display]
 

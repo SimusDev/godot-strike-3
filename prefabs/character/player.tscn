@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dgmj4cxp8xi62" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCrouch.tscn" id="1_4pcmp"]
 [ext_resource type="Script" uid="uid://bhay2hx584scl" path="res://prefabs/character/player.gd" id="1_ugkum"]
+[ext_resource type="Script" uid="uid://cf6vy8vtl307n" path="res://components/entity/c_health.gd" id="2_e30c5"]
 [ext_resource type="Script" uid="uid://dllp8gui22y0w" path="res://components/character/c_character_attributes.gd" id="2_l4gda"]
 [ext_resource type="PackedScene" uid="uid://be7h2lkvpihn3" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeMovement.tscn" id="2_vab5e"]
 [ext_resource type="Script" uid="uid://d1jwapkumdp1u" path="res://addons/simusdev/SimusNet/SimusNetTransform.gd" id="3_vab5e"]
@@ -19,6 +20,10 @@ size = Vector3(1, 1.5115128, 1)
 
 [node name="Player" type="CharacterBody3D" unique_id=144244501]
 script = ExtResource("1_ugkum")
+
+[node name="C_Health" type="Node" parent="." unique_id=2086890501]
+script = ExtResource("2_e30c5")
+metadata/_custom_type_script = "uid://cf6vy8vtl307n"
 
 [node name="C_CharacterAttributes" type="Node" parent="." unique_id=1211457163]
 script = ExtResource("2_l4gda")

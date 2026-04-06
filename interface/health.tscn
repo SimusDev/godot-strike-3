@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c430x2ff3kcte"]
 
-[ext_resource type="Script" path="res://interface/health.gd" id="1_yk738"]
+[ext_resource type="Script" uid="uid://dqyud1ommqvg4" path="res://interface/health.gd" id="1_yk738"]
 
 [node name="Health" type="Panel" unique_id=1889845363]
 offset_right = 194.0
