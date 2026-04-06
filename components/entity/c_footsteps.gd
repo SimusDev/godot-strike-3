@@ -44,14 +44,11 @@ func _ready() -> void:
 	
 	SimusNetRPC.register(
 		[
-			do_footstep
+			_local_play_audio
 		],
 		SimusNetRPCConfig.new()
 			.flag_mode_any_peer()
 	)
-
-func do_footstep_net() -> void:
-	SimusNetRPC.invoke_all(do_footstep)
 
 func do_footstep() -> void:
 	if not model:
@@ -66,6 +63,7 @@ func do_footstep() -> void:
 			
 			if movement.is_crouched:
 				return
+	
 	
 	if not is_instance_valid(entity):
 		return
@@ -82,12 +80,20 @@ func do_footstep() -> void:
 	if not metadata:
 		return
 	
+	play_audio(metadata.footstep_sounds.pick_random())
+
+func play_audio(stream:AudioStream) -> void:
+	_local_play_audio(stream)
+	SimusNetRPC.invoke(_local_play_audio, stream)
+
+func _local_play_audio(stream:AudioStream) -> void:
+	print(get_multiplayer_authority())
 	var new_player = audio_player.duplicate()
 	add_child(new_player)
 	
 	new_player.finished.connect(new_player.queue_free)
 	
-	new_player.stream = metadata.footstep_sounds.pick_random()
+	new_player.stream = stream
 	new_player.play()
 
 func _process(_delta: float) -> void:
