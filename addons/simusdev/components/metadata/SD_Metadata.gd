@@ -25,14 +25,14 @@ static func safe_find_in(node:Node, find_in_parents:bool = true) -> SD_Metadata:
 	return found
 
 
-static func find_of_type(node: Node, type_name: String, find_in_parents: bool = true) -> SD_Metadata:
+static func find_of_type(node: Node, type: GDScript, find_in_parents: bool = true) -> SD_Metadata:
 	var list = _get_meta_list(node)
 	for meta in list:
-		if meta.is_class(type_name) or meta.get_class() == type_name or is_instance_of(meta, load("res://path/to/" + type_name + ".gd")):
+		if is_instance_of(meta, type):
 			return meta
 			
 	if find_in_parents and node.get_parent():
-		return find_of_type(node.get_parent(), type_name, true)
+		return find_of_type(node.get_parent(), type, true)
 	return null
 
 static func _get_meta_list(node: Node) -> Array:
