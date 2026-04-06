@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="SimusNetSettings" format=3 uid="uid://em8u6ghrcf2f"]
+
+[ext_resource type="Script" uid="uid://mvkfnwik8m3v" path="res://addons/simusdev/SimusNet/SimusNetSettings.gd" id="1_ab4t6"]
+[ext_resource type="Script" uid="uid://b8jodbg6aiq8w" path="res://addons/simusdev/SimusNet/singletons/SimusNetTransportConfig.gd" id="2_v3cy0"]
+
+[sub_resource type="Resource" id="Resource_hjdl5"]
+script = ExtResource("2_v3cy0")
+
+[sub_resource type="Resource" id="Resource_m584x"]
+script = ExtResource("2_v3cy0")
+
+[resource]
+script = ExtResource("1_ab4t6")
+transport_rpc_config = SubResource("Resource_hjdl5")
+transport_var_config = SubResource("Resource_m584x")
+hashing_resource_folders_to_hash = PackedStringArray("res://components", "res://interface", "res://prefabs")
