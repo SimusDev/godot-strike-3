@@ -24,6 +24,7 @@ func _on_state_exit(state:SD_State):
 func _physics_process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
+	
 	actor_velocity = movement.actor.velocity.normalized() * movement.actor.transform.basis
 	blend_position = Vector2(actor_velocity.x, -actor_velocity.z)
 
