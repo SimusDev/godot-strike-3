@@ -9,17 +9,19 @@
 [ext_resource type="Script" uid="uid://daucbkbqcc48w" path="res://components/c_player_ui_instantiator.gd" id="4_hus3y"]
 [ext_resource type="PackedScene" uid="uid://ony44d7xshul" path="res://interface/player_ui.tscn" id="5_ljx0b"]
 [ext_resource type="PackedScene" uid="uid://bb30gdt6q8ij" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCamera.tscn" id="6_axr2b"]
-[ext_resource type="Script" path="res://components/ViewModelShake3D.gd" id="10_d7let"]
+[ext_resource type="Script" uid="uid://be1vafcn3gb7c" path="res://components/ViewModelShake3D.gd" id="10_d7let"]
 [ext_resource type="PackedScene" uid="uid://bhpvswf0cab4v" path="res://objects/concrete_obstacle/concrete_obstacle.glb" id="11_o3y1h"]
-[ext_resource type="Script" path="res://components/viewmodel_sway.gd" id="12_gck7o"]
+[ext_resource type="Script" uid="uid://rxovr3miec2t" path="res://components/viewmodel_sway.gd" id="12_gck7o"]
 [ext_resource type="Script" uid="uid://d11cf51hw1h10" path="res://components/entity/c_footsteps.gd" id="13_gck7o"]
+[ext_resource type="PackedScene" uid="uid://djlnelowb05hc" path="res://prefabs/character/model/skeleton/animated_model.tscn" id="14_881ch"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gck7o"]
+radius = 0.2
+height = 1.7250001
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_881ch"]
-height = 1.4625001
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_vab5e"]
+radius = 0.2
+height = 1.1500001
 
 [node name="Player" type="CharacterBody3D" unique_id=144244501]
 script = ExtResource("1_ugkum")
@@ -88,18 +90,15 @@ transform = Transform3D(0.094, 0, 0, 0, 0.094, 0, 0, 0, 0.094, 0.128, -0.082, -0
 script = ExtResource("12_gck7o")
 
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=1485583177]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00843811, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8625, 0)
 shape = SubResource("CapsuleShape3D_gck7o")
 
 [node name="CollisionCrouch" type="CollisionShape3D" parent="." unique_id=20328999]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25734782, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.57500005, 0)
 shape = SubResource("CapsuleShape3D_881ch")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=220898529]
-mesh = SubResource("CapsuleMesh_vab5e")
-
 [node name="CrouchCameraPosition" type="Node3D" parent="." unique_id=377077401]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2764381, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97643805, 0)
 
 [node name="CeillingDetection" type="RayCast3D" parent="." unique_id=1485031884]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00016915798)
@@ -115,4 +114,35 @@ metadata/_custom_type_script = "uid://d11cf51hw1h10"
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="C_Footsteps" unique_id=422596269]
 max_distance = 25.0
 
+[node name="AnimatedModel" parent="." unique_id=1690152358 node_paths=PackedStringArray("movement") instance=ExtResource("14_881ch")]
+movement = NodePath("../Movement")
+
+[node name="rig" parent="AnimatedModel/model3d" parent_id_path=PackedInt32Array(1690152358, 125080953) index="0" unique_id=1229230295]
+transform = Transform3D(0.9955374, -0.09268331, 0.01774598, -0.019650945, -0.019681413, 0.9996131, -0.09229823, -0.9955011, -0.0214149, -0.027183753, -0.003777729, 0.024709048)
+
+[node name="Skeleton3D" parent="AnimatedModel/model3d/rig" index="0" unique_id=392328757]
+bones/1/rotation = Quaternion(-0.25018746, 0.00015008892, -0.0058206134, 0.96817994)
+bones/2/rotation = Quaternion(0.07607626, 0.0021867948, -0.013315752, 0.99701077)
+bones/3/rotation = Quaternion(0.12789865, -0.0012701356, -0.0021777493, 0.99178404)
+bones/4/rotation = Quaternion(-0.14204517, -0.0012908477, -0.0021655536, 0.98985696)
+bones/5/rotation = Quaternion(0.91925555, -0.0025208404, 3.5814715e-05, 0.39365345)
+bones/7/rotation = Quaternion(-0.59165937, -0.33244222, -0.46183658, 0.5710765)
+bones/8/rotation = Quaternion(-0.19469675, 0.74236953, -0.5223356, 0.37168026)
+bones/9/rotation = Quaternion(0.07632358, -0.057337917, -0.00021145775, 0.99543315)
+bones/10/rotation = Quaternion(0.0156791, 0.012133075, -0.014813911, 0.99969375)
+bones/12/rotation = Quaternion(-0.6064426, 0.3274418, 0.45909107, 0.5605753)
+bones/13/rotation = Quaternion(-0.34381115, -0.65114367, 0.46321186, 0.4931944)
+bones/14/rotation = Quaternion(0.12671097, 0.05704214, 0.00035104583, 0.9902982)
+bones/15/rotation = Quaternion(0.12665787, -0.11514968, 0.011182568, 0.9851768)
+bones/17/rotation = Quaternion(0.98389274, 0.030729903, -0.072748385, 0.16036993)
+bones/18/rotation = Quaternion(0.1819321, -0.010516187, -0.019801335, 0.98305553)
+bones/19/rotation = Quaternion(-0.6099951, -0.034955267, 0.054720305, 0.78974044)
+bones/20/rotation = Quaternion(-3.552715e-15, 0.973389, -0.22915937, -4.440894e-15)
+bones/22/rotation = Quaternion(0.9880598, -0.032194402, 0.10057008, 0.11219263)
+bones/23/rotation = Quaternion(0.12898102, 0.062423017, 0.017074065, 0.9895332)
+bones/24/rotation = Quaternion(-0.58586204, 0.04008882, -0.06279408, 0.8069792)
+bones/25/rotation = Quaternion(3.5527145e-15, 0.9734199, -0.22902778, -6.2172506e-15)
+
 [editable path="Camera"]
+[editable path="AnimatedModel"]
+[editable path="AnimatedModel/model3d"]

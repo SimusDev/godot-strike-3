@@ -27,11 +27,14 @@ func _enter_tree() -> void:
 	if not root:
 		root = get_parent()
 	
+	if not root:
+		return
+	
 	if not Engine.is_editor_hint():
-		SD_Components.append_to(root, self)
+		SD_ECS.append_to(root, self)
 
 static func find_in(node: Node) -> W_AnimatedModel3D:
-	return SD_Components.find_first(node, W_AnimatedModel3D)
+	return SD_ECS.find_first_component_by_script(node, [W_AnimatedModel3D])
 
 static func find_above(node: Node) -> W_AnimatedModel3D:
 	if node == SimusDev.get_tree().root:

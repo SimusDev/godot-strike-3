@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp2bo8r6xei0c"
-path.s3tc="res://.godot/imported/ui_icon_music.png-a29b9a2212892795954003896012be83.s3tc.ctex"
+uid="uid://ccla4qbb2x7qb"
+path.s3tc="res://.godot/imported/walking_ref.jpg-80f3c92fb1d426d082aa10c903ca1afa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/simusdev/Game/icons/ui_icon_music.png"
-dest_files=["res://.godot/imported/ui_icon_music.png-a29b9a2212892795954003896012be83.s3tc.ctex"]
+source_file="res://walking_ref.jpg"
+dest_files=["res://.godot/imported/walking_ref.jpg-80f3c92fb1d426d082aa10c903ca1afa.s3tc.ctex"]
 
 [params]
 
