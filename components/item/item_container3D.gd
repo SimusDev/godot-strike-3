@@ -90,5 +90,6 @@ func set_object(object: R_WorldObject) -> void:
 	if object.viewmodel:
 		_ref = object.viewmodel.instantiate_by_type(type)
 		if is_instance_valid(_ref):
+			_ref.set_multiplayer_authority(get_multiplayer_authority())
 			add_child(_ref, true)
 	

@@ -15,13 +15,14 @@ func is_local() -> bool:
 
 func _ready() -> void:
 	player = SD_ECS.node_find_above_by_script(self, Player)
+	if player:
+		await SD_Nodes.async_for_ready(player)
 	
 	SimusNetRPC.register(
 		[
 			_press_action_local_internal,
 			_release_action_local_internal,
 		], SimusNetRPCConfig.new().flag_set_channel(s_Networking.CHANNELS.ITEM)
-		.flag_mode_authority().flag_require_ownership()
 	)
 	
 	SimusNetVars.register(
@@ -37,6 +38,12 @@ func _ready() -> void:
 	set_process_input(is_local())
 
 func _input(event: InputEvent) -> void:
+	if !player:
+		return
+	
+	if !player.is_local():
+		return
+	
 	if Input.is_action_just_pressed("item.use"):
 		press_action(ACTION_USE)
 	if Input.is_action_just_released("item.use"):
