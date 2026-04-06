@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://bi3o8elbtqoni" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="2_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://ch53u6vnyesdr" path="res://textures/grass_texture.png" id="3_7jktm"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ryrav"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_feb5d"]
 render_priority = 0
 shader = ExtResource("2_fc0e3")
 shader_parameter/albedo = Color(1, 1, 1, 1)
@@ -34,14 +34,12 @@ metadata/SimpleGrassTexturedMaterial = "2.1.0"
 
 [node name="Game" type="Node3D" unique_id=53650418]
 
-[node name="de_gust_2" parent="." unique_id=2136438392 instance=ExtResource("1_feb5d")]
-
 [node name="Map" type="Node3D" parent="." unique_id=1324765318]
 
 [node name="de_gust_2" parent="Map" unique_id=1104001925 instance=ExtResource("1_feb5d")]
 
 [node name="SimpleGrassTextured" parent="Map/de_gust_2" index="0" unique_id=2045327379]
-material_override = SubResource("ShaderMaterial_ryrav")
+material_override = SubResource("ShaderMaterial_feb5d")
 
 [node name="SimusNetNodePlayerSpawner" parent="Map/de_gust_2" index="8" unique_id=988129556 node_paths=PackedStringArray("root")]
 root = NodePath("../../../Players")
