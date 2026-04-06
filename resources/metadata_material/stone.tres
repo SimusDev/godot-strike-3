@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="SD_MetadataMaterial" format=3 uid="uid://dnte3ak1kplfn"]
 
-[ext_resource type="Script" uid="uid://ca4jbmd4yhqn2" path="res://addons/simusdev/components/SD_MetadataMaterial.gd" id="1_iy5ii"]
+[ext_resource type="Script" uid="uid://b4fbh3pha32me" path="res://addons/simusdev/components/metadata/SD_MetadataMaterial.gd" id="1_iy5ii"]
 [ext_resource type="AudioStream" uid="uid://cqs7k2tjkdjjx" path="res://audio/hl2/player/footsteps/concrete1.wav" id="1_roear"]
 [ext_resource type="AudioStream" uid="uid://bdiboxh5k3r35" path="res://audio/hl2/player/footsteps/concrete2.wav" id="2_b4hur"]
 [ext_resource type="AudioStream" uid="uid://bwer8p2x4sw3o" path="res://audio/hl2/player/footsteps/concrete3.wav" id="3_wc8oa"]
@@ -9,4 +9,4 @@
 [resource]
 script = ExtResource("1_iy5ii")
 footstep_sounds = Array[AudioStream]([ExtResource("1_roear"), ExtResource("2_b4hur"), ExtResource("3_wc8oa"), ExtResource("4_b1kpy")])
-metadata/_custom_type_script = "uid://ca4jbmd4yhqn2"
+metadata/_custom_type_script = "uid://b4fbh3pha32me"

@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="SD_MetadataMaterial" format=3 uid="uid://dinck474u5v60"]
+[gd_resource type="Resource" script_class="SD_MetadataMaterial" format=3 uid="uid://bwilvfyes5oqr"]
 
-[ext_resource type="Script" uid="uid://ca4jbmd4yhqn2" path="res://addons/simusdev/components/SD_MetadataMaterial.gd" id="11_4c1tm"]
+[ext_resource type="Script" uid="uid://b4fbh3pha32me" path="res://addons/simusdev/components/metadata/SD_MetadataMaterial.gd" id="1_wle7n"]
 
 [resource]
-script = ExtResource("11_4c1tm")
-resistance = 0.3
+script = ExtResource("1_wle7n")
+metadata/_custom_type_script = "uid://b4fbh3pha32me"

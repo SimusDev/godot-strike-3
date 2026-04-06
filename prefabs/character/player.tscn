@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bnx8jtayp4apq"]
 
 [ext_resource type="PackedScene" uid="uid://dgmj4cxp8xi62" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCrouch.tscn" id="1_4pcmp"]
-[ext_resource type="Script" uid="uid://bhay2hx584scl" path="res://prefabs/character/player.gd" id="1_ugkum"]
+[ext_resource type="Script" path="res://prefabs/character/player.gd" id="1_ugkum"]
 [ext_resource type="Script" uid="uid://cf6vy8vtl307n" path="res://components/entity/c_health.gd" id="2_e30c5"]
 [ext_resource type="Script" uid="uid://dllp8gui22y0w" path="res://components/character/c_character_attributes.gd" id="2_l4gda"]
 [ext_resource type="PackedScene" uid="uid://be7h2lkvpihn3" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeMovement.tscn" id="2_vab5e"]
