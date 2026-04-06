@@ -87,7 +87,6 @@ func play_audio(stream:AudioStream) -> void:
 	SimusNetRPC.invoke(_local_play_audio, stream)
 
 func _local_play_audio(stream:AudioStream) -> void:
-	print(get_multiplayer_authority())
 	var new_player = audio_player.duplicate()
 	add_child(new_player)
 	

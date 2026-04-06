@@ -9,9 +9,9 @@
 [ext_resource type="Script" uid="uid://daucbkbqcc48w" path="res://components/c_player_ui_instantiator.gd" id="4_hus3y"]
 [ext_resource type="PackedScene" uid="uid://ony44d7xshul" path="res://interface/player_ui.tscn" id="5_ljx0b"]
 [ext_resource type="PackedScene" uid="uid://bb30gdt6q8ij" path="res://addons/simusdev/components/fp_controller/source_like/W_FPCSourceLikeCamera.tscn" id="6_axr2b"]
-[ext_resource type="Script" uid="uid://be1vafcn3gb7c" path="res://components/ViewModelShake3D.gd" id="10_d7let"]
+[ext_resource type="Script" path="res://components/ViewModelShake3D.gd" id="10_d7let"]
 [ext_resource type="PackedScene" uid="uid://bhpvswf0cab4v" path="res://objects/concrete_obstacle/concrete_obstacle.glb" id="11_o3y1h"]
-[ext_resource type="Script" uid="uid://rxovr3miec2t" path="res://components/viewmodel_sway.gd" id="12_gck7o"]
+[ext_resource type="Script" path="res://components/viewmodel_sway.gd" id="12_gck7o"]
 [ext_resource type="Script" uid="uid://d11cf51hw1h10" path="res://components/entity/c_footsteps.gd" id="13_gck7o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gck7o"]
