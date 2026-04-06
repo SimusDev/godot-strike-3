@@ -20,11 +20,9 @@ script = ExtResource("4_cxv7n")
 
 [sub_resource type="Resource" id="Resource_wyevy"]
 script = ExtResource("5_3krnf")
-cache_resources = PackedStringArray()
 
 [sub_resource type="Resource" id="Resource_ow402"]
 script = ExtResource("6_ojtp8")
-channels = PackedStringArray()
 cache = SubResource("Resource_wyevy")
 
 [resource]
