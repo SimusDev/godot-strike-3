@@ -18,7 +18,7 @@ func _ready() -> void:
 			_swing_rpc,
 			_swing_alt_rpc,
 		], SimusNetRPCConfig.new().flag_mode_server_only().
-		flag_set_channel(s_Networking.CHANNELS.SHOOTING)
+		flag_set_channel(s_Networking.CHANNELS.SHOOTING).flag_immediate()
 	)
 
 func _physics_process(delta: float) -> void:
