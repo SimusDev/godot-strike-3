@@ -22,11 +22,15 @@ func _disable_plugin() -> void:
 	for s in AUTOLOAD:
 		remove_autoload_singleton(s)
 
+var inspector_plugin #govno
 func _enter_tree() -> void:
 	# Initialization of the plugin goes here.
 	if editor_plugins == null:
 		editor_plugins = SD_EditorPlugins.new()
 		add_child(editor_plugins)
+#чут чут нормально
+	inspector_plugin = SD_MetadataMaterial.SD_MetadataButtonInspectorPlugin.new()
+	add_inspector_plugin(inspector_plugin)
 	
 	for s in AUTOLOAD:
 		add_autoload_singleton(s, AUTOLOAD[s])
@@ -45,7 +49,11 @@ func _exit_tree() -> void:
 	
 	for s in AUTOLOAD:
 		remove_autoload_singleton(s)
-	
+
+# чут чут нормально
+	if inspector_plugin:
+		remove_inspector_plugin(inspector_plugin)
+
 	await get_tree().process_frame
 	if is_instance_valid(_view):
 		_view.queue_free()

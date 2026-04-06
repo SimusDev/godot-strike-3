@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="SD_MetadataMaterial" format=3 uid="uid://3cgkdcdm8jas"]
+
+[ext_resource type="Script" uid="uid://ca4jbmd4yhqn2" path="res://addons/simusdev/components/SD_MetadataMaterial.gd" id="1_pql26"]
+
+[resource]
+script = ExtResource("1_pql26")

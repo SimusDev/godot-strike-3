@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ch53u6vnyesdr" path="res://textures/grass_texture.png" id="3_wo5hv"]
 [ext_resource type="ArrayMesh" uid="uid://sptcpdx6wtm8" path="res://addons/simplegrasstextured/default_mesh.tres" id="4_fprlp"]
 [ext_resource type="Script" uid="uid://2juaclm8gc1n" path="res://addons/simplegrasstextured/grass.gd" id="5_0vx4i"]
+[ext_resource type="Resource" uid="uid://bm8l1xj5fd1v5" path="res://resources/metadata_material/grass.tres" id="6_2ayon"]
 [ext_resource type="Texture2D" uid="uid://dndfhyh82p3rv" path="res://textures/stone/0.png" id="6_fprlp"]
 [ext_resource type="Texture2D" uid="uid://bms1qudeixf3n" path="res://textures/metal/metall005-new-tileable.png" id="7_0vx4i"]
 [ext_resource type="Texture2D" uid="uid://bt0vvwyx7fw1u" path="res://textures/dirt/0.png" id="7_xbcbm"]
@@ -21,7 +22,7 @@
 [ext_resource type="Script" uid="uid://imhh1kugqh4m" path="res://addons/simusdev/SimusNet/SimusNetNodePlayerSpawner.gd" id="19_ywxqy"]
 [ext_resource type="PackedScene" uid="uid://bnx8jtayp4apq" path="res://prefabs/character/player.tscn" id="20_2ayon"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fonrb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_70mfd"]
 render_priority = 0
 shader = ExtResource("2_1f30m")
 shader_parameter/albedo = Color(1, 1, 1, 1)
@@ -137,8 +138,8 @@ shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_intensity = 10.0
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.20562308, 0.20562308)
-shader_parameter/cirrus_position2 = Vector2(0.20562308, 0.20562308)
+shader_parameter/cirrus_position1 = Vector2(0.7075495, 0.7075495)
+shader_parameter/cirrus_position2 = Vector2(0.7075495, 0.7075495)
 shader_parameter/cirrus_day_color = Color(0.824, 0.875, 1, 1)
 shader_parameter/cirrus_horizon_light_color = Color(0.98, 0.43, 0.15, 1)
 shader_parameter/cirrus_night_color = Color(0.09, 0.094, 0.129, 1)
@@ -151,7 +152,7 @@ shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_intensity = 0.6
 shader_parameter/cumulus_size = 0.5
-shader_parameter/cumulus_position = Vector2(1.0279485, 1.0279485)
+shader_parameter/cumulus_position = Vector2(3.5379727, 3.5379727)
 shader_parameter/cumulus_texture = ExtResource("11_ywxqy")
 shader_parameter/cumulus_day_color = Color(0.823529, 0.87451, 1, 1)
 shader_parameter/cumulus_horizon_light_color = Color(0.98, 0.43, 0.15, 1)
@@ -186,7 +187,7 @@ ssr_enabled = true
 
 [node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="." unique_id=2045327379]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.529, 0)
-material_override = SubResource("ShaderMaterial_fonrb")
+material_override = SubResource("ShaderMaterial_70mfd")
 multimesh = SubResource("MultiMesh_xbcbm")
 script = ExtResource("5_0vx4i")
 texture_albedo = ExtResource("3_wo5hv")
@@ -213,6 +214,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(100, 1, 100)
 material = SubResource("StandardMaterial3D_p85qx")
+metadata/SD_MetadataMaterial = ExtResource("6_2ayon")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Obstacles" unique_id=1554362111]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, -3.15)
