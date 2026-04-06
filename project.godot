@@ -18,6 +18,11 @@ config/icon="res://icon.svg"
 
 SimusDev="*uid://cvfrshw18g5he"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/simusdev/plugin.cfg")
