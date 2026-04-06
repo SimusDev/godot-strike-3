@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxfhtu55qq165" path="res://interface/player_ui.gd" id="1_ii3a7"]
 [ext_resource type="PackedScene" uid="uid://dbhqs4tv52evh" path="res://addons/simusdev/SimusNet/profiler/SimpleProfiler.tscn" id="2_wguc7"]
-[ext_resource type="PackedScene" uid="uid://cd6rhfvafmxdb" path="res://interface/health.tscn" id="3_70n32"]
+[ext_resource type="PackedScene" uid="uid://c430x2ff3kcte" path="res://interface/health.tscn" id="3_70n32"]
 
 [node name="PlayerUi" type="Control" unique_id=687048298]
 layout_mode = 3
@@ -11,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_ii3a7")
 
 [node name="SimpleProfiler" parent="." unique_id=605018193 instance=ExtResource("2_wguc7")]

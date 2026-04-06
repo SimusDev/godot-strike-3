@@ -42,6 +42,7 @@ func _ready() -> void:
 func _on_network_handshake() -> void:
 	print("Handshake success.")
 	print("Received %s users." % _connected_users.size())
+	get_tree().change_scene_to_file("res://game.tscn")
 
 func _on_peer_disconnected(e: SimusNetEvent) -> void:
 	var peer: int = e.get_arguments()
@@ -58,6 +59,7 @@ func _on_network_connected() -> void:
 
 func _on_network_disconnected() -> void:
 	_connected_users.clear()
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 func _receive_handshake_server(data: Dictionary) -> void:
 	var peer: int = SimusNetRemote.sender_id
