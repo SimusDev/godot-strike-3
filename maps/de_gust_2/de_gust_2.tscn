@@ -6,11 +6,13 @@
 [ext_resource type="ArrayMesh" uid="uid://sptcpdx6wtm8" path="res://addons/simplegrasstextured/default_mesh.tres" id="4_fprlp"]
 [ext_resource type="Script" uid="uid://2juaclm8gc1n" path="res://addons/simplegrasstextured/grass.gd" id="5_0vx4i"]
 [ext_resource type="Script" uid="uid://ca4jbmd4yhqn2" path="res://addons/simusdev/components/metadata/SD_Metadata.gd" id="6_2ayon"]
+[ext_resource type="Resource" uid="uid://bm8l1xj5fd1v5" path="res://resources/metadata_material/grass.tres" id="6_70mfd"]
 [ext_resource type="Texture2D" uid="uid://dndfhyh82p3rv" path="res://textures/stone/0.png" id="6_fprlp"]
 [ext_resource type="Texture2D" uid="uid://bms1qudeixf3n" path="res://textures/metal/metall005-new-tileable.png" id="7_0vx4i"]
 [ext_resource type="Texture2D" uid="uid://bt0vvwyx7fw1u" path="res://textures/dirt/0.png" id="7_xbcbm"]
 [ext_resource type="Shader" uid="uid://cvd0x7lon1ur6" path="res://addons/sky_3d/shaders/SkyMaterial.gdshader" id="9_fonrb"]
 [ext_resource type="Texture2D" uid="uid://cfqk60lpl5ljv" path="res://addons/sky_3d/assets/resources/SNoise.tres" id="10_54qd3"]
+[ext_resource type="Resource" uid="uid://btc22axbemfn5" path="res://resources/metadata_material/metal.tres" id="11_yip6t"]
 [ext_resource type="Texture2D" uid="uid://cecwdqjol0ckd" path="res://addons/sky_3d/assets/textures/noiseClouds.png" id="11_ywxqy"]
 [ext_resource type="Texture2D" uid="uid://2r8ylu6rg5dp" path="res://addons/sky_3d/assets/thirdparty/textures/moon/MoonMap.png" id="12_2ayon"]
 [ext_resource type="Texture2D" uid="uid://djpfuyxkryegn" path="res://addons/sky_3d/assets/textures/noise.jpg" id="13_70mfd"]
@@ -22,7 +24,7 @@
 [ext_resource type="Script" uid="uid://imhh1kugqh4m" path="res://addons/simusdev/SimusNet/SimusNetNodePlayerSpawner.gd" id="19_ywxqy"]
 [ext_resource type="PackedScene" uid="uid://bnx8jtayp4apq" path="res://prefabs/character/player.tscn" id="20_2ayon"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_70mfd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ayon"]
 render_priority = 0
 shader = ExtResource("2_1f30m")
 shader_parameter/albedo = Color(1, 1, 1, 1)
@@ -59,10 +61,6 @@ buffer = PackedFloat32Array(0.8078857, 0, -0.5893392, -2.630002, 0, 1, 0, 0.5, 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p85qx"]
 albedo_texture = ExtResource("1_fy0gs")
 uv1_triplanar = true
-
-[sub_resource type="Resource" id="Resource_70mfd"]
-script = ExtResource("6_2ayon")
-metadata/_custom_type_script = "uid://ca4jbmd4yhqn2"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_guo37"]
 albedo_color = Color(0.74558026, 0.7455802, 0.7455802, 1)
@@ -146,8 +144,8 @@ shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_intensity = 10.0
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.97301733, 0.97301733)
-shader_parameter/cirrus_position2 = Vector2(0.97301733, 0.97301733)
+shader_parameter/cirrus_position1 = Vector2(0.9816704, 0.9816704)
+shader_parameter/cirrus_position2 = Vector2(0.9816704, 0.9816704)
 shader_parameter/cirrus_day_color = Color(0.824, 0.875, 1, 1)
 shader_parameter/cirrus_horizon_light_color = Color(0.98, 0.43, 0.15, 1)
 shader_parameter/cirrus_night_color = Color(0.09, 0.094, 0.129, 1)
@@ -160,7 +158,7 @@ shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_intensity = 0.6
 shader_parameter/cumulus_size = 0.5
-shader_parameter/cumulus_position = Vector2(9.872954, 9.872954)
+shader_parameter/cumulus_position = Vector2(4.9092712, 4.9092712)
 shader_parameter/cumulus_texture = ExtResource("11_ywxqy")
 shader_parameter/cumulus_day_color = Color(0.823529, 0.87451, 1, 1)
 shader_parameter/cumulus_horizon_light_color = Color(0.98, 0.43, 0.15, 1)
@@ -195,7 +193,7 @@ ssr_enabled = true
 
 [node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="." unique_id=2045327379]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.529, 0)
-material_override = SubResource("ShaderMaterial_70mfd")
+material_override = SubResource("ShaderMaterial_2ayon")
 multimesh = SubResource("MultiMesh_xbcbm")
 script = ExtResource("5_0vx4i")
 texture_albedo = ExtResource("3_wo5hv")
@@ -222,7 +220,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(100, 1, 100)
 material = SubResource("StandardMaterial3D_p85qx")
-metadata/SD_MetadataMaterial = SubResource("Resource_70mfd")
+metadata/SD_Metadata_List = [ExtResource("6_70mfd")]
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Obstacles" unique_id=1554362111]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, -3.15)
@@ -422,6 +420,7 @@ use_collision = true
 size = Vector3(15, 1, 15)
 material = SubResource("StandardMaterial3D_7tugl")
 metadata/SD_MetadataMaterial = SubResource("Resource_yip6t")
+metadata/SD_Metadata_List = [ExtResource("11_yip6t")]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Team1Platform" unique_id=351811073]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 8.5)
@@ -446,6 +445,7 @@ use_collision = true
 size = Vector3(15, 1, 15)
 material = SubResource("StandardMaterial3D_7tugl")
 metadata/SD_MetadataMaterial = SubResource("Resource_yip6t")
+metadata/SD_Metadata_List = [ExtResource("11_yip6t")]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Team2Platform" unique_id=1895417797]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 8.5)
@@ -470,6 +470,7 @@ use_collision = true
 size = Vector3(15, 1, 15)
 material = SubResource("StandardMaterial3D_7tugl")
 metadata/SD_MetadataMaterial = SubResource("Resource_yip6t")
+metadata/SD_Metadata_List = [ExtResource("11_yip6t")]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Team3Platform" unique_id=1962105184]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 8.5)
@@ -494,6 +495,7 @@ use_collision = true
 size = Vector3(15, 1, 15)
 material = SubResource("StandardMaterial3D_7tugl")
 metadata/SD_MetadataMaterial = SubResource("Resource_yip6t")
+metadata/SD_Metadata_List = [ExtResource("11_yip6t")]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="Team4Platform" unique_id=204118231]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 8.5)
