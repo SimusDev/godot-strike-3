@@ -27,6 +27,9 @@ func try_play(stream: AudioStream) -> AudioStreamPlayer3D:
 	
 	return play_anyway(stream)
 
+func randomize_pitch(from: float, to: float) -> void:
+	pitch_scale = SD_Random.get_rfloat_range(from, to)
+
 func play_anyway(stream: AudioStream) -> AudioStreamPlayer3D:
 	var player: AudioStreamPlayer3D = create_player()
 	player.stream = stream
