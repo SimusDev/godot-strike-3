@@ -14,6 +14,8 @@ var _ref: Node
 
 var _logger := SD_Logger.new(self)
 
+var _cooldown: SD_CooldownTimer = SD_CooldownTimer.new()
+
 const INPUTS: Array[StringName] = [
 	"slot1",
 	"slot2",
@@ -76,7 +78,11 @@ func _request_switch_rpc(slot: int) -> void:
 	if slot > _objects.size() - 1 or _objects.is_empty():
 		return
 	
+	if _cooldown.is_active():
+		return
+	
 	set_object(_objects[slot])
+	_cooldown.start(0.2)
 
 func set_object(object: R_WorldObject) -> void:
 	if _object == object:
