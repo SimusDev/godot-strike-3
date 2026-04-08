@@ -71,6 +71,11 @@ func _input(event: InputEvent) -> void:
 		press_action(ACTION_USE_ALT)
 	if Input.is_action_just_released("item.use_alt"):
 		release_action(ACTION_USE_ALT)
+	
+	_input_local(event)
+
+func _input_local(event: InputEvent) -> void:
+	pass
 
 func press_action(action: String) -> void:
 	SimusNetRPC.invoke_all(_press_action_local_internal, action)
