@@ -42,9 +42,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 SimusDev="*uid://cvfrshw18g5he"
+s_ServerChat="*uid://u8qoxf5oyfto"
 s_Networking="*uid://gm42x8cbv3h8"
 s_GameObjects="*uid://capygr3bjxjvp"
-s_ServerChat="*uid://u8qoxf5oyfto"
 SimpleGrass="*uid://bfq0snth8sj3h"
 
 [display]

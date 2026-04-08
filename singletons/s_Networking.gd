@@ -32,7 +32,6 @@ func find_user_by_id(id:int) -> R_User:
 	for user in get_connected_users():
 		if user.peer_id == id:
 			return user
-	
 	return null
 
 func _ready() -> void:

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="R_FireArmWeapon" format=3 uid="uid://da868888xx0gr"]
 
-[ext_resource type="Script" path="res://components/item/gun/r_fire_arm_weapon.gd" id="1_oyiev"]
+[ext_resource type="Script" uid="uid://c823wp7jcptg8" path="res://components/item/gun/r_fire_arm_weapon.gd" id="1_oyiev"]
 [ext_resource type="PackedScene" uid="uid://buywmgpc6la6" path="res://prefabs/item/weapon/sniper/awp/player.scn" id="2_yqpyh"]
 [ext_resource type="Script" uid="uid://nyv84jnv4lcd" path="res://components/viewmodel/r_viewmodel_prefabs.gd" id="3_46vkh"]
 
