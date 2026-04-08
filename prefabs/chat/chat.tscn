@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dms0k7sckkbtx"]
+
+[ext_resource type="PackedScene" uid="uid://irwrwe1jvq6o" path="res://prefabs/chat/message_list.tscn" id="1_lx5xn"]
+[ext_resource type="PackedScene" uid="uid://cn1m71k8r16fp" path="res://prefabs/chat/line_edit.tscn" id="2_hij43"]
+[ext_resource type="Script" uid="uid://d1l1jkmj6s53f" path="res://addons/simusdev/ui/SD_UIInterfaceMenu.gd" id="3_hij43"]
+
+[node name="Chat" type="Control" unique_id=738312284]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MessageList" parent="." unique_id=1064222165 node_paths=PackedStringArray("sd_ui_interface_menu") instance=ExtResource("1_lx5xn")]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.95400006
+offset_bottom = 0.11993408
+mouse_filter = 2
+sd_ui_interface_menu = NodePath("../Control/SD_UIInterfaceMenu")
+
+[node name="Control" type="Control" parent="." unique_id=1956468811]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SD_UIInterfaceMenu" type="Node" parent="Control" unique_id=698452367 node_paths=PackedStringArray("target")]
+script = ExtResource("3_hij43")
+target = NodePath("..")
+input_action = "chat"
+metadata/_custom_type_script = "uid://d1l1jkmj6s53f"
+
+[node name="LineEdit" parent="Control" unique_id=632908206 instance=ExtResource("2_hij43")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.002
+anchor_top = 0.95400006
+anchor_right = 0.24800001
+anchor_bottom = 0.99700004
+offset_left = -0.5600002
+offset_top = 0.11993408
+offset_right = 0.55999756
+offset_bottom = 0.15997314

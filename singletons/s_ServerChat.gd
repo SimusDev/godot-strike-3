@@ -1,9 +1,10 @@
 extends Node
 
+signal message_received(msg_text:String)
+
 var total_text:String = ""
 
 const MAX_MESSAGES = 256
-
 
 func _ready() -> void:
 	SimusNetRPC.register(
@@ -52,9 +53,11 @@ func send_message(msg_text:String) -> void:
 
 func _receive_message(msg_text:String) -> void:
 	var nickname:String = s_Networking.find_user_by_id(SimusNetRemote.sender_id).name
-	var result_msg_text = "%s: %s\n" % [nickname, msg_text]
+	var result_msg_text = "%s: %s" % [nickname, msg_text]
+	total_text += result_msg_text + "\n"
+	
 	SimusDev.console.write("[ServerChat] %s" % result_msg_text)
-	total_text += result_msg_text
+	message_received.emit(result_msg_text)
 	
 	if get_message_count() >= MAX_MESSAGES:
 		delete_first_message()
