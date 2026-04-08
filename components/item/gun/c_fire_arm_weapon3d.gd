@@ -14,6 +14,10 @@ var _shoot_cooldown: SD_CooldownTimer = SD_CooldownTimer.new()
 
 var _raycast: C_EntityRaycastFireArm
 
+var is_zooming: bool = false
+
+signal on_zoom_changed()
+
 func get_object() -> R_FireArmWeapon:
 	return super() as R_FireArmWeapon
 
@@ -57,7 +61,38 @@ func _play_animation(anim: StringName) -> void:
 	_animation_player.stop()
 	_animation_player.play(anim, 0.5)
 
+func _is_animation_playing(anims: Array[StringName]) -> bool:
+	if !_animation_player:
+		return false
+	
+	if _animation_player.is_playing():
+		for i in anims:
+			if _animation_player.current_animation == i:
+				return true
+	
+	return false
+
+func _press_action_local(action: String) -> void:
+	if action == ACTION_USE_ALT:
+		set_zoom(true)
+
+func _release_action_local(action: String) -> void:
+	if action == ACTION_USE_ALT:
+		set_zoom(false)
+
+func set_zoom(value: bool) -> void:
+	if is_zooming == value:
+		return
+	
+	is_zooming = value
+	on_zoom_changed.emit()
+	_on_zoom_changed_internal()
+
+func _on_zoom_changed_internal() -> void:
+	pass
+
 func _process(delta: float) -> void:
+	
 	if !SimusNetConnection.is_server():
 		return
 	
@@ -72,6 +107,9 @@ func _request_reload() -> void:
 	reload()
 
 func reload() -> void:
+	if _is_animation_playing(_animations_pickup):
+		return
+	
 	if SimusNetConnection.is_server():
 		SimusNetRPC.invoke_all(_reload_local)
 
@@ -79,7 +117,7 @@ func _reload_local() -> void:
 	_animation_player.play(_animations_reload.pick_random())
 
 func shoot() -> C_FirearmWeapon3D:
-	if _shoot_cooldown.is_active():
+	if _shoot_cooldown.is_active() or _is_animation_playing(_animations_pickup) or _is_animation_playing(_animations_reload):
 		return
 	
 	if SimusNetConnection.is_server():

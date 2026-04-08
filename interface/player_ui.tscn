@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dbhqs4tv52evh" path="res://addons/simusdev/SimusNet/profiler/SimpleProfiler.tscn" id="2_wguc7"]
 [ext_resource type="PackedScene" uid="uid://c430x2ff3kcte" path="res://interface/health.tscn" id="3_70n32"]
 [ext_resource type="PackedScene" uid="uid://dyade2q4x1dci" path="res://interface/money.tscn" id="4_7jhck"]
+[ext_resource type="Script" uid="uid://c7j3r1udn5841" path="res://interface/ui_weapon_zoom.gd" id="5_16fqb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jhck"]
 content_margin_left = 0.0
@@ -68,3 +69,16 @@ offset_top = -107.0
 offset_right = 206.0
 offset_bottom = -74.0
 grow_vertical = 0
+
+[node name="WeaponZoom" type="CanvasLayer" parent="." unique_id=1408752413]
+script = ExtResource("5_16fqb")
+
+[node name="_Texture" type="TextureRect" parent="WeaponZoom" unique_id=1765523836]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 6

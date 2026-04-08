@@ -99,10 +99,12 @@ func _receive_handshake_client(connected_users: Array[R_User]) -> void:
 func _receive_user(user: R_User) -> void:
 	_connected_users.append(user)
 	user._ready()
+	on_user_connected.emit(user)
 	_logger.debug("%s connected." % user.name, SD_ConsoleCategories.WARNING)
 
 func _receive_user_deletion(peer: int) -> void:
 	for user in _connected_users:
 		if user.peer_id == peer:
 			_connected_users.erase(user)
+			on_user_disconnected.emit(user)
 			_logger.debug("%s disconnected." % user.name, SD_ConsoleCategories.WARNING)
