@@ -5,6 +5,7 @@ class_name SimusNetTransform
 
 @export var node: Node
 @export var enabled: bool = true
+@export var reliable: bool = true
 @export var interpolate: bool = true : get = is_interpolated
 @export var interpolate_speed: float = 15.0 : get = get_interpolate_speed
 @export var tickrate: float = 32.0 : get = get_tickrate
@@ -108,6 +109,7 @@ func _process(delta: float) -> void:
 	node.position = node.position.lerp(p, i)
 	if node is Node3D:
 		node.rotation.x = lerp_angle(node.rotation.x, r.x, i)
+		node.rotation.y = lerp_angle(node.rotation.y, r.y, i)
 	else:
 		node.rotation = lerp_angle(node.rotation, r, i)
 	

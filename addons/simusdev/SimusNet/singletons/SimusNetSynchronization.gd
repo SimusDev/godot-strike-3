@@ -52,13 +52,13 @@ func _process(delta: float) -> void:
 		
 		var transform_data: Dictionary = {}
 		
-		if transform._hook_position_snapshot():
+		if transform._hook_position_snapshot() or !transform.reliable:
 			transform_data.set(0, transform.node.position)
 		
-		if transform._hook_rotation_snapshot():
+		if transform._hook_rotation_snapshot() or !transform.reliable:
 			transform_data.set(1, transform.node.rotation)
 		
-		if transform._hook_scale_snapshot():
+		if transform._hook_scale_snapshot() or !transform.reliable:
 			_transform_buffer.clear()
 			transform_data.set(2, transform.node.scale)
 		
@@ -74,7 +74,8 @@ func _process(delta: float) -> void:
 		for p_id: int in SimusNetConnection.get_connected_peers():
 			if SimusNetVisibility.is_visible_for(p_id, transform):
 				var peer_data: Dictionary = _transform_packets.get_or_add(p_id, {})
-				var batch_data: Dictionary = peer_data.get_or_add(batch_id, {})
+				var reliable_mode: Dictionary = peer_data.get_or_add(transform.reliable, {})
+				var batch_data: Dictionary = reliable_mode.get_or_add(batch_id, {})
 				
 				batch_data.set(transform._identity.get_unique_id(), transform_data)
 				
@@ -86,21 +87,21 @@ func _process(delta: float) -> void:
 	
 	for peer: int in _transform_packets:
 		var peer_data: Dictionary = _transform_packets[peer]
-		for _batch: int in peer_data:
-			var batch_data: Dictionary = peer_data[_batch]
-			var reliable: bool = false
-			
-			var bytes: PackedByteArray = SimusNetDictionarySerializer.serialize(batch_data)
-			if reliable:
-				_receive_batched_transform_rpc_reliable.rpc_id(peer, bytes)
-			else:
-				_receive_batched_transform_rpc.rpc_id(peer, bytes)
-			
-			SimusNetProfiler.get_instance()._transform_up_traffic += bytes.size() + 3
-			SimusNetProfiler.get_instance()._total_traffic += bytes.size() + 3
-			SimusNetProfiler.get_instance()._up_traffic += bytes.size() + 3
-			SimusNetProfiler.get_instance()._put_up_packet()
-			
+		for reliable: bool in peer_data:
+			for _batch: int in peer_data[reliable]:
+				var batch_data: Dictionary = peer_data[reliable][_batch]
+				
+				var bytes: PackedByteArray = SimusNetDictionarySerializer.serialize(batch_data)
+				if reliable:
+					_receive_batched_transform_rpc_reliable.rpc_id(peer, bytes)
+				else:
+					_receive_batched_transform_rpc.rpc_id(peer, bytes)
+				
+				SimusNetProfiler.get_instance()._transform_up_traffic += bytes.size() + 3
+				SimusNetProfiler.get_instance()._total_traffic += bytes.size() + 3
+				SimusNetProfiler.get_instance()._up_traffic += bytes.size() + 3
+				SimusNetProfiler.get_instance()._put_up_packet()
+				
 	
 	_transform_packets.clear()
 
