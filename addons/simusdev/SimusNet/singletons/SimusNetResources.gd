@@ -20,6 +20,7 @@ func _on_disconnected() -> void:
 	_hash.clear()
 
 func _on_connected_pre() -> void:
+	_hash.clear()
 	var folders_to_hash: PackedStringArray = singleton.settings.hashing_resource_folders_to_hash
 	var hashed_files: int = 0
 	

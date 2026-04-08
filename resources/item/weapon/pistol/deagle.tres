@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="R_FireArmWeapon" format=3 uid="uid://201n2jffj753"]
 
-[ext_resource type="Script" path="res://components/item/gun/r_fire_arm_weapon.gd" id="1_b23f3"]
+[ext_resource type="Script" uid="uid://c823wp7jcptg8" path="res://components/item/gun/r_fire_arm_weapon.gd" id="1_b23f3"]
 [ext_resource type="PackedScene" uid="uid://7jj26xqmmmnl" path="res://prefabs/item/weapon/pistol/deagle/player.tscn" id="2_c3a46"]
 [ext_resource type="Script" uid="uid://nyv84jnv4lcd" path="res://components/viewmodel/r_viewmodel_prefabs.gd" id="3_h0amq"]
 

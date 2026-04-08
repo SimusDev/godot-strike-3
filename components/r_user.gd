@@ -2,6 +2,8 @@ extends Resource
 class_name R_User
 
 var name: String
+var login: String
+var password: String
 var peer_id: int = -1
 
 var _is_raw_object: bool = false
@@ -13,6 +15,15 @@ func as_raw_object() -> R_User:
 	var raw: R_User = duplicate()
 	raw._is_raw_object = true
 	return raw
+
+static func get_connected() -> Array[R_User]:
+	return s_Networking.get_connected_users()
+
+static func find_by_login(_login: String) -> R_User:
+	for i in get_connected():
+		if i.login == _login:
+			return i
+	return null
 
 func simusnet_serialize(buffer: SimusNetCustomSerialization) -> void:
 	buffer.pack(_is_raw_object)

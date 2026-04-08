@@ -23,6 +23,8 @@ const DEFAULT_PORT: int = 8080
 signal on_user_connected(user: R_User)
 signal on_user_disconnected(user: R_User)
 
+signal on_handshake_error(error: String)
+
 func get_connected_users() -> Array[R_User]:
 	return _connected_users
 
@@ -45,6 +47,7 @@ func _ready() -> void:
 			_receive_handshake_client,
 			_receive_user,
 			_receive_user_deletion,
+			_receive_handshake_error,
 		], SimusNetRPCConfig.new().flag_mode_server_only().flag_set_channel(CHANNELS.USERS)
 	)
 	
@@ -67,7 +70,7 @@ func _on_peer_disconnected(e: SimusNetEvent) -> void:
 
 func _on_network_connected() -> void:
 	var data: Dictionary = {
-		"username": username,
+		"login": username,
 	}
 	
 	SimusNetRPC.invoke_on_server(_receive_handshake_server, data)
@@ -76,11 +79,32 @@ func _on_network_disconnected() -> void:
 	_connected_users.clear()
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
+func _receive_handshake_error(error: String) -> void:
+	_logger.debug(error, SD_ConsoleCategories.ERROR)
+	on_handshake_error.emit(error)
+
 func _receive_handshake_server(data: Dictionary) -> void:
 	var peer: int = SimusNetRemote.sender_id
+	if !data.has("login"):
+		SimusNetConnection.kick_peer(peer, "handshake dictionary is empty.")
+		return
+	
+	var parsed_login: String = data.login
+	parsed_login = parsed_login.replace(" ", "")
+	
+	var founded_by_login: R_User = R_User.find_by_login(parsed_login)
+	if founded_by_login:
+		SimusNetRPC.invoke_on_sender(_receive_handshake_error, "user.already.active")
+		return
+	
+	var user_data: R_LocalData = R_LocalData.get_or_create("users", parsed_login)
+	
 	var user: R_User = R_User.new()
-	user.name = data.username
+	user.name = user_data.get_value_or_add("name", parsed_login)
+	user.login = data.login
 	user.peer_id = peer
+	
+	user_data.save()
 	
 	var users_to_send: Array[R_User] = []
 	

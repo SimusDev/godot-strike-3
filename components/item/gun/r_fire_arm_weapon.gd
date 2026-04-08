@@ -1,4 +1,4 @@
-extends R_WorldObject
+extends R_ItemStack
 class_name R_FireArmWeapon
 
 @export var automatic: bool = true

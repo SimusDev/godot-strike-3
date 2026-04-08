@@ -58,8 +58,7 @@ static func parse_custom(data: PackedByteArray) -> Variant:
 	
 	result._data = variant
 	
-	if SimusNetCustomSerialization.find_base_script(static_script).has_method(SimusNetCustomSerialization.METHOD_DESERIALIZE):
-		static_script.call(SimusNetCustomSerialization.METHOD_DESERIALIZE, result)
+	static_script.call(SimusNetCustomSerialization.METHOD_DESERIALIZE, result)
 	
 	#if result._result == null:
 		#_throw_error("_parse_custom(): deserialized variant is null! %s, %s, %s" % [path, variant, load(path)])
