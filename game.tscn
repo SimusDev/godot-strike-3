@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ca4jbmd4yhqn2" path="res://addons/simusdev/components/metadata/SD_Metadata.gd" id="1_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://bcu5yg3i06q8h" path="res://maps/de_gust_2/de_gust_2.tscn" id="1_feb5d"]
-[ext_resource type="PackedScene" uid="uid://dkf07gf8t3o01" path="res://interface/current_gamemode.tscn" id="2_eow3j"]
+[ext_resource type="PackedScene" path="res://interface/current_gamemode.tscn" id="2_eow3j"]
 [ext_resource type="Shader" uid="uid://bi3o8elbtqoni" path="res://addons/simplegrasstextured/shaders/grass.gdshader" id="2_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://ch53u6vnyesdr" path="res://textures/grass_texture.png" id="3_7jktm"]
 [ext_resource type="Resource" uid="uid://cjnep33sa76ml" path="res://resources/gamemode/deathmatch.tres" id="3_ryrav"]

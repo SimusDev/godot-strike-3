@@ -26,6 +26,9 @@ static func safe_find_in(node:Node, find_in_parents:bool = true) -> SD_Metadata:
 
 
 static func find_of_type(node: Node, type: GDScript, find_in_parents: bool = true) -> SD_Metadata:
+	if not is_instance_valid(node):
+		return null
+	
 	var list = _get_meta_list(node)
 	for meta in list:
 		if is_instance_of(meta, type):
@@ -36,6 +39,8 @@ static func find_of_type(node: Node, type: GDScript, find_in_parents: bool = tru
 	return null
 
 static func _get_meta_list(node: Node) -> Array:
+	if not is_instance_valid(node):
+		return []
 	if node.has_meta("SD_Metadata_List"):
 		return node.get_meta("SD_Metadata_List")
 	return []
