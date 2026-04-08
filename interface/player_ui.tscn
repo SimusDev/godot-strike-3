@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dxfhtu55qq165" path="res://interface/player_ui.gd" id="1_ii3a7"]
 [ext_resource type="PackedScene" uid="uid://dbhqs4tv52evh" path="res://addons/simusdev/SimusNet/profiler/SimpleProfiler.tscn" id="2_wguc7"]
 [ext_resource type="PackedScene" uid="uid://c430x2ff3kcte" path="res://interface/health.tscn" id="3_70n32"]
+[ext_resource type="PackedScene" uid="uid://dyade2q4x1dci" path="res://interface/money.tscn" id="4_7jhck"]
 
 [node name="PlayerUi" type="Control" unique_id=687048298]
 layout_mode = 3
@@ -26,4 +27,15 @@ offset_left = 12.0
 offset_top = -71.0
 offset_right = 206.0
 offset_bottom = -13.0
+grow_vertical = 0
+
+[node name="Money" parent="." unique_id=1964685285 instance=ExtResource("4_7jhck")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -107.0
+offset_right = 206.0
+offset_bottom = -74.0
 grow_vertical = 0

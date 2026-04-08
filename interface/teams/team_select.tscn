@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://ffrkccu47cn"]
+
+[ext_resource type="Script" uid="uid://niikvsixy2p4" path="res://interface/teams/team_select.gd" id="1_a85og"]
+[ext_resource type="Script" uid="uid://csorstbki476x" path="res://addons/simusdev/ui/SD_UICanvasItemInterface.gd" id="1_wfgwo"]
+
+[node name="TeamSelect" type="Control" unique_id=2046662812]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 602.0
+offset_bottom = 490.0
+script = ExtResource("1_a85og")
+
+[node name="SD_UICanvasItemInterface" type="Node" parent="." unique_id=1518087737 node_paths=PackedStringArray("targets")]
+script = ExtResource("1_wfgwo")
+targets = [NodePath("..")]
+metadata/_custom_type_script = "uid://csorstbki476x"
+
+[node name="Panel" type="Panel" parent="." unique_id=949866793]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="." unique_id=1269962899]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.07300001
+offset_bottom = 0.22999573
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Team Select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Title" unique_id=92080244]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=753550360]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.080000006
+anchor_top = 0.127
+anchor_right = 0.92
+anchor_bottom = 0.929
+offset_left = -0.16000366
+offset_top = -0.23000336
+offset_right = 0.15997314
+offset_bottom = -0.21002197
+grow_horizontal = 2
+grow_vertical = 2

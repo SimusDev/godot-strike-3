@@ -7,6 +7,9 @@ class_name C_MeleeWeapon3D
 @export var _animation_swing: StringName = ""
 @export var _animation_swing_alt: StringName = ""
 
+@export var swing_range: float = 1.0
+@export var swing_alt_range: float = 1.0
+
 #var _cooldown: SD_CooldownTimer = SD_CooldownTimer.new()
 
 func _ready() -> void:
@@ -31,7 +34,6 @@ func _physics_process(delta: float) -> void:
 	
 	if active_actions.has(ACTION_USE_ALT):
 		swing_alt()
-	
 
 func _play_animation(anim: StringName) -> void:
 	if !_animation_player:

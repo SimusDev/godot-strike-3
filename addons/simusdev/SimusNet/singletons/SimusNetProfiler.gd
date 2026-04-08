@@ -11,8 +11,11 @@ var _down_packets_count: int = 0
 
 var _total_traffic: int = 0
 
-var _up_traffic: int = 0
-var _down_traffic: int = 0
+var _up_traffic: Array[int] = []
+var _down_traffic: Array[int] = []
+
+var _up_traffic_count: int = 0
+var _down_traffic_count: int = 0
 
 var _transform_up_traffic: int = 0
 var _transform_down_traffic: int = 0
@@ -27,7 +30,7 @@ var _visibility_received: int = 0
 var _ping: int = 0
 
 var _timer: Timer
-var _timer_tickrate: float = 1
+var _timer_tickrate: float = 0.25
 
 var _rpcs_profiler: Dictionary[String, Dictionary] = {}
 var _vars_profiler: Dictionary[String, Dictionary] = {}
@@ -50,10 +53,16 @@ func _array_get_average(values: Array[int]) -> float:
 	return float(sum) / values.size()
 
 func _append_to_traffic_array(array: Array[int], value: int) -> void:
-	if array.size() > 10:
+	if array.size() > 20:
 		array.pop_front()
 	
 	array.append(value)
+
+func _erase_from_traffic_array(array: Array[int]) -> void:
+	if array.is_empty():
+		return
+	
+	array.pop_back()
 
 func _ready() -> void:
 	_instance = self
@@ -88,14 +97,15 @@ func _on_disconnected() -> void:
 
 func _put_total_traffic(size: int) -> void:
 	_total_traffic += size
-	
 
 func _put_up_traffic(size: int) -> void:
-	_up_traffic += size
+	_up_traffic_count += size
+	_append_to_traffic_array(_up_traffic, _up_traffic_count)
 	_put_total_traffic(size)
 
 func _put_down_traffic(size: int) -> void:
-	_down_traffic += size
+	_down_traffic_count += size
+	_append_to_traffic_array(_down_traffic, _down_traffic_count)
 	_put_total_traffic(size)
 
 func _put_visibility_up_traffic(size: int) -> void:
@@ -198,13 +208,20 @@ func _put_var_traffic(size: int, identity: Variant, property: Variant, receive: 
 
 func _timer_tick() -> void:
 	_timer.wait_time = _timer_tickrate
-	_down_traffic /= 2
-	_up_traffic /= 2
+
 	_transform_down_traffic /= 2
 	_transform_up_traffic /= 2
 	
 	_down_packets_count /= 2
 	_up_packets_count /= 2
+	_down_traffic_count /= 2
+	_up_traffic_count /= 2
+	
+	_erase_from_traffic_array(_up_packets)
+	_erase_from_traffic_array(_up_traffic)
+	
+	_erase_from_traffic_array(_down_packets)
+	_erase_from_traffic_array(_down_traffic)
 
 static func get_instance() -> SimusNetProfiler:
 	return _instance
@@ -213,10 +230,10 @@ static func get_total_traffic() -> int:
 	return _instance._total_traffic
 
 static func get_up_traffic_per_second() -> int:
-	return _instance._up_traffic
+	return _instance._array_get_average(_instance._up_traffic)
 
 static func get_down_traffic_per_second() -> int:
-	return _instance._down_traffic
+	return _instance._array_get_average(_instance._down_traffic)
 
 static func get_transform_up_traffic_per_second() -> int:
 	return _instance._transform_up_traffic

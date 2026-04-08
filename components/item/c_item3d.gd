@@ -2,6 +2,7 @@ extends Node3D
 class_name C_Item3D
 
 var player: Player
+var entity_eyes: C_EntityEyes
 
 var _logger: SD_Logger = SD_Logger.new(self)
 
@@ -11,12 +12,20 @@ const ACTION_USE: String = "use"
 const ACTION_USE_ALT: String = "use_alt"
 
 func is_local() -> bool:
-	return is_instance_valid(player)
+	if is_instance_valid(player):
+		return player.is_local()
+	return false
 
 func _ready() -> void:
 	player = SD_ECS.node_find_above_by_script(self, Player)
 	if player:
 		await SD_Nodes.async_for_ready(player)
+	
+	entity_eyes = SD_ECS.node_find_above_by_component(self, C_EntityEyes)
+	if !entity_eyes:
+		_logger.debug("cant find EntityEyes by component above!", SD_ConsoleCategories.ERROR)
+	
+	
 	
 	SimusNetRPC.register(
 		[
@@ -42,6 +51,9 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	if !player.is_local():
+		return
+	
+	if SimusDev.ui.has_active_interface():
 		return
 	
 	if Input.is_action_just_pressed("item.use"):

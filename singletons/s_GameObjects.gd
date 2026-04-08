@@ -1,6 +1,6 @@
 extends Node
 
-@export var _loaded: Dictionary[StringName, Resource] = {}
+@export var _loaded: Dictionary[StringName, R_GameResource] = {}
 
 var _is_loaded: bool = false
 
@@ -9,6 +9,9 @@ const PATH: String = "res://resources"
 signal on_all_loaded()
 
 @onready var logger: SD_Logger = SD_Logger.new("GameObjects")
+
+func get_loaded_resources() -> Array[R_GameResource]:
+	return _loaded.values()
 
 func load_all() -> void:
 	_is_loaded = false
@@ -26,7 +29,7 @@ func _load_threaded() -> void:
 		PATH, SD_FileExtensions.EC_RESOURCE,
 	):
 		var resource: Resource = load(file)
-		if resource is R_WorldObject:
+		if resource is R_GameResource:
 			var id: StringName = resource.generate_unique_id()
 			_loaded.set(id, resource)
 	
@@ -34,6 +37,9 @@ func _load_threaded() -> void:
 
 func _load_finish() -> void:
 	for id in _loaded:
+		var resource: R_GameResource = _loaded[id]
+		resource._ready()
+		
 		logger.debug("Loaded %s, %s" % [id, _loaded[id]])
 	_is_loaded = true
 	on_all_loaded.emit()

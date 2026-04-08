@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dyade2q4x1dci"]
+
+[ext_resource type="Script" uid="uid://cfn534py4adne" path="res://interface/money.gd" id="1_s0a34"]
+
+[node name="Money" type="Panel" unique_id=1889845363]
+offset_right = 194.0
+offset_bottom = 58.0
+mouse_filter = 2
+script = ExtResource("1_s0a34")
+
+[node name="_Label" type="Label" parent="." unique_id=978367446]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "money"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -98,8 +98,7 @@ func _process(delta: float) -> void:
 					_receive_batched_transform_rpc.rpc_id(peer, bytes)
 				
 				SimusNetProfiler.get_instance()._transform_up_traffic += bytes.size() + 3
-				SimusNetProfiler.get_instance()._total_traffic += bytes.size() + 3
-				SimusNetProfiler.get_instance()._up_traffic += bytes.size() + 3
+				SimusNetProfiler.get_instance()._put_up_traffic(bytes.size() + 3)
 				SimusNetProfiler.get_instance()._put_up_packet()
 				
 	
@@ -118,8 +117,7 @@ func _receive_batched_transform(packet: PackedByteArray) -> void:
 	
 	SimusNetProfiler.get_instance()._put_down_packet()
 	SimusNetProfiler.get_instance()._transform_down_traffic += bytes_size
-	SimusNetProfiler.get_instance()._total_traffic += bytes_size
-	SimusNetProfiler.get_instance()._down_traffic += bytes_size
+	SimusNetProfiler.get_instance()._put_down_traffic(bytes_size)
 	
 	var deserialized: Dictionary = SimusNetDictionarySerializer.deserialize(packet)
 	for identity_id: int in deserialized:

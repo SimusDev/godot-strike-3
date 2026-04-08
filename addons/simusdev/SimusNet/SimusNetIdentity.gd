@@ -135,6 +135,11 @@ func _try_generate_generated_id() -> void:
 			
 			if !owner.get_path().is_empty():
 				_generated_unique_id = owner.get_path()
+		
+		if owner is Resource:
+			if !owner.resource_path.is_empty():
+				_generated_unique_id = owner.resource_path
+		
 	else:
 		_generated_unique_id = settings.get_unique_id()
 	
