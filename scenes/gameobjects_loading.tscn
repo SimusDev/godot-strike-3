@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://clsihmbvoaarh"]
+
+[ext_resource type="Script" uid="uid://b7giwuerrmn7t" path="res://scenes/gameobjects_loading.gd" id="1_67tk5"]
+[ext_resource type="PackedScene" uid="uid://h0dxbagteeke" path="res://interface/loading/loading_circle.tscn" id="2_vnfuv"]
+
+[node name="gameobjects_loading" type="Control" unique_id=1831086174]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_67tk5")
+
+[node name="LoadingCircle" parent="." unique_id=1629509235 instance=ExtResource("2_vnfuv")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = -80.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0

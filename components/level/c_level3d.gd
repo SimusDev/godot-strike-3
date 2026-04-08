@@ -32,7 +32,6 @@ func _ready() -> void:
 	
 	sections.sort()
 	
-	print(sections)
 	for id: String in sections:
 		var section_node: Node3D = Node3D.new()
 		section_node.name = id

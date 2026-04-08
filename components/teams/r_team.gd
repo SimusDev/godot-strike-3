@@ -7,7 +7,7 @@ const META: StringName = "R_Team"
 @export var color: Color = Color.WHITE
 
 func set_in(object: Object) -> R_Team:
-	object.set_meta(META, object)
+	object.set_meta(META, self)
 	return self
 
 static func find_in(object: Object) -> R_Team:

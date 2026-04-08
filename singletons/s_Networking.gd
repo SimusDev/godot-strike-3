@@ -43,8 +43,7 @@ func _ready() -> void:
 func _on_network_handshake() -> void:
 	print("Handshake success.")
 	print("Received %s users." % _connected_users.size())
-	await s_GameObjects.load_all()
-	get_tree().change_scene_to_file("res://game.tscn")
+	get_tree().change_scene_to_file("res://scenes/gameobjects_loading.tscn")
 
 func _on_peer_disconnected(e: SimusNetEvent) -> void:
 	var peer: int = e.get_arguments()

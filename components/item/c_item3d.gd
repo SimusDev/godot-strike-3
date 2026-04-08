@@ -11,12 +11,18 @@ var active_actions: PackedStringArray = []
 const ACTION_USE: String = "use"
 const ACTION_USE_ALT: String = "use_alt"
 
+var _object: R_WorldObject
+
+func get_object() -> R_WorldObject:
+	return _object
+
 func is_local() -> bool:
 	if is_instance_valid(player):
 		return player.is_local()
 	return false
 
 func _ready() -> void:
+	_object = R_WorldObject.find_above(self)
 	player = SD_ECS.node_find_above_by_script(self, Player)
 	if player:
 		await SD_Nodes.async_for_ready(player)
