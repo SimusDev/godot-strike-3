@@ -5,6 +5,7 @@ enum CHANNELS
 	ENTITY_ATTRIBUTES = 1,
 	NODE_REPLICATION,
 	USERS,
+	USERS_UNRELIABLE,
 	ITEM,
 	SHOOTING,
 	
@@ -105,13 +106,14 @@ func _receive_handshake_server(data: Dictionary) -> void:
 	
 	user_data.save()
 	
+	_receive_user(user)
+	
 	var users_to_send: Array[R_User] = []
 	
 	for i in _connected_users:
 		users_to_send.append(i.as_raw_object())
 	
-	_receive_user(user)
-	SimusNetRPC.invoke_except(_receive_user, [peer], user)
+	SimusNetRPC.invoke_except(_receive_user, [peer], user.as_raw_object())
 	
 	if SimusNetConnection.is_server() and peer == SimusNet.SERVER_ID:
 		on_handhake.emit()
