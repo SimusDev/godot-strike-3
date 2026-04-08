@@ -1,3 +1,4 @@
+@static_unload
 extends Node3D
 class_name C_Level3D
 
@@ -8,6 +9,24 @@ var _sections_local: Node3D
 
 @export var gamemode: R_GameMode : set = set_gamemode
 
+signal on_gamemode_changed()
+
+static var _current: C_Level3D
+
+static var on_current_changed: SD_Event = SD_Event.new()
+
+static func set_current(level: C_Level3D) -> void:
+	_current = level
+	on_current_changed.publish()
+
+static func get_current() -> C_Level3D:
+	if !is_instance_valid(_current):
+		return null
+	return _current
+
+func get_replicator() -> C_NodeReplicator:
+	return _replicator
+
 func set_gamemode(new: R_GameMode) -> C_Level3D:
 	if gamemode == new:
 		return
@@ -15,8 +34,12 @@ func set_gamemode(new: R_GameMode) -> C_Level3D:
 	if is_instance_valid(gamemode):
 		gamemode._unswitched_internal(self)
 	
+	if gamemode:
+		
+		new._switched_internal(self)
+	
 	gamemode = new
-	new._switched_internal(self)
+	on_gamemode_changed.emit()
 	
 	return self
 
@@ -57,11 +80,9 @@ func _ready() -> void:
 		
 		_replicator.roots.append(section_node)
 	
-	_network_init()
+	await _network_init()
 	
 	add_child(_replicator)
-	
-	await get_tree().process_frame
 	
 	if gamemode:
 		gamemode._switched(self)
@@ -73,8 +94,10 @@ func _network_init() -> void:
 			"gamemode"
 		], SimusNetVarConfig.new().flag_mode_server_only().
 		flag_reliable(s_Networking.CHANNELS.NODE_REPLICATION)
-		.flag_replication()
+		.flag_replication(false)
 	)
+	
+	gamemode = await SimusNetVars.replicate_async(self, "gamemode")
 
 static func find_above(from: Node) -> C_Level3D:
 	return SD_ECS.node_find_above_by_script(from, C_Level3D)

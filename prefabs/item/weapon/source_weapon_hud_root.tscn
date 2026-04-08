@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dxdval4ftr8mo"]
+
+[node name="SourceWeaponHUDRoot" type="Node3D" unique_id=1083771603]
+transform = Transform3D(-3.059797e-07, -2.6749597e-14, -7, -6.119594e-07, 7, 0, -7, -6.119594e-07, 3.059797e-07, 0.015230425, 0.0796752, -0.00843513)

@@ -20,3 +20,7 @@ func _ready() -> void:
 		["velocity"],
 		SimusNetVarConfig.new().flag_mode_authority().flag_serialization().flag_replication()
 	)
+	
+	var level: C_Level3D = C_Level3D.find_above(self)
+	if level:
+		C_Level3D.set_current(level)
