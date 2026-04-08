@@ -18,6 +18,11 @@ var _connected_users: Array[R_User] = []
 
 const DEFAULT_PORT: int = 8080
 
+@onready var _logger: SD_Logger = SD_Logger.new(self)
+
+signal on_user_connected(user: R_User)
+signal on_user_disconnected(user: R_User)
+
 func get_connected_users() -> Array[R_User]:
 	return _connected_users
 
@@ -31,6 +36,8 @@ func _ready() -> void:
 	SimusNetRPC.register(
 		[
 			_receive_handshake_client,
+			_receive_user,
+			_receive_user_deletion,
 		], SimusNetRPCConfig.new().flag_mode_server_only().flag_set_channel(CHANNELS.USERS)
 	)
 	
@@ -46,10 +53,10 @@ func _on_network_handshake() -> void:
 	get_tree().change_scene_to_file("res://scenes/gameobjects_loading.tscn")
 
 func _on_peer_disconnected(e: SimusNetEvent) -> void:
-	var peer: int = e.get_arguments()
-	for user in _connected_users:
-		if user.peer_id == peer:
-			_connected_users.erase(user)
+	if SimusNetConnection.is_server():
+		var peer: int = e.get_arguments()
+		SimusNetRPC.invoke_all(_receive_user_deletion, peer)
+	
 
 func _on_network_connected() -> void:
 	var data: Dictionary = {
@@ -67,13 +74,14 @@ func _receive_handshake_server(data: Dictionary) -> void:
 	var user: R_User = R_User.new()
 	user.name = data.username
 	user.peer_id = peer
-	_connected_users.append(user)
-	user._ready()
 	
 	var users_to_send: Array[R_User] = []
 	
 	for i in _connected_users:
 		users_to_send.append(i.as_raw_object())
+	
+	_receive_user(user)
+	SimusNetRPC.invoke_except(_receive_user, [peer], user)
 	
 	if SimusNetConnection.is_server() and peer == SimusNet.SERVER_ID:
 		on_handhake.emit()
@@ -87,3 +95,14 @@ func _receive_handshake_client(connected_users: Array[R_User]) -> void:
 		i._ready()
 	
 	on_handhake.emit()
+
+func _receive_user(user: R_User) -> void:
+	_connected_users.append(user)
+	user._ready()
+	_logger.debug("%s connected." % user.name, SD_ConsoleCategories.WARNING)
+
+func _receive_user_deletion(peer: int) -> void:
+	for user in _connected_users:
+		if user.peer_id == peer:
+			_connected_users.erase(user)
+			_logger.debug("%s disconnected." % user.name, SD_ConsoleCategories.WARNING)

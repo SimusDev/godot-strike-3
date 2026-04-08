@@ -59,11 +59,14 @@ func _validate_callable(callable: Callable, on_recieve: bool = false, peer: int 
 static func invoke(callable: Callable, ...args: Array) -> void:
 	_instance._invoke(callable, args)
 
+static func invoke_except(callable: Callable, peers: PackedInt32Array, ...args: Array) -> void:
+	_instance._invoke(callable, args, peers)
+
 static func invoke_all(callable: Callable, ...args: Array) -> void:
 	_instance._invoke(callable, args)
 	_instance._invoke_on(SimusNetConnection.get_unique_id(), callable, args)
 
-func _invoke(callable: Callable, args: Array) -> void:
+func _invoke(callable: Callable, args: Array, except_peers: PackedInt32Array = []) -> void:
 	if !SimusNetConnection.is_active():
 		return
 	
@@ -76,6 +79,9 @@ func _invoke(callable: Callable, args: Array) -> void:
 	var visibility: SimusNetVisible = SimusNetVisible.get_or_create(object)
 	
 	for id in SimusNetConnection.get_connected_peers():
+		if id in except_peers:
+			continue
+		
 		if visibility.is_method_always_visible(callable):
 			_invoke_on_without_validating(id, callable, args, config)
 		else:
