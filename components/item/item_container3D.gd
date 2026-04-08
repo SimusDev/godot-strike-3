@@ -54,6 +54,10 @@ func _ready() -> void:
 	if player:
 		await SD_Nodes.async_for_ready(player)
 		enable_input = player.is_local()
+		visible = player.is_local()
+	else:
+		hide()
+	
 	
 	set_process_input(enable_input)
 
