@@ -1,7 +1,6 @@
 extends CharacterBody3D
 class_name Player
 
-
 static var _local: Player
 
 static func get_local() -> Player:
