@@ -3,10 +3,18 @@ class_name Player
 
 static var _local: Player
 
+static var list: Array[Player] = []
+
 static func get_local() -> Player:
 	if is_instance_valid(_local):
 		return _local
 	return null
+
+func _enter_tree() -> void:
+	list.append(self)
+
+func _exit_tree() -> void:
+	list.erase(self)
 
 func is_local() -> bool:
 	return self == get_local()
