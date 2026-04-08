@@ -51,7 +51,6 @@ func _ready() -> void:
 	)
 
 func do_footstep() -> void:
-	print(1)
 	#if not model:
 	if not entity.velocity:
 		return
