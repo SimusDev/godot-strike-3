@@ -14,9 +14,12 @@ script = ExtResource("1_ifg22")
 
 [node name="_Label" type="Label" parent="." unique_id=667679153]
 self_modulate = Color(1, 1, 1, 0.39607844)
-layout_mode = 0
-offset_right = 1285.0
-offset_bottom = 38.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0040001
+anchor_bottom = 0.053000003
+offset_right = -0.12011719
+offset_bottom = -0.16000366
 theme_override_font_sizes/font_size = 20
 text = "GAMEMODE"
 horizontal_alignment = 1
