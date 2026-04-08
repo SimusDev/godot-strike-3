@@ -6,8 +6,9 @@ static var _switch_command: SD_ConsoleCommand
 static var list: Array[R_GameMode] = []
 
 func _ready() -> void:
-	_switch_command = SD_ConsoleCommand.get_or_create("gamemode")
-	_switch_command.executed.connect(_on_switch_executed)
+	if !_switch_command:
+		_switch_command = SD_ConsoleCommand.get_or_create("gamemode")
+		_switch_command.executed.connect(_on_switch_executed)
 
 func _registered() -> void:
 	list.append(self)

@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="R_GameMode" format=3 uid="uid://cjnep33sa76ml"]
+[gd_resource type="Resource" format=3 uid="uid://cjnep33sa76ml"]
 
-[ext_resource type="Script" uid="uid://cth4fhggdsre6" path="res://components/gamemode/R_GameMode.gd" id="1_4gsjd"]
+[ext_resource type="Script" uid="uid://cb7mubsvdnj73" path="res://resources/gamemode/deathmatch.gd" id="1_4gsjd"]
 
 [resource]
 script = ExtResource("1_4gsjd")

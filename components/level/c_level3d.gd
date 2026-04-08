@@ -7,6 +7,11 @@ var _replicator: C_NodeReplicator
 var _sections: Node3D
 var _sections_local: Node3D
 
+var _spawnpoints: Array[C_SpawnPoint3D] = []
+
+func get_spawnpoints() -> Array[C_SpawnPoint3D]:
+	return _spawnpoints
+
 @export var gamemode: R_GameMode : set = set_gamemode
 
 signal on_gamemode_changed()

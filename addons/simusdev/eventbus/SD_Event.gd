@@ -31,8 +31,13 @@ func get_console() -> SD_Console:
 		return SimusDev.console
 	return null
 
-func set_code(code: String) -> void:
+func set_code(code: String) -> SD_Event:
 	_code = code
+	return self
+
+func set_debug(value: bool) -> SD_Event:
+	debug = value
+	return self
 
 func get_code() -> String:
 	return _code
