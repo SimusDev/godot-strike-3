@@ -1,12 +1,21 @@
 [gd_resource type="Resource" script_class="SD_MetadataMaterial" format=3 uid="uid://b4hu4bbu87a1r"]
 
 [ext_resource type="Script" uid="uid://b4fbh3pha32me" path="res://addons/simusdev/components/metadata/SD_MetadataMaterial.gd" id="1_8wccn"]
+[ext_resource type="PackedScene" uid="uid://chujx0oxcky1r" path="res://prefabs/bullet_decal/bullet_decal.tscn" id="1_gw3es"]
 [ext_resource type="AudioStream" uid="uid://ccnbxrrpecjcy" path="res://audio/hl2/player/footsteps/woodpanel1.wav" id="1_jeu7r"]
 [ext_resource type="AudioStream" uid="uid://blcw0kklb4a8a" path="res://audio/hl2/player/footsteps/woodpanel2.wav" id="2_gw3es"]
+[ext_resource type="AudioStream" uid="uid://c4h4rg6u8uomn" path="res://audio/hl2/physics/wood/wood_box_impact_bullet1.wav" id="2_ipyb1"]
+[ext_resource type="AudioStream" uid="uid://ci1f1f4b5xgng" path="res://audio/hl2/physics/wood/wood_box_impact_bullet2.wav" id="3_7dsmc"]
 [ext_resource type="AudioStream" uid="uid://duoxhrycjjo41" path="res://audio/hl2/player/footsteps/woodpanel3.wav" id="3_yueqc"]
 [ext_resource type="AudioStream" uid="uid://c55bum61d7v80" path="res://audio/hl2/player/footsteps/woodpanel4.wav" id="4_51d6s"]
+[ext_resource type="AudioStream" uid="uid://c2rvv48ddmvcr" path="res://audio/hl2/physics/wood/wood_box_impact_bullet3.wav" id="4_fpgs5"]
+[ext_resource type="AudioStream" uid="uid://dfqrrics5lflr" path="res://audio/hl2/physics/wood/wood_box_impact_bullet4.wav" id="5_y4spr"]
 
 [resource]
 script = ExtResource("1_8wccn")
+bullet_impact_decals = Array[PackedScene]([ExtResource("1_gw3es")])
+melee_impact_decals = Array[PackedScene]([ExtResource("1_gw3es")])
+impact_sounds = Array[AudioStream]([ExtResource("2_ipyb1"), ExtResource("3_7dsmc"), ExtResource("4_fpgs5"), ExtResource("5_y4spr")])
+bullet_impact_sounds = Array[AudioStream]([ExtResource("2_ipyb1"), ExtResource("3_7dsmc"), ExtResource("4_fpgs5"), ExtResource("5_y4spr")])
 footstep_sounds = Array[AudioStream]([ExtResource("1_jeu7r"), ExtResource("2_gw3es"), ExtResource("3_yueqc"), ExtResource("4_51d6s")])
 metadata/_custom_type_script = "uid://b4fbh3pha32me"

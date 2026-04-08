@@ -1,7 +1,17 @@
 [gd_resource type="Resource" script_class="SD_MetadataMaterial" format=3 uid="uid://bwilvfyes5oqr"]
 
+[ext_resource type="PackedScene" uid="uid://chujx0oxcky1r" path="res://prefabs/bullet_decal/bullet_decal.tscn" id="1_3gdfm"]
 [ext_resource type="Script" uid="uid://b4fbh3pha32me" path="res://addons/simusdev/components/metadata/SD_MetadataMaterial.gd" id="1_wle7n"]
+[ext_resource type="AudioStream" uid="uid://cblntyohb33mu" path="res://audio/hl2/physics/flesh/flesh_impact_bullet1.wav" id="2_dgmf3"]
+[ext_resource type="AudioStream" uid="uid://vveni31yjbmd" path="res://audio/hl2/physics/flesh/flesh_impact_bullet2.wav" id="3_vljfb"]
+[ext_resource type="AudioStream" uid="uid://p0185rphsnhs" path="res://audio/hl2/physics/flesh/flesh_impact_bullet3.wav" id="4_p8dq4"]
+[ext_resource type="AudioStream" uid="uid://cvi2jhn54tf6i" path="res://audio/hl2/physics/flesh/flesh_impact_bullet4.wav" id="5_6n5li"]
+[ext_resource type="AudioStream" uid="uid://dfqj03ejkksu4" path="res://audio/hl2/physics/flesh/flesh_impact_bullet5.wav" id="6_q47b4"]
 
 [resource]
 script = ExtResource("1_wle7n")
+bullet_impact_decals = Array[PackedScene]([ExtResource("1_3gdfm")])
+melee_impact_decals = Array[PackedScene]([ExtResource("1_3gdfm")])
+impact_sounds = Array[AudioStream]([ExtResource("2_dgmf3"), ExtResource("3_vljfb"), ExtResource("4_p8dq4"), ExtResource("5_6n5li"), ExtResource("6_q47b4")])
+bullet_impact_sounds = Array[AudioStream]([ExtResource("2_dgmf3"), ExtResource("3_vljfb"), ExtResource("4_p8dq4"), ExtResource("5_6n5li"), ExtResource("6_q47b4")])
 metadata/_custom_type_script = "uid://b4fbh3pha32me"

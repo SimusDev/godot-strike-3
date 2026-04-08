@@ -2,11 +2,20 @@
 
 [ext_resource type="Script" uid="uid://b4fbh3pha32me" path="res://addons/simusdev/components/metadata/SD_MetadataMaterial.gd" id="1_6viqd"]
 [ext_resource type="AudioStream" uid="uid://dj8iqcpisaql5" path="res://audio/hl2/player/footsteps/metal1.wav" id="1_q4rkm"]
+[ext_resource type="PackedScene" uid="uid://chujx0oxcky1r" path="res://prefabs/bullet_decal/bullet_decal.tscn" id="1_t2orv"]
 [ext_resource type="AudioStream" uid="uid://c7tqtsj4iqqdk" path="res://audio/hl2/player/footsteps/metal2.wav" id="2_t2orv"]
+[ext_resource type="AudioStream" uid="uid://bxkcr8qhnv3q8" path="res://audio/hl2/physics/metal/metal_solid_impact_bullet1.wav" id="2_x0q28"]
 [ext_resource type="AudioStream" uid="uid://buwditvoljv7a" path="res://audio/hl2/player/footsteps/metal3.wav" id="3_7hcmu"]
+[ext_resource type="AudioStream" uid="uid://d2g05otelnm7g" path="res://audio/hl2/physics/metal/metal_solid_impact_bullet2.wav" id="3_qw4yf"]
+[ext_resource type="AudioStream" uid="uid://cccti3pqqhc68" path="res://audio/hl2/physics/metal/metal_solid_impact_bullet3.wav" id="4_a6u4u"]
 [ext_resource type="AudioStream" uid="uid://b07kngqpjlxt" path="res://audio/hl2/player/footsteps/metal4.wav" id="4_welnb"]
+[ext_resource type="AudioStream" uid="uid://cxfyehue4o2ov" path="res://audio/hl2/physics/metal/metal_solid_impact_bullet4.wav" id="5_asp8t"]
 
 [resource]
 script = ExtResource("1_6viqd")
+bullet_impact_decals = Array[PackedScene]([ExtResource("1_t2orv")])
+melee_impact_decals = Array[PackedScene]([ExtResource("1_t2orv")])
+impact_sounds = Array[AudioStream]([ExtResource("2_x0q28"), ExtResource("3_qw4yf"), ExtResource("4_a6u4u"), ExtResource("5_asp8t")])
+bullet_impact_sounds = Array[AudioStream]([ExtResource("2_x0q28"), ExtResource("3_qw4yf"), ExtResource("4_a6u4u"), ExtResource("5_asp8t")])
 footstep_sounds = Array[AudioStream]([ExtResource("1_q4rkm"), ExtResource("2_t2orv"), ExtResource("3_7hcmu"), ExtResource("4_welnb")])
 metadata/_custom_type_script = "uid://b4fbh3pha32me"

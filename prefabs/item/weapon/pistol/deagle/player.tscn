@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://dsom7dqira1vn" path="res://audio/sfx/css/weapons/usp/usp_clipin.wav" id="6_xpi1w"]
 [ext_resource type="AudioStream" uid="uid://cddd5l008nkyq" path="res://audio/sfx/css/weapons/deagle/de_slideback.wav" id="7_ao4lb"]
 [ext_resource type="AudioStream" uid="uid://duxw4tcd2yjjd" path="res://audio/sfx/css/weapons/deagle/deagle-1.wav" id="8_tl2lo"]
+[ext_resource type="PackedScene" uid="uid://cmihw2180afei" path="res://prefabs/muzzleflash/muzzleflash.tscn" id="10_aemh5"]
 
 [sub_resource type="Animation" id="Animation_sk8er"]
 resource_name = "v_pist_deagle_mdl__draw"
@@ -2164,12 +2165,13 @@ _data = {
 &"shoot_empty": SubResource("Animation_tl2lo")
 }
 
-[node name="Player" type="Node3D" unique_id=703645154 node_paths=PackedStringArray("_animation_player")]
+[node name="Player" type="Node3D" unique_id=703645154 node_paths=PackedStringArray("_animation_player", "muzzle_flash")]
 script = ExtResource("1_4ckef")
 _animation_player = NodePath("SourceWeaponHUDRoot/untitled/AnimationPlayer")
 _animations_pickup = Array[StringName]([&"draw"])
 _animations_shoot = Array[StringName]([&"shoot1", &"shoot2"])
 _animations_reload = Array[StringName]([&"reload"])
+muzzle_flash = NodePath("Muzzleflash")
 
 [node name="SourceWeaponHUDRoot" parent="." unique_id=1083771603 instance=ExtResource("2_sk8er")]
 transform = Transform3D(-3.059797e-07, -4.6201656e-14, -7, -1.0569706e-06, 7, -1.6940659e-21, -7, -1.0569706e-06, 3.059797e-07, 0.015230425, 0.0796752, -0.00843513)
@@ -2177,7 +2179,7 @@ transform = Transform3D(-3.059797e-07, -4.6201656e-14, -7, -1.0569706e-06, 7, -1
 [node name="untitled" parent="SourceWeaponHUDRoot" unique_id=1506716361 instance=ExtResource("2_1cqkp")]
 transform = Transform3D(1, -6.357304e-08, 0, 6.357304e-08, 1, 0, 0, 0, 1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="SourceWeaponHUDRoot/untitled/v_pist_deagle_mdl" parent_id_path=PackedInt32Array(1506716361, 904993235) index="0" unique_id=1769758515]
+[node name="Skeleton3D" parent="SourceWeaponHUDRoot/untitled/v_pist_deagle_mdl" parent_id_path=PackedInt32Array(1506716361, 1392913516) index="0" unique_id=299023904]
 bones/0/position = Vector3(12.153782, -13.699927, -9.026552)
 bones/0/rotation = Quaternion(-0.4861707, -0.12485263, 0.8647932, -0.01351729)
 bones/1/position = Vector3(-0.051189676, 0.14537275, 1.8040292)
@@ -2228,7 +2230,7 @@ bones/42/rotation = Quaternion(0.37898245, 0.62249255, -0.6131544, 0.304823)
 bones/43/position = Vector3(7.276635, -11.407438, -6.583695)
 bones/43/rotation = Quaternion(-0.19820887, 0.751516, 0.4457341, 0.4441374)
 
-[node name="AnimationPlayer" parent="SourceWeaponHUDRoot/untitled" index="1" unique_id=810628377]
+[node name="AnimationPlayer" parent="SourceWeaponHUDRoot/untitled" index="1" unique_id=1557602769]
 libraries/ = SubResource("AnimationLibrary_aemh5")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=938964464]
@@ -2242,5 +2244,8 @@ metadata/_custom_type_script = "uid://cwoe0b5fyjuop"
 script = ExtResource("4_sk8er")
 max_distance = 10.0
 metadata/_custom_type_script = "uid://cwoe0b5fyjuop"
+
+[node name="Muzzleflash" parent="." unique_id=443736027 instance=ExtResource("10_aemh5")]
+transform = Transform3D(-1, 7.627619e-22, -8.742279e-08, -1.0890423e-21, 1, -1.05785705e-29, 8.742279e-08, -5.185387e-29, -1, 0.33913088, -0.1601488, -1.2336617)
 
 [editable path="SourceWeaponHUDRoot/untitled"]

@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dndfhyh82p3rv" path="res://textures/stone/0.png" id="6_fprlp"]
 [ext_resource type="Texture2D" uid="uid://bms1qudeixf3n" path="res://textures/metal/metall005-new-tileable.png" id="7_0vx4i"]
 [ext_resource type="Texture2D" uid="uid://bt0vvwyx7fw1u" path="res://textures/dirt/0.png" id="7_xbcbm"]
+[ext_resource type="Resource" uid="uid://dnte3ak1kplfn" path="res://resources/metadata_material/stone.tres" id="8_h2rng"]
 [ext_resource type="Shader" uid="uid://cvd0x7lon1ur6" path="res://addons/sky_3d/shaders/SkyMaterial.gdshader" id="9_fonrb"]
 [ext_resource type="Texture2D" uid="uid://cfqk60lpl5ljv" path="res://addons/sky_3d/assets/resources/SNoise.tres" id="10_54qd3"]
 [ext_resource type="Resource" uid="uid://btc22axbemfn5" path="res://resources/metadata_material/metal.tres" id="11_yip6t"]
@@ -25,7 +26,7 @@
 [ext_resource type="Script" uid="uid://imhh1kugqh4m" path="res://addons/simusdev/SimusNet/SimusNetNodePlayerSpawner.gd" id="19_ywxqy"]
 [ext_resource type="PackedScene" uid="uid://bnx8jtayp4apq" path="res://prefabs/character/player.tscn" id="20_2ayon"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_254hf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xbqx0"]
 render_priority = 0
 shader = ExtResource("2_1f30m")
 shader_parameter/albedo = Color(1, 1, 1, 1)
@@ -145,8 +146,8 @@ shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_intensity = 10.0
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.7163549, 0.7163549)
-shader_parameter/cirrus_position2 = Vector2(0.7163549, 0.7163549)
+shader_parameter/cirrus_position1 = Vector2(0.37747487, 0.37747487)
+shader_parameter/cirrus_position2 = Vector2(0.37747487, 0.37747487)
 shader_parameter/cirrus_day_color = Color(0.824, 0.875, 1, 1)
 shader_parameter/cirrus_horizon_light_color = Color(0.98, 0.43, 0.15, 1)
 shader_parameter/cirrus_night_color = Color(0.09, 0.094, 0.129, 1)
@@ -159,7 +160,7 @@ shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_intensity = 0.6
 shader_parameter/cumulus_size = 0.5
-shader_parameter/cumulus_position = Vector2(3.582022, 3.582022)
+shader_parameter/cumulus_position = Vector2(1.8874248, 1.8874248)
 shader_parameter/cumulus_texture = ExtResource("11_ywxqy")
 shader_parameter/cumulus_day_color = Color(0.823529, 0.87451, 1, 1)
 shader_parameter/cumulus_horizon_light_color = Color(0.98, 0.43, 0.15, 1)
@@ -194,7 +195,7 @@ ssr_enabled = true
 
 [node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="." unique_id=2045327379]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.529, 0)
-material_override = SubResource("ShaderMaterial_254hf")
+material_override = SubResource("ShaderMaterial_xbqx0")
 multimesh = SubResource("MultiMesh_xbcbm")
 script = ExtResource("5_0vx4i")
 texture_albedo = ExtResource("3_wo5hv")
@@ -228,180 +229,210 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, -3.15)
 use_collision = true
 size = Vector3(1, 3, 7.3)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Obstacles" unique_id=2126957198]
 transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, 13, 1.5, -3.15)
 use_collision = true
 size = Vector3(1, 3, 7.3)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Obstacles" unique_id=1077609464]
 transform = Transform3D(-0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, -0.7071068, 13, 1.5, -14.15)
 use_collision = true
 size = Vector3(1, 3, 7.3)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="Obstacles" unique_id=1957503847]
 transform = Transform3D(-0.7449591, -0.095372684, 0.6602575, 0.05071266, 0.9787679, 0.19859916, -0.66517997, 0.18143158, -0.7243057, -11.947545, 0.8616777, -12.249787)
 use_collision = true
 size = Vector3(1, 4.1, 7.3)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="Obstacles" unique_id=584226180]
 transform = Transform3D(0.5000001, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, 0.5000001, -22, 1.5, -12.15)
 use_collision = true
 size = Vector3(1, 3, 7.3)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="Obstacles" unique_id=275301034]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 3.5, -38)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="Obstacles" unique_id=1991293831]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 3.5, -45)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="Obstacles" unique_id=304556778]
 transform = Transform3D(-1, 0, 1.4901161e-07, 0, 1, 0, -1.4901161e-07, 0, -1, 0, 1.5, -21.15)
 use_collision = true
 size = Vector3(1, 3, 7.3)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Obstacles" unique_id=1471326683]
 transform = Transform3D(-1, 0, 1.4901161e-07, 0, 1, 0, -1.4901161e-07, 0, -1, 0, 1.5, 20.85)
 use_collision = true
 size = Vector3(1, 3, 7.3)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="Obstacles" unique_id=1293962937]
 transform = Transform3D(0.7071069, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, 0.7071069, -18, 1.5, 16.85)
 use_collision = true
 size = Vector3(1, 3, 7.3)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="Obstacles" unique_id=1200696256]
 transform = Transform3D(-0.83774, -0.13695435, -0.5286162, -0.095901884, 0.98989254, -0.104478925, 0.537582, -0.036830895, -0.84240663, -9.924675, 0.95555913, 4.8702574)
 use_collision = true
 size = Vector3(1, 4.1, 7.3)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Obstacles" unique_id=276827722]
 transform = Transform3D(-0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, -0.7071068, 13, 1.5, 10.85)
 use_collision = true
 size = Vector3(1, 3, 7.3)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="Obstacles" unique_id=332825846]
 transform = Transform3D(-0.25881895, 0, 0.96592575, 0, 1, 0, -0.96592575, 0, -0.25881895, 18, 1.5, 3.8500004)
 use_collision = true
 size = Vector3(1, 3, 7.3)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Obstacles" unique_id=1625238492]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 1.5, -3.15)
 use_collision = true
 size = Vector3(1, 3, 7.3)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Obstacles" unique_id=2103204593]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 1.5, -8.15)
 use_collision = true
 size = Vector3(1, 3, 7.3)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Obstacles" unique_id=1247784929]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1, 1.5, 1.8500004)
 use_collision = true
 size = Vector3(1, 3, 7.3)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="Obstacles" unique_id=1155598]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -44.9, 3.5, -26.5)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="Obstacles" unique_id=1672302275]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -37.9, 3.5, -20.5)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D20" type="CSGBox3D" parent="Obstacles" unique_id=1690310788]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -38.000004, 3.5, 26.999998)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D21" type="CSGBox3D" parent="Obstacles" unique_id=486913697]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -45.000004, 3.5, 20.999998)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D22" type="CSGBox3D" parent="Obstacles" unique_id=602622313]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5, 3.5, 44.9)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="Obstacles" unique_id=2059472020]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5, 3.5, 37.9)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D24" type="CSGBox3D" parent="Obstacles" unique_id=1648842330]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 37.999996, 3.5, -27)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D25" type="CSGBox3D" parent="Obstacles" unique_id=12213628]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 44.999996, 3.5, -21)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D26" type="CSGBox3D" parent="Obstacles" unique_id=718165381]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 26.5, 3.5, -44.9)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D27" type="CSGBox3D" parent="Obstacles" unique_id=1308223881]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 20.5, 3.5, -37.9)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D28" type="CSGBox3D" parent="Obstacles" unique_id=413628096]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 27.099998, 3.5, 38)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D29" type="CSGBox3D" parent="Obstacles" unique_id=362162852]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 21.099998, 3.5, 45)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D30" type="CSGBox3D" parent="Obstacles" unique_id=1682359284]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 45, 3.5, 26.5)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="CSGBox3D31" type="CSGBox3D" parent="Obstacles" unique_id=1509137275]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 38, 3.5, 20.5)
 use_collision = true
 size = Vector3(1, 7, 10)
 material = SubResource("StandardMaterial3D_guo37")
+metadata/SD_Metadata_List = [ExtResource("8_h2rng")]
 
 [node name="WorldBlock" type="CSGMesh3D" parent="." unique_id=1484835708]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
@@ -409,6 +440,7 @@ use_collision = true
 mesh = SubResource("BoxMesh_7tugl")
 material = SubResource("StandardMaterial3D_av3e2")
 metadata/SD_MetadataMaterial = SubResource("Resource_yip6t")
+metadata/SD_Metadata_List = [ExtResource("6_70mfd")]
 
 [node name="WorldBlock" type="CSGMesh3D" parent="WorldBlock" unique_id=451692441]
 operation = 2

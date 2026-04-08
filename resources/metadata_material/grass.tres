@@ -1,12 +1,21 @@
 [gd_resource type="Resource" script_class="SD_MetadataMaterial" format=3 uid="uid://bm8l1xj5fd1v5"]
 
+[ext_resource type="PackedScene" uid="uid://chujx0oxcky1r" path="res://prefabs/bullet_decal/bullet_decal.tscn" id="1_a2slf"]
 [ext_resource type="Script" uid="uid://b4fbh3pha32me" path="res://addons/simusdev/components/metadata/SD_MetadataMaterial.gd" id="1_t2tp8"]
 [ext_resource type="AudioStream" uid="uid://dey6rj80c53i4" path="res://audio/hl2/player/footsteps/grass1.wav" id="1_ttc7e"]
 [ext_resource type="AudioStream" uid="uid://crcncqk51g4n4" path="res://audio/hl2/player/footsteps/grass2.wav" id="2_a2slf"]
+[ext_resource type="AudioStream" uid="uid://dr0btxfhdqy0j" path="res://audio/hl2/physics/surfaces/sand_impact_bullet1.wav" id="2_yrppd"]
 [ext_resource type="AudioStream" uid="uid://crt8a5bvxb11o" path="res://audio/hl2/player/footsteps/grass3.wav" id="3_brjfo"]
+[ext_resource type="AudioStream" uid="uid://j7yob3t54nsw" path="res://audio/hl2/physics/surfaces/sand_impact_bullet2.wav" id="3_nho7a"]
 [ext_resource type="AudioStream" uid="uid://bnqo3ov7nkks0" path="res://audio/hl2/player/footsteps/grass4.wav" id="4_0nw2g"]
+[ext_resource type="AudioStream" uid="uid://bqmfxyf8re1kk" path="res://audio/hl2/physics/surfaces/sand_impact_bullet3.wav" id="4_mobhw"]
+[ext_resource type="AudioStream" uid="uid://cpxm20uhhupmk" path="res://audio/hl2/physics/surfaces/sand_impact_bullet4.wav" id="5_75b3g"]
 
 [resource]
 script = ExtResource("1_t2tp8")
+bullet_impact_decals = Array[PackedScene]([ExtResource("1_a2slf")])
+melee_impact_decals = Array[PackedScene]([ExtResource("1_a2slf")])
+impact_sounds = Array[AudioStream]([ExtResource("2_yrppd"), ExtResource("3_nho7a"), ExtResource("4_mobhw"), ExtResource("5_75b3g")])
+bullet_impact_sounds = Array[AudioStream]([ExtResource("2_yrppd"), ExtResource("3_nho7a"), ExtResource("4_mobhw"), ExtResource("5_75b3g")])
 footstep_sounds = Array[AudioStream]([ExtResource("1_ttc7e"), ExtResource("2_a2slf"), ExtResource("3_brjfo"), ExtResource("4_0nw2g")])
 metadata/_custom_type_script = "uid://b4fbh3pha32me"
