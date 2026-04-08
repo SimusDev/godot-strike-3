@@ -3,6 +3,11 @@ class_name R_GameResource
 
 const META: StringName = &"R_GameResource"
 
+var _unique_id: StringName
+
+func get_unique_id() -> StringName:
+	return _unique_id
+
 func generate_unique_id() -> StringName:
 	var id: StringName = resource_path.replace(s_GameObjects.PATH, "").replacen("/", ".").get_basename()
 	if id.begins_with("."):
@@ -30,3 +35,9 @@ static func find_above(from: Node) -> R_GameResource:
 		return team
 	
 	return find_above(from.get_parent())
+
+func _registered() -> void:
+	pass
+
+func _unregistered() -> void:
+	pass

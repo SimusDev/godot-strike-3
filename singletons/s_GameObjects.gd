@@ -23,6 +23,10 @@ func load_all() -> void:
 	await on_all_loaded
 
 func _load_threaded() -> void:
+	for id in _loaded:
+		var resource: R_GameResource = _loaded[id]
+		resource._unregistered()
+	
 	_loaded.clear()
 	
 	for file in SD_FileSystem.get_all_files_with_extension_from_directory(
@@ -31,6 +35,7 @@ func _load_threaded() -> void:
 		var resource: Resource = load(file)
 		if resource is R_GameResource:
 			var id: StringName = resource.generate_unique_id()
+			resource._unique_id = id
 			_loaded.set(id, resource)
 	
 	_load_finish.call_deferred()
@@ -38,6 +43,7 @@ func _load_threaded() -> void:
 func _load_finish() -> void:
 	for id in _loaded:
 		var resource: R_GameResource = _loaded[id]
+		resource._registered()
 		resource._ready()
 		
 		logger.debug("Loaded %s, %s" % [id, _loaded[id]])

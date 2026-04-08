@@ -6,6 +6,20 @@ var _replicator: C_NodeReplicator
 var _sections: Node3D
 var _sections_local: Node3D
 
+@export var gamemode: R_GameMode : set = set_gamemode
+
+func set_gamemode(new: R_GameMode) -> C_Level3D:
+	if gamemode == new:
+		return
+	
+	if is_instance_valid(gamemode):
+		gamemode._unswitched_internal(self)
+	
+	gamemode = new
+	new._switched_internal(self)
+	
+	return self
+
 func _ready() -> void:
 	_sections = Node3D.new()
 	_sections_local = Node3D.new()
@@ -43,4 +57,24 @@ func _ready() -> void:
 		
 		_replicator.roots.append(section_node)
 	
+	_network_init()
+	
 	add_child(_replicator)
+	
+	await get_tree().process_frame
+	
+	if gamemode:
+		gamemode._switched(self)
+
+func _network_init() -> void:
+	SimusNetVars.register(
+		self,
+		[
+			"gamemode"
+		], SimusNetVarConfig.new().flag_mode_server_only().
+		flag_reliable(s_Networking.CHANNELS.NODE_REPLICATION)
+		.flag_replication()
+	)
+
+static func find_above(from: Node) -> C_Level3D:
+	return SD_ECS.node_find_above_by_script(from, C_Level3D)

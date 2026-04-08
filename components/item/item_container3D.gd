@@ -1,13 +1,14 @@
 extends Node3D
 class_name C_ItemContainer3D
 
+@export var root: Node3D
 @export var type: R_ViewModel.TYPE = R_ViewModel.TYPE.VIEW
 @export var _objects: Array[R_WorldObject] = []
+@export var _object: R_WorldObject : set = set_object
+
 
 @export_group("Optional")
 @export var player: Player
-
-@export var _object: R_WorldObject : set = set_object
 
 var _ref: Node
 
@@ -44,7 +45,12 @@ func _ready() -> void:
 		.flag_set_channel(s_Networking.CHANNELS.ITEM)
 	)
 	
+	await SD_Nodes.async_for_ready(root)
+	
 	var enable_input: bool = false
+	if root is Player:
+		player = root
+	
 	if player:
 		await SD_Nodes.async_for_ready(player)
 		enable_input = player.is_local()
@@ -52,6 +58,9 @@ func _ready() -> void:
 	set_process_input(enable_input)
 
 func _input(event: InputEvent) -> void:
+	if SimusDev.ui.has_active_interface():
+		return
+	
 	for i in INPUTS:
 		if Input.is_action_just_pressed(i):
 			request_switch(INPUTS.find(i))

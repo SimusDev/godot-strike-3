@@ -8,8 +8,8 @@ var blend_position
 
 var state_machine_playback:AnimationNodeStateMachinePlayback
 
-
 func _ready() -> void:
+	#tree.active = true
 	movement.state_machine.state_enter.connect(_on_state_enter)
 	movement.state_machine.state_exit.connect(_on_state_exit)
 	state_machine_playback = tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback

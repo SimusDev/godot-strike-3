@@ -98,7 +98,7 @@ func _release_action_local_internal(action: String) -> void:
 	_release_action_local(action)
 
 func _press_action_local(action: String) -> void:
-	_logger.debug("action pressed %s" % action)
+	pass
 
 func _release_action_local(action: String) -> void:
-	_logger.debug("action released %s" % action)
+	pass

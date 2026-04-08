@@ -11,5 +11,6 @@ metadata/_custom_type_script = "uid://nyv84jnv4lcd"
 
 [resource]
 script = ExtResource("1_qu613")
+cooldown = 0.4
 viewmodel = SubResource("Resource_3gx13")
 metadata/_custom_type_script = "uid://byr4yde8cnrlk"

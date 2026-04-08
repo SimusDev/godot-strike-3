@@ -9,6 +9,8 @@ class_name C_FirearmWeapon3D
 
 var _shoot_cooldown: SD_CooldownTimer = SD_CooldownTimer.new()
 
+var _raycast: C_EntityRaycastFireArm
+
 func get_object() -> R_FireArmWeapon:
 	return super() as R_FireArmWeapon
 
@@ -28,11 +30,20 @@ func _ready() -> void:
 	SimusNetRPC.register(
 		[
 			_request_reload,
+			_bullet_collided_with,
 		], SimusNetRPCConfig.new()
 		.flag_mode_authority()
 		.flag_set_channel(s_Networking.CHANNELS.SHOOTING)
 		.flag_immediate()
 	)
+	
+	_raycast = SD_ECS.node_find_above_by_component(self, C_EntityRaycastFireArm)
+	
+	if !_raycast:
+		if player:
+			if !player.is_local():
+				return
+		_logger.debug("Cant Find C_EntityRaycastFireArm above!", SD_ConsoleCategories.ERROR)
 	
 	_play_animation(_animations_pickup.pick_random())
 
@@ -74,4 +85,23 @@ func shoot() -> C_FirearmWeapon3D:
 
 func _shoot_local() -> void:
 	_shoot_cooldown.start(get_object().cooldown)
-	_animation_player.play(_animations_shoot.pick_random())
+	_play_animation(_animations_shoot.pick_random())
+	
+	if !_raycast:
+		return
+	
+	if SimusNet.is_network_authority(self):
+		_raycast.enabled = true
+		_raycast.force_raycast_update()
+		var collider: Object = _raycast.get_collider()
+		if collider:
+			if collider is C_EntityHitBox:
+				SimusNetRPC.invoke_on_server(_bullet_collided_with, collider)
+				
+			#print("Collided with: %s" % collider)
+		
+		_raycast.enabled = false
+
+func _bullet_collided_with(hitbox: C_EntityHitBox) -> void:
+	if is_instance_valid(hitbox):
+		hitbox.apply_damage(get_object().damage)

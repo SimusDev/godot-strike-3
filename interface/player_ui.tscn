@@ -5,6 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://c430x2ff3kcte" path="res://interface/health.tscn" id="3_70n32"]
 [ext_resource type="PackedScene" uid="uid://dyade2q4x1dci" path="res://interface/money.tscn" id="4_7jhck"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jhck"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 128
+corner_radius_top_right = 128
+corner_radius_bottom_right = 128
+corner_radius_bottom_left = 128
+
 [node name="PlayerUi" type="Control" unique_id=687048298]
 layout_mode = 3
 anchors_preset = 15
@@ -14,6 +25,24 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_ii3a7")
+
+[node name="Aim" type="Panel" parent="." unique_id=361525086]
+self_modulate = Color(1, 1, 1, 0.27058825)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7jhck")
 
 [node name="SimpleProfiler" parent="." unique_id=605018193 instance=ExtResource("2_wguc7")]
 layout_mode = 1
