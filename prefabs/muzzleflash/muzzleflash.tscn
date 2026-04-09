@@ -27,6 +27,7 @@ alpha_curve = SubResource("CurveTexture_7dkqj")
 [node name="Muzzleflash" type="GPUParticles3D" unique_id=443736027]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
 material_override = ExtResource("1_jjena")
+cast_shadow = 0
 emitting = false
 amount = 2
 lifetime = 0.05
