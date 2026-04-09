@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bpee0363gcskb" path="res://prefabs/character/model/skeleton/skeleton.fbx" id="2_huy8b"]
 [ext_resource type="AnimationLibrary" uid="uid://b70xthvesq8rn" path="res://prefabs/character/model/skeleton/animation_library.tres" id="3_xmso4"]
 [ext_resource type="AnimationNodeBlendTree" uid="uid://tbkbq7ogpn5u" path="res://prefabs/character/model/skeleton/blend_tree.tres" id="4_xhteq"]
-[ext_resource type="Script" uid="uid://cuduegdbpjncl" path="res://components/entity/c_entity_hitbox.gd" id="5_xmso4"]
+[ext_resource type="Script" path="res://components/entity/c_entity_hitbox.gd" id="5_xmso4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xmso4"]
 size = Vector3(0.2, 0.2, 0.2)
@@ -45,31 +45,31 @@ metadata/_custom_type_script = "uid://pf622qfdiljm"
 [node name="model3d" parent="." unique_id=125080953 instance=ExtResource("2_huy8b")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="rig" parent="model3d" index="0" unique_id=1525161330]
-transform = Transform3D(0.9978687, -0.06394186, -0.013014876, 0.01328104, 0.0037392704, 0.9999047, -0.06388715, -0.9979465, 0.004580516, -0.020276017, -0.001883564, 0.004322945)
+[node name="rig" parent="model3d" index="0" unique_id=1229230295]
+transform = Transform3D(0.40380555, 0.9117548, -0.07512616, -0.00044631617, 0.08231535, 0.9966061, 0.91484463, -0.40240157, 0.03364633, 0.0683032, -0.029251814, -0.023075392)
 
-[node name="Skeleton3D" parent="model3d/rig" index="0" unique_id=1564758600]
-bones/1/rotation = Quaternion(-0.25320974, -0.0059990487, 0.0035094877, 0.9673864)
-bones/2/rotation = Quaternion(0.06981632, -0.012876692, 0.005915682, 0.9974593)
-bones/3/rotation = Quaternion(0.12640187, -0.0010538052, 0.00048771233, 0.9919785)
-bones/4/rotation = Quaternion(-0.14379697, -0.001045842, 0.0006020758, 0.98960656)
-bones/5/rotation = Quaternion(0.91856, -1.225155e-06, 0.0012068177, 0.3952797)
-bones/7/rotation = Quaternion(-0.58055437, -0.35151407, -0.45580918, 0.5758755)
-bones/8/rotation = Quaternion(-0.21273312, 0.7320512, -0.5448084, 0.34932742)
-bones/9/rotation = Quaternion(0.08303647, -0.057307094, -0.00023004413, 0.99489737)
-bones/10/rotation = Quaternion(0.013908363, 0.013888871, -0.0059745484, 0.999789)
-bones/12/rotation = Quaternion(-0.62269074, 0.3000679, 0.4581406, 0.5588584)
-bones/13/rotation = Quaternion(-0.30909076, -0.6637232, 0.43681473, 0.52261597)
-bones/14/rotation = Quaternion(0.13168076, 0.057004917, 0.00036498226, 0.98965174)
-bones/15/rotation = Quaternion(0.11788847, -0.09897516, 0.009290708, 0.9880385)
-bones/17/rotation = Quaternion(0.9864104, 0.025220543, -0.074708715, 0.14414278)
-bones/18/rotation = Quaternion(0.1359497, -0.024907688, -0.016367596, 0.9902674)
-bones/19/rotation = Quaternion(-0.5933566, -0.036395185, 0.05662677, 0.8021202)
-bones/20/rotation = Quaternion(8.626113e-08, 0.9732928, -0.22956711, -2.0383718e-08)
-bones/22/rotation = Quaternion(0.98572177, -0.03471412, 0.09631773, 0.13368085)
-bones/23/rotation = Quaternion(0.14442563, 0.054048095, 0.022687037, 0.98777807)
-bones/24/rotation = Quaternion(-0.5942895, 0.038317837, -0.060649153, 0.80104536)
-bones/25/rotation = Quaternion(3.552714e-15, 0.9713682, -0.23757945, 5.3290714e-15)
+[node name="Skeleton3D" parent="model3d/rig" index="0" unique_id=392328757]
+bones/1/rotation = Quaternion(-0.19053681, 0.049116313, -0.00067843683, 0.9804504)
+bones/2/rotation = Quaternion(0.19617152, 0.09761991, 0.006329176, 0.9756777)
+bones/3/rotation = Quaternion(0.1604725, 0.025101649, 0.006277416, 0.9867012)
+bones/4/rotation = Quaternion(-0.10929796, 0.02516012, 0.0060379575, 0.9936723)
+bones/5/rotation = Quaternion(0.9314243, 0.017804043, -0.018775517, 0.36301416)
+bones/7/rotation = Quaternion(-0.58586854, -0.37132484, -0.44094735, 0.56959766)
+bones/8/rotation = Quaternion(-0.17390811, 0.6764288, -0.58432937, 0.41323027)
+bones/9/rotation = Quaternion(0.2522496, -0.055646013, -0.0006988794, 0.9660607)
+bones/10/rotation = Quaternion(0.12613021, 0.055825893, 0.040866636, 0.9895982)
+bones/12/rotation = Quaternion(-0.57708186, 0.41644466, 0.48233217, 0.5107898)
+bones/13/rotation = Quaternion(-0.038411606, -0.70975816, 0.5743452, 0.40607327)
+bones/14/rotation = Quaternion(0.109752685, 0.057158243, 0.00030402862, 0.9923141)
+bones/15/rotation = Quaternion(-0.021859879, -0.06430737, -0.18381292, 0.9806118)
+bones/17/rotation = Quaternion(0.914607, 0.019173993, -0.0032107935, 0.40387642)
+bones/18/rotation = Quaternion(0.5093296, 0.02462739, 0.011696791, 0.86013955)
+bones/19/rotation = Quaternion(-0.58067554, -0.0161934, 0.0279684, 0.8134935)
+bones/20/rotation = Quaternion(3.5527137e-15, 0.95637536, -0.2921406, 0)
+bones/22/rotation = Quaternion(0.96651816, 0.03779295, 0.056841858, 0.24735294)
+bones/23/rotation = Quaternion(0.2535086, -0.018905599, -0.006294526, 0.9671279)
+bones/24/rotation = Quaternion(-0.6523043, -0.02045867, 0.036976077, 0.75677824)
+bones/25/rotation = Quaternion(-1.2717555e-07, 0.95507216, -0.2963735, 3.9464478e-08)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1713959702]
 root_node = NodePath("../model3d")
@@ -86,7 +86,7 @@ parameters/StateMachine/walk/blend_position = Vector2(-0.025906742, 0.08707118)
 [node name="Hitboxes" type="Node3D" parent="." unique_id=628207090]
 
 [node name="Head" type="BoneAttachment3D" parent="Hitboxes" unique_id=949861060]
-transform = Transform3D(-0.9988678, 0.04416184, -0.017680775, 0.0401759, 0.9821919, 0.1835329, 0.025471134, 0.18261473, -0.9828541, 0.056383, 1.5590458, 0.08293963)
+transform = Transform3D(-0.7014213, 0.35205603, 0.61972886, 0.112327754, 0.91323024, -0.39165363, -0.70383966, -0.20510146, -0.68010485, 0.11369814, 1.5029101, -0.08740196)
 bone_name = "head"
 bone_idx = 4
 use_external_skeleton = true
@@ -100,13 +100,12 @@ monitoring = false
 priority = 3
 script = ExtResource("5_xmso4")
 damage_multiplier = 2.0
-metadata/_custom_type_script = "uid://cuduegdbpjncl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Head/C_EntityHitBox" unique_id=1206054916]
 shape = SubResource("BoxShape3D_xmso4")
 
 [node name="Neck" type="BoneAttachment3D" parent="Hitboxes" unique_id=2105621560]
-transform = Transform3D(-0.9988646, 0.035812754, -0.031412914, 0.038889106, 0.9938667, -0.10351913, 0.027513016, -0.10462323, -0.99413097, 0.05237893, 1.4479258, 0.094637096)
+transform = Transform3D(-0.6764733, 0.4738613, 0.5637718, 0.07712991, 0.80688363, -0.58565295, -0.73241687, -0.35269493, -0.58238417, 0.060717717, 1.412696, -0.047968645)
 bone_name = "neck"
 bone_idx = 3
 use_external_skeleton = true
@@ -120,14 +119,13 @@ monitoring = false
 priority = 3
 script = ExtResource("5_xmso4")
 damage_multiplier = 1.5
-metadata/_custom_type_script = "uid://cuduegdbpjncl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Neck/C_EntityHitBox" unique_id=408019511]
 transform = Transform3D(0.9998929, -0.00868919, -0.012416095, 0.004829215, 0.959282, -0.28241044, 0.0143650845, 0.28231642, 0.9592186, 0.0030509662, 0.02783227, -0.0056066513)
 shape = SubResource("BoxShape3D_xhteq")
 
 [node name="Chest" type="BoneAttachment3D" parent="Hitboxes" unique_id=796290548]
-transform = Transform3D(-0.9988443, 0.041845586, -0.023639608, 0.037866227, 0.98809487, 0.14911184, 0.029597905, 0.14804439, -0.9885375, 0.039375983, 1.1408887, 0.048634317)
+transform = Transform3D(-0.6485575, 0.25723314, 0.7163824, 0.0433409, 0.9521182, -0.30264187, -0.7599307, -0.16523194, -0.62865216, -0.019213963, 1.1168383, 0.003374936)
 bone_name = "chest"
 bone_idx = 2
 use_external_skeleton = true
@@ -140,14 +138,13 @@ collision_mask = 4
 monitoring = false
 priority = 3
 script = ExtResource("5_xmso4")
-metadata/_custom_type_script = "uid://cuduegdbpjncl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Chest/C_EntityHitBox" unique_id=1019215411]
 transform = Transform3D(0.9996831, -0.018456746, -0.01711689, 0.007924449, 0.8761691, -0.48193875, 0.02389231, 0.4816504, 0.87603766, 0.0010436773, 0.117118835, 0.08201802)
 shape = SubResource("BoxShape3D_nbqfj")
 
 [node name="Spine" type="BoneAttachment3D" parent="Hitboxes" unique_id=1648957366]
-transform = Transform3D(-0.99842453, 0.03473906, -0.044062853, 0.020706404, 0.9579813, 0.28608197, 0.052149672, 0.28471884, -0.9571912, 0.03475821, 1.0135468, 0.010787371)
+transform = Transform3D(-0.49122578, -0.06878211, 0.86831194, 0.008816756, 0.99643344, 0.083918944, -0.8709875, 0.048878852, -0.48886737, -0.010070924, 0.984385, -0.003122408)
 bone_name = "spine"
 bone_idx = 1
 use_external_skeleton = true
@@ -160,14 +157,13 @@ collision_mask = 4
 monitoring = false
 priority = 3
 script = ExtResource("5_xmso4")
-metadata/_custom_type_script = "uid://cuduegdbpjncl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Spine/C_EntityHitBox" unique_id=1109769605]
 transform = Transform3D(0.99968314, -0.018458072, -0.01711591, 0.007926066, 0.8761688, -0.48193932, 0.023892093, 0.48165098, 0.8760374, 0.0031430423, 0.22381121, 0.06802839)
 shape = SubResource("BoxShape3D_vfkn1")
 
 [node name="Hips" type="BoneAttachment3D" parent="Hitboxes" unique_id=1687161286]
-transform = Transform3D(-0.9978687, -0.001113696, -0.06524377, 0.013281092, 0.9754594, -0.21977805, 0.06388747, -0.22017616, -0.97336555, 0.034905735, 0.8843326, 0.039953005)
+transform = Transform3D(-0.40380585, 0.270424, 0.87396294, -0.00044624566, 0.95525473, -0.29578364, -0.91484445, -0.11982919, -0.38561678, -0.04589264, 0.85784715, 0.012750765)
 bone_name = "hips"
 bone_idx = 0
 use_external_skeleton = true
@@ -181,14 +177,13 @@ monitoring = false
 priority = 3
 script = ExtResource("5_xmso4")
 damage_multiplier = 0.85
-metadata/_custom_type_script = "uid://cuduegdbpjncl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/Hips/C_EntityHitBox" unique_id=1896655374]
 transform = Transform3D(1, 9.313226e-10, 7.8976154e-07, 2.9802322e-08, 1, 1.4901161e-08, 0, 0, 1, 0.0034545213, 0.09284061, 0.03283038)
 shape = SubResource("BoxShape3D_5i7ht")
 
 [node name="LeftUpperArm" type="BoneAttachment3D" parent="Hitboxes" unique_id=8313087]
-transform = Transform3D(0.9078265, -0.23798503, 0.34527323, -0.22952062, -0.9710733, -0.06584995, 0.35095707, -0.019467134, -0.93618894, -0.119214825, 1.4000963, 0.06413786)
+transform = Transform3D(0.2842584, -0.3225361, 0.9028659, -0.18630753, -0.9423452, -0.2779826, 0.9404712, -0.089191966, -0.32796058, -0.0433492, 1.3576529, -0.18501441)
 bone_name = "upper_arm.L"
 bone_idx = 8
 use_external_skeleton = true
@@ -202,14 +197,13 @@ monitoring = false
 priority = 3
 script = ExtResource("5_xmso4")
 damage_multiplier = 0.5
-metadata/_custom_type_script = "uid://cuduegdbpjncl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/LeftUpperArm/C_EntityHitBox" unique_id=1510458535]
 transform = Transform3D(0.9923332, -0.07650748, -0.09706442, 0.031247374, 0.91515756, -0.40188348, 0.11957632, 0.39576933, 0.9105318, -0.0082728565, 0.16456664, 0.033371866)
 shape = SubResource("BoxShape3D_lmael")
 
 [node name="LeftLowerArm" type="BoneAttachment3D" parent="Hitboxes" unique_id=1482254362]
-transform = Transform3D(0.9435956, -0.18587045, 0.27400538, -0.225833, -0.96648437, 0.12209197, 0.24212876, -0.17708506, -0.9539465, -0.19519535, 1.0900655, 0.05792265)
+transform = Transform3D(0.38874105, 0.15101981, 0.9088853, -0.18721552, -0.95294666, 0.2384153, 0.90212524, -0.2628394, -0.3421764, -0.14632404, 1.0567939, -0.2134904)
 bone_name = "forearm.L"
 bone_idx = 9
 use_external_skeleton = true
@@ -223,14 +217,13 @@ monitoring = false
 priority = 3
 script = ExtResource("5_xmso4")
 damage_multiplier = 0.5
-metadata/_custom_type_script = "uid://cuduegdbpjncl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/LeftLowerArm/C_EntityHitBox" unique_id=821388977]
 transform = Transform3D(0.9923332, -0.07650748, -0.09706442, 0.031247374, 0.91515756, -0.40188348, 0.11957632, 0.39576933, 0.9105318, -0.0082728565, 0.16456664, 0.033371866)
 shape = SubResource("BoxShape3D_lqvlr")
 
 [node name="RightUpperArm" type="BoneAttachment3D" parent="Hitboxes" unique_id=1198981360]
-transform = Transform3D(0.9826435, 0.14822842, 0.11153344, 0.15036406, -0.9885699, -0.010938771, 0.10863705, 0.02751947, -0.99370027, 0.21018666, 1.3687357, 0.0636847)
+transform = Transform3D(0.9660109, 0.21480885, 0.1438021, 0.23247814, -0.9651774, -0.119941846, 0.11303019, 0.14929612, -0.9823107, 0.19520533, 1.3267123, 0.06262675)
 bone_name = "upper_arm.R"
 bone_idx = 13
 use_external_skeleton = true
@@ -244,14 +237,13 @@ monitoring = false
 priority = 3
 script = ExtResource("5_xmso4")
 damage_multiplier = 0.5
-metadata/_custom_type_script = "uid://cuduegdbpjncl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/RightUpperArm/C_EntityHitBox" unique_id=1029639334]
 transform = Transform3D(0.9923332, -0.07650748, -0.09706442, 0.031247374, 0.91515756, -0.40188348, 0.11957632, 0.39576933, 0.9105318, -0.0082728565, 0.16456664, 0.033371866)
 shape = SubResource("BoxShape3D_lmael")
 
 [node name="RightLowerArm" type="BoneAttachment3D" parent="Hitboxes" unique_id=322258329]
-transform = Transform3D(0.96601564, 0.18620463, 0.17927922, 0.13506447, -0.9549893, 0.2641076, 0.2203877, -0.23091802, -0.9476842, 0.25751075, 1.0531186, 0.07247073)
+transform = Transform3D(0.9462204, 0.25249875, 0.20226292, 0.23186496, -0.96527815, 0.12031844, 0.22562048, -0.06695004, -0.97191167, 0.2637863, 1.0185636, 0.11029191)
 bone_name = "forearm.R"
 bone_idx = 14
 use_external_skeleton = true
@@ -265,14 +257,13 @@ monitoring = false
 priority = 3
 script = ExtResource("5_xmso4")
 damage_multiplier = 0.5
-metadata/_custom_type_script = "uid://cuduegdbpjncl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/RightLowerArm/C_EntityHitBox" unique_id=802611558]
 transform = Transform3D(0.9923332, -0.07650748, -0.09706442, 0.031247374, 0.91515756, -0.40188348, 0.11957632, 0.39576933, 0.9105318, -0.0082728565, 0.16456664, 0.033371866)
 shape = SubResource("BoxShape3D_lqvlr")
 
 [node name="LeftUpperLeg" type="BoneAttachment3D" parent="Hitboxes" unique_id=367248935]
-transform = Transform3D(-0.9754012, -0.08838247, 0.2019416, 0.07463197, -0.99440664, -0.07473367, 0.20741847, -0.057824336, 0.9765359, -0.08296083, 0.94022185, 0.009664317)
+transform = Transform3D(-0.4133861, 0.44834134, -0.7925238, 0.036898836, -0.8614156, -0.5065552, -0.9098078, -0.23864743, 0.33955196, -0.054571047, 0.90900767, -0.11070299)
 bone_name = "thigh.L"
 bone_idx = 17
 use_external_skeleton = true
@@ -286,14 +277,13 @@ monitoring = false
 priority = 3
 script = ExtResource("5_xmso4")
 damage_multiplier = 0.35
-metadata/_custom_type_script = "uid://cuduegdbpjncl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/LeftUpperLeg/C_EntityHitBox" unique_id=308060159]
 transform = Transform3D(0.99233353, -0.076507494, -0.097064376, 0.031247705, 0.9151575, -0.40188348, 0.11957641, 0.39576918, 0.9105318, -0.010007083, 0.2209878, 0.033019572)
 shape = SubResource("BoxShape3D_isk24")
 
 [node name="LeftLowerLeg" type="BoneAttachment3D" parent="Hitboxes" unique_id=1350633474]
-transform = Transform3D(-0.9611415, -0.05554343, 0.2704094, 0.11011509, -0.9753853, 0.191044, 0.2531432, 0.21339473, 0.94359404, -0.12103061, 0.5118921, -0.015242879)
+transform = Transform3D(-0.36836952, -0.4813056, -0.79538715, 0.013325615, -0.85819554, 0.51314646, -0.92958385, 0.17842612, 0.32254666, 0.13854703, 0.5379624, -0.21349773)
 bone_name = "shin.L"
 bone_idx = 18
 use_external_skeleton = true
@@ -307,14 +297,13 @@ monitoring = false
 priority = 3
 script = ExtResource("5_xmso4")
 damage_multiplier = 0.35
-metadata/_custom_type_script = "uid://cuduegdbpjncl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/LeftLowerLeg/C_EntityHitBox" unique_id=708654287]
 transform = Transform3D(0.99233353, -0.076507494, -0.097064376, 0.031247705, 0.9151575, -0.40188348, 0.11957641, 0.39576918, 0.9105318, -0.010007083, 0.2209878, 0.033019572)
 shape = SubResource("BoxShape3D_isk24")
 
 [node name="RightUpperLeg" type="BoneAttachment3D" parent="Hitboxes" unique_id=38768002]
-transform = Transform3D(-0.9898959, 0.07830073, -0.118215814, -0.07240741, -0.99594676, -0.05335571, -0.12191509, -0.044257063, 0.9915475, 0.14938805, 0.9371294, -0.0052115163)
+transform = Transform3D(-0.292994, 0.16692781, -0.94142395, 0.06923611, -0.97835183, -0.19502145, -0.95360404, -0.12232132, 0.27509215, 0.039453134, 0.9091116, 0.10231413)
 bone_name = "thigh.R"
 bone_idx = 22
 use_external_skeleton = true
@@ -328,14 +317,13 @@ monitoring = false
 priority = 3
 script = ExtResource("5_xmso4")
 damage_multiplier = 0.35
-metadata/_custom_type_script = "uid://cuduegdbpjncl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/RightUpperLeg/C_EntityHitBox" unique_id=1482064850]
 transform = Transform3D(0.99233353, -0.076507494, -0.097064376, 0.031247705, 0.9151575, -0.40188348, 0.11957641, 0.39576918, 0.9105318, -0.010007083, 0.2209878, 0.033019572)
 shape = SubResource("BoxShape3D_isk24")
 
 [node name="RightLowerLeg" type="BoneAttachment3D" parent="Hitboxes" unique_id=1283813259]
-transform = Transform3D(-0.9665139, 0.06984681, -0.24692543, -0.12674884, -0.96661276, 0.22269808, -0.22312655, 0.24653655, 0.94309217, 0.18311524, 0.50813633, -0.024274759)
+transform = Transform3D(-0.32781553, -0.31715173, -0.8899108, 0.08396154, -0.9480197, 0.30693436, -0.94100326, 0.025898159, 0.33740327, 0.11135547, 0.4876973, 0.049625568)
 bone_name = "shin.R"
 bone_idx = 23
 use_external_skeleton = true
@@ -349,7 +337,6 @@ monitoring = false
 priority = 3
 script = ExtResource("5_xmso4")
 damage_multiplier = 0.35
-metadata/_custom_type_script = "uid://cuduegdbpjncl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitboxes/RightLowerLeg/C_EntityHitBox" unique_id=275266259]
 transform = Transform3D(0.99233353, -0.076507494, -0.097064376, 0.031247705, 0.9151575, -0.40188348, 0.11957641, 0.39576918, 0.9105318, -0.010007083, 0.2209878, 0.033019572)
