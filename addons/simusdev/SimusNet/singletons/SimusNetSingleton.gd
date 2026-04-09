@@ -2,6 +2,7 @@ extends Node
 class_name SimusNetSingleton
 
 @onready var settings: SimusNetSettings = SimusNetSettings.get_or_create()
+@onready var server_broadcaster: SimusNetServerBroadcaster = SimusNetServerBroadcaster.new(settings.server_info)
 
 @export var anticheat: SimusNetAntiCheat
 @export var garbage_collector: SimusNetGarbageCollector
@@ -19,6 +20,7 @@ class_name SimusNetSingleton
 @export var resources: SimusNetResources
 @export var vars: SimusNetVars
 @export var synchronization: SimusNetSynchronization
+
 
 var info: Node
 

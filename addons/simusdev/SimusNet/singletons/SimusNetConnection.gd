@@ -126,6 +126,7 @@ static func set_peer(peer: MultiplayerPeer) -> SimusNetConnection:
 static func try_close_peer() -> SimusNetConnection:
 	if get_peer():
 		get_peer().close()
+		singleton.server_broadcaster.broadcasting = false
 	return singleton.connection
 
 static func cancel_connection() -> SimusNetConnection:

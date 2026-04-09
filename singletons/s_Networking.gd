@@ -36,6 +36,7 @@ func find_user_by_id(id:int) -> R_User:
 	return null
 
 func _ready() -> void:
+	
 	SimusNetRPC.register(
 		[
 			_receive_handshake_server,

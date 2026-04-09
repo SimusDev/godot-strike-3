@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://f2dnofttqgpp"]
 
 [ext_resource type="Script" uid="uid://yf02uv44e6e7" path="res://scenes/menu.gd" id="1_yqeox"]
+[ext_resource type="PackedScene" uid="uid://lhvf1r58nxb6" path="res://prefabs/ui/popups/connect/popup_connect.tscn" id="2_vjb58"]
 
 [node name="Menu" type="Control" unique_id=672422440]
 layout_mode = 3
@@ -11,7 +12,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yqeox")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=456500093]
+[node name="Popups" type="Control" parent="." unique_id=2090277802]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main" type="Control" parent="Popups" unique_id=1244430732]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Popups/Main" unique_id=456500093]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -26,25 +39,35 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Username" type="LineEdit" parent="VBoxContainer" unique_id=1588808362]
+[node name="Username" type="LineEdit" parent="Popups/Main/VBoxContainer" unique_id=1588808362]
 layout_mode = 2
 text = "player"
 placeholder_text = "USERNAME"
 alignment = 1
 
-[node name="Host" type="Button" parent="VBoxContainer" unique_id=259090119]
+[node name="Host" type="Button" parent="Popups/Main/VBoxContainer" unique_id=259090119]
 layout_mode = 2
 text = "Host"
 
-[node name="IP" type="LineEdit" parent="VBoxContainer" unique_id=358281887]
+[node name="IP" type="LineEdit" parent="Popups/Main/VBoxContainer" unique_id=358281887]
 layout_mode = 2
 text = "localhost"
 placeholder_text = "USERNAME"
 alignment = 1
 
-[node name="Connect" type="Button" parent="VBoxContainer" unique_id=1835903265]
+[node name="Connect" type="Button" parent="Popups/Main/VBoxContainer" unique_id=1835903265]
 layout_mode = 2
 text = "Connect"
 
-[connection signal="pressed" from="VBoxContainer/Host" to="." method="_on_host_pressed"]
-[connection signal="pressed" from="VBoxContainer/Connect" to="." method="_on_connect_pressed"]
+[node name="Connect" type="Control" parent="Popups" unique_id=1950108234]
+layout_mode = 1
+anchor_right = 1.0
+anchor_bottom = 0.25
+offset_top = 720.0
+offset_bottom = 720.0
+
+[node name="Popup" parent="Popups/Connect" unique_id=1386670740 instance=ExtResource("2_vjb58")]
+layout_mode = 1
+
+[connection signal="pressed" from="Popups/Main/VBoxContainer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Popups/Main/VBoxContainer/Connect" to="." method="_on_connect_pressed"]

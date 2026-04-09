@@ -9,19 +9,14 @@ var broadcasting: bool = false:
 			else:
 				_timer.stop()
 
-var _logger:SD_Logger
-
-var server_info:SimusNetServerInfo
+var _logger: SD_Logger
+var server_info: SimusNetServerInfo
 var socketUDP: PacketPeerUDP
 var _cached_packet: PackedByteArray
-var _timer:Timer
+var _timer: Timer
 
-func _init(p_server_info:SimusNetServerInfo) -> void:
+func _init(p_server_info: SimusNetServerInfo) -> void:
 	_logger = SD_Logger.new("SimusNetServerBroadcaster")
-	if not p_server_info:
-		_logger.debug("server_info is null", SD_ConsoleCategories.CATEGORY.ERROR)
-		return
-	
 	server_info = p_server_info
 	
 	socketUDP = PacketPeerUDP.new()
@@ -32,12 +27,10 @@ func _init(p_server_info:SimusNetServerInfo) -> void:
 	_timer.wait_time = server_info.broadcasting_interval
 	_timer.timeout.connect(broadcast)
 	Engine.get_main_loop().root.add_child.call_deferred(_timer)
-	
 	_prepare_packet()
 
 func _prepare_packet():
 	var packet_data = server_info.get_as_dictionary()
-	
 	packet_data.erase("icon") 
 	
 	if DisplayServer.get_name() != "headless":
@@ -51,9 +44,8 @@ func _prepare_packet():
 	_cached_packet = var_to_bytes(packet_data)
 
 func broadcast():
-	if not broadcasting: return
-	if _cached_packet.is_empty():
-		_prepare_packet()
+	if not broadcasting:
+		return
 	socketUDP.put_packet(_cached_packet)
 
 func _notification(what: int) -> void:

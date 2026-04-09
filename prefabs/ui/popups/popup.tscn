@@ -1,0 +1,121 @@
+[gd_scene format=3 uid="uid://d2pyljhkvleej"]
+
+[ext_resource type="Script" uid="uid://d1l1jkmj6s53f" path="res://addons/simusdev/ui/SD_UIInterfaceMenu.gd" id="1_4ishx"]
+[ext_resource type="Script" uid="uid://bmwl6ctnkt45h" path="res://addons/simusdev/ui/SD_UIDragAndDrop.gd" id="2_k4s7e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqeox"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0, 0, 0, 0.79607844)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.20511752, 0.20511737, 0.20511755, 0.79607844)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_detail = 5
+
+[sub_resource type="GDScript" id="GDScript_4ishx"]
+script/source = "extends Button
+
+@export var interface_menu:SD_UIInterfaceMenu
+
+func _pressed() -> void:
+	if not interface_menu:
+		return
+	
+	interface_menu.close()
+"
+
+[node name="Popup" type="Control" unique_id=1386670740]
+layout_mode = 3
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+metadata/_edit_use_anchors_ = true
+
+[node name="SD_UIInterfaceMenu" type="Node" parent="." unique_id=343943980 node_paths=PackedStringArray("target")]
+script = ExtResource("1_4ishx")
+target = NodePath("..")
+open_at_start = true
+metadata/_custom_type_script = "uid://d1l1jkmj6s53f"
+
+[node name="SD_UIDragAndDrop" type="Node2D" parent="." unique_id=1848855929 node_paths=PackedStringArray("input_node", "draggable_node", "drop_node")]
+script = ExtResource("2_k4s7e")
+input_node = NodePath("../Head")
+draggable_node = NodePath("..")
+drop_node = NodePath("..")
+metadata/_custom_type_script = "uid://bmwl6ctnkt45h"
+
+[node name="BG" type="Panel" parent="." unique_id=1963596164]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yqeox")
+
+[node name="Head" type="Panel" parent="." unique_id=422771308]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vjb58")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="Head" unique_id=358122171]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Popup"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Head" unique_id=1437396996 node_paths=PackedStringArray("interface_menu")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -28.0
+offset_bottom = 31.0
+grow_horizontal = 0
+text = "X"
+flat = true
+script = SubResource("GDScript_4ishx")
+interface_menu = NodePath("../../SD_UIInterfaceMenu")
+
+[node name="Content" type="Control" parent="." unique_id=794003080]
+layout_mode = 1
+anchor_right = 1.0
+offset_left = 8.0
+offset_top = 40.0
+offset_right = -8.0
+offset_bottom = 568.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="BG" type="Panel" parent="Content" unique_id=1330377597]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

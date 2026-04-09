@@ -5,7 +5,11 @@ class_name SimusNetConnectionENet
 static func create_server(port: int, max_clients: int = 32) -> Error:
 	SimusNetConnection.try_close_peer()
 	var peer := ENetMultiplayerPeer.new()
-	var error: Error = peer.create_server(port, max_clients) 
+	var error: Error = peer.create_server(port, max_clients)
+	
+	if error == OK:
+		SimusNetSingleton.get_instance().server_broadcaster.broadcasting = true
+	
 	SimusNetConnection.set_peer(peer)
 	return error
 

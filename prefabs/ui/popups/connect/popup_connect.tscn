@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://lhvf1r58nxb6"]
+
+[ext_resource type="PackedScene" uid="uid://d2pyljhkvleej" path="res://prefabs/ui/popups/popup.tscn" id="1_y1str"]
+[ext_resource type="Script" uid="uid://dhhswlansa1kb" path="res://prefabs/ui/popups/connect/popup_connect.gd" id="2_hfam7"]
+[ext_resource type="PackedScene" uid="uid://bfglsvjeob0tf" path="res://prefabs/ui/server_item/server_item.tscn" id="3_lh0ad"]
+[ext_resource type="Script" uid="uid://0d3k6g88vx7f" path="res://addons/simusdev/SimusNet/broadcasting/SimusNetServerListener.gd" id="3_rs1m2"]
+
+[node name="Popup" unique_id=1386670740 node_paths=PackedStringArray("server_listener", "container") instance=ExtResource("1_y1str")]
+script = ExtResource("2_hfam7")
+server_item = ExtResource("3_lh0ad")
+server_listener = NodePath("SimusNetServerListener")
+container = NodePath("Content/ScrollContainer/VBoxContainer")
+
+[node name="Title" parent="Head" parent_id_path=PackedInt32Array(422771308) index="0" unique_id=358122171]
+text = "Connect"
+
+[node name="Button" parent="Head" parent_id_path=PackedInt32Array(422771308) index="1" unique_id=1437396996]
+visible = false
+
+[node name="Content" parent="." index="4" unique_id=794003080]
+custom_minimum_size = Vector2(512, 512)
+anchor_left = 0.0078125
+anchor_top = 0.097222224
+anchor_right = 0.5078125
+anchor_bottom = 0.9861111
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Label" type="Label" parent="Content" index="1" unique_id=1571002197]
+layout_mode = 0
+offset_top = -20.0
+offset_right = 77.0
+text = "Server list"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Content" index="2" unique_id=1327270738]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Content/ScrollContainer" index="0" unique_id=1755353629]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SimusNetServerListener" type="Node" parent="." index="5" unique_id=294308481]
+script = ExtResource("3_rs1m2")
+metadata/_custom_type_script = "uid://0d3k6g88vx7f"
