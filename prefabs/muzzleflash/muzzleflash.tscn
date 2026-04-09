@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://crmi4550k5u23" path="res://textures/particles/muzzleflash.png" id="1_g86t3"]
 [ext_resource type="ArrayMesh" uid="uid://0jhyy2yhtvf0" path="res://prefabs/muzzleflash/MuzzleFlashPlanes01.obj" id="2_bsv60"]
+[ext_resource type="Script" uid="uid://cg0do1xfbpp1" path="res://components/w_muzzleflash.gd" id="3_jjena"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pk6ih"]
 transparency = 1
@@ -45,3 +46,9 @@ randomness = 1.0
 fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_qu5lf")
 draw_pass_1 = ExtResource("2_bsv60")
+script = ExtResource("3_jjena")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=486401933]
+visible = false
+light_color = Color(1, 0.8627451, 0, 1)
+omni_range = 2.0

@@ -8,7 +8,7 @@ class_name C_FirearmWeapon3D
 @export var _animations_reload: Array[StringName]
 
 @export_group("VFX")
-@export var muzzle_flash:GPUParticles3D
+@export var muzzle_flash:W_MuzzleFlash
 
 var _shoot_cooldown: SD_CooldownTimer = SD_CooldownTimer.new()
 
@@ -139,8 +139,12 @@ func _shoot_local() -> void:
 		var metadata:SD_MetadataMaterial = SD_Metadata.find_of_type(collider, SD_MetadataMaterial)
 		var collide_position: Vector3 = _raycast.get_collision_point()
 		var collide_normal: Vector3 = _raycast.get_collision_normal()
+		var tracer_target_pos = _raycast.global_transform.origin + (_raycast.global_transform.basis * _raycast.target_position)
+		
 		
 		if collider:
+			tracer_target_pos = collide_position
+			
 			if collider is C_EntityHitBox:
 				SimusNetRPC.invoke_on_server(_bullet_collided_with, collider)
 				
@@ -151,7 +155,8 @@ func _shoot_local() -> void:
 		_raycast.enabled = false
 		
 		if muzzle_flash:
-			muzzle_flash.emitting = true
+			muzzle_flash.flash()
+		_spawn_bullet_tracer(tracer_target_pos)
 
 func _collider_spawn_decals(collider:Object, collide_position:Vector3, collide_normal:Vector3, metadata:SD_MetadataMaterial) -> void:
 	var decal = metadata.get_bullet_impact_decal()
@@ -188,6 +193,18 @@ func _collider_spawn_sound(collider:Object, collide_position:Vector3, metadata:S
 	get_tree().root.add_child(new_ap)
 	new_ap.global_position = collide_position
 	new_ap.play()
+
+func _spawn_bullet_tracer(target_position:Vector3) -> void:
+	var dir = (target_position - muzzle_flash.global_position).normalized()
+	var start_pos = muzzle_flash.global_position + (dir * 0.25)
+	
+	var new_bullet_tracer = W_BulletTracer.new()
+	new_bullet_tracer.target_pos = target_position
+	
+	player.add_sibling(new_bullet_tracer)
+	new_bullet_tracer.global_position = start_pos
+	
+	new_bullet_tracer.look_at(target_position)
 
 func _bullet_collided_with(hitbox: C_EntityHitBox) -> void:
 	if is_instance_valid(hitbox):

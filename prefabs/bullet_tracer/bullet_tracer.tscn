@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ds5e4tto8drw3"]
+
+[ext_resource type="Script" uid="uid://beeb6rg2a1tvk" path="res://components/w_bullet_tracer.gd" id="1_0mldl"]
+[ext_resource type="RibbonTrailMesh" uid="uid://cmrg00ogppyjj" path="res://resources/mesh/bullet_tracer.tres" id="2_qnv7x"]
+
+[node name="BulletTracer" type="Node3D" unique_id=384730431]
+script = ExtResource("1_0mldl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=409724028]
+transform = Transform3D(1, 0, 0, 0, 1.3113416e-07, 1, 0, -1, 1.3113416e-07, 0, 0, -2)
+mesh = ExtResource("2_qnv7x")

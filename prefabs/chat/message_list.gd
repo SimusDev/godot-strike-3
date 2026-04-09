@@ -33,7 +33,7 @@ func _on_text_submitted(new_text:String) -> void:
 	s_ServerChat.send_message(new_text)
 
 func _on_message_received(msg_text:String) -> void:
-	rich_text_label.text += msg_text + "\n"
+	rich_text_label.append_text(msg_text + "\n")
 	
 	if not visible:
 		show()
