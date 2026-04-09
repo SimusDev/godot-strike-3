@@ -1,14 +1,12 @@
 [gd_resource type="Resource" script_class="SimusNetSettings" format=3 uid="uid://em8u6ghrcf2f"]
 
 [ext_resource type="Script" uid="uid://mvkfnwik8m3v" path="res://addons/simusdev/SimusNet/SimusNetSettings.gd" id="1_ab4t6"]
-[ext_resource type="Texture2D" uid="uid://ccla4qbb2x7qb" path="res://walking_ref.jpg" id="2_hjdl5"]
 [ext_resource type="Script" uid="uid://b8jodbg6aiq8w" path="res://addons/simusdev/SimusNet/singletons/SimusNetTransportConfig.gd" id="2_v3cy0"]
 [ext_resource type="Script" uid="uid://bat86rfqq0w14" path="res://addons/simusdev/SimusNet/SimusNetServerInfo.gd" id="3_m584x"]
 
 [sub_resource type="Resource" id="Resource_nfoxn"]
 script = ExtResource("3_m584x")
 name = "Sex server"
-icon = ExtResource("2_hjdl5")
 description = "sex with grandma 7-8+ смотреть порно с бабушками бесплатно голые сиськи бабуль онлайн"
 metadata/_custom_type_script = "uid://bat86rfqq0w14"
 

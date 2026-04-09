@@ -197,7 +197,7 @@ func _collider_spawn_sound(collider:Object, collide_position:Vector3, metadata:S
 
 func _spawn_bullet_tracer(target_position:Vector3) -> void:
 	var dir = (target_position - muzzle_flash.global_position).normalized()
-	var start_pos = muzzle_flash.global_position + (dir * 0.25)
+	var start_pos = muzzle_flash.global_position - (dir * 0.25)
 	
 	var new_bullet_tracer = W_BulletTracer.new()
 	new_bullet_tracer.target_pos = target_position

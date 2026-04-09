@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfde1cge3yikl"
-path.s3tc="res://.godot/imported/metall003-new-nm.png-6f74d2f61180ff35a8e0279b6ecf2bd4.s3tc.ctex"
+uid="uid://ey4wyujyneat"
+path.s3tc="res://.godot/imported/wall_test_d.png-b25040ae1ab7cab186bde31d8e8c1d8a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/metal/metall003-new-nm.png"
-dest_files=["res://.godot/imported/metall003-new-nm.png-6f74d2f61180ff35a8e0279b6ecf2bd4.s3tc.ctex"]
+source_file="res://textures/brick/wall_test_d.png"
+dest_files=["res://.godot/imported/wall_test_d.png-b25040ae1ab7cab186bde31d8e8c1d8a.s3tc.ctex"]
 
 [params]
 

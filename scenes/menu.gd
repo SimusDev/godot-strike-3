@@ -1,9 +1,17 @@
 extends Control
 
-@onready var username: LineEdit = $Popups/Main/VBoxContainer/Username
-@onready var ip: LineEdit = $Popups/Main/VBoxContainer/IP
+@onready var username: LineEdit = $Popups/Main/Popup/Content/Username
+@onready var back_button: Button = $BackButton
 
 @onready var popups: Control = $Popups
+
+var current_popup:String = "Main"
+
+func _ready() -> void:
+	back_button.pressed.connect(_on_back_pressed)
+
+func _on_back_pressed() -> void:
+	switch_popup_by_name("Main")
 
 func switch_popup(popup: Control) -> void:
 	var tween = get_tree().create_tween()
@@ -12,8 +20,28 @@ func switch_popup(popup: Control) -> void:
 	
 	tween.tween_property(
 		popups,
-		"position",
-		-popup.position,
+		"position:y",
+		-popup.position.y,
+		0.8
+	)
+	
+	current_popup = popup.name
+	_handle_back_btn()
+
+func _handle_back_btn() -> void:
+	var tween = get_tree().create_tween()
+	tween.set_trans(Tween.TRANS_QUINT)
+	tween.set_ease(Tween.EASE_OUT)
+	
+	var target_pos:float = 0.0
+	
+	if current_popup == "Main":
+		target_pos = -back_button.size.x
+	
+	tween.tween_property(
+		back_button,
+		"position:x",
+		target_pos,
 		0.8
 	)
 

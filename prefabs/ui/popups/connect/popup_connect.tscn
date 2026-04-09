@@ -5,14 +5,26 @@
 [ext_resource type="PackedScene" uid="uid://bfglsvjeob0tf" path="res://prefabs/ui/server_item/server_item.tscn" id="3_lh0ad"]
 [ext_resource type="Script" uid="uid://0d3k6g88vx7f" path="res://addons/simusdev/SimusNet/broadcasting/SimusNetServerListener.gd" id="3_rs1m2"]
 
-[node name="Popup" unique_id=1386670740 node_paths=PackedStringArray("server_listener", "container") instance=ExtResource("1_y1str")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lh0ad"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.29803923)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Connection" unique_id=1386670740 node_paths=PackedStringArray("server_listener", "container") instance=ExtResource("1_y1str")]
 script = ExtResource("2_hfam7")
 server_item = ExtResource("3_lh0ad")
 server_listener = NodePath("SimusNetServerListener")
 container = NodePath("Content/ScrollContainer/VBoxContainer")
 
 [node name="Title" parent="Head" parent_id_path=PackedInt32Array(422771308) index="0" unique_id=358122171]
-text = "Connect"
+text = "Connection"
 
 [node name="Button" parent="Head" parent_id_path=PackedInt32Array(422771308) index="1" unique_id=1437396996]
 visible = false
@@ -21,30 +33,73 @@ visible = false
 custom_minimum_size = Vector2(512, 512)
 anchor_left = 0.0078125
 anchor_top = 0.097222224
-anchor_right = 0.5078125
+anchor_right = 0.9921875
 anchor_bottom = 0.9861111
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 
+[node name="BG" parent="Content" index="0" unique_id=1330377597]
+theme_override_styles/panel = SubResource("StyleBoxFlat_lh0ad")
+
 [node name="Label" type="Label" parent="Content" index="1" unique_id=1571002197]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 offset_top = -20.0
 offset_right = 77.0
 text = "Server list"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Content" index="2" unique_id=1327270738]
+[node name="Label2" type="Label" parent="Content" index="2" unique_id=1475322765]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.508
+anchor_right = 0.508
+offset_left = -0.06402588
+offset_top = -20.0
+offset_right = 99.935974
+text = "Direct connect"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Content" index="3" unique_id=1327270738]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -496.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lh0ad")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Content/ScrollContainer" index="0" unique_id=1755353629]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="IP" type="LineEdit" parent="Content" index="4" unique_id=196005320]
+layout_mode = 0
+offset_left = 520.0
+offset_right = 760.0
+offset_bottom = 28.0
+text = "localhost"
+placeholder_text = "IP ADDRESS"
+
+[node name="Port" type="LineEdit" parent="Content" index="5" unique_id=1073617148]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 32.0
+offset_right = 760.0
+offset_bottom = 60.0
+text = "8080"
+placeholder_text = "PORT"
+context_menu_enabled = false
+emoji_menu_enabled = false
+
+[node name="ConnectBtn" type="Button" parent="Content" index="6" unique_id=55585010]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 64.0
+offset_right = 760.0
+offset_bottom = 92.0
+text = "Connect"
 
 [node name="SimusNetServerListener" type="Node" parent="." index="5" unique_id=294308481]
 script = ExtResource("3_rs1m2")
