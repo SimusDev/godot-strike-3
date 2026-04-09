@@ -10,6 +10,7 @@ class_name C_FirearmWeapon3D
 @export_group("VFX")
 @export var muzzle_flash:W_MuzzleFlash
 
+
 var _shoot_cooldown: SD_CooldownTimer = SD_CooldownTimer.new()
 
 var _raycast: C_EntityRaycastFireArm

@@ -1,6 +1,46 @@
 [gd_resource type="AnimationNodeBlendTree" format=3 uid="uid://tbkbq7ogpn5u"]
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_te7cj"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_te7cj"]
+animation = &"animation_library/knife"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_df55h"]
+animation = &"animation_library/pistol_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5t4k1"]
+animation = &"animation_library/rifle_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3both"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rhe48"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jh44t"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yxhtr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qt8ex"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_f0a1i"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_df55h"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5t4k1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cfrbs"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_nus5p"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sh5sd"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_074bk"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_cfrbs"]
+states/knife/node = SubResource("AnimationNodeAnimation_te7cj")
+states/knife/position = Vector2(480, 211)
+states/pistol/node = SubResource("AnimationNodeAnimation_df55h")
+states/pistol/position = Vector2(480, 64)
+states/rifle/node = SubResource("AnimationNodeAnimation_5t4k1")
+states/rifle/position = Vector2(480, 145)
+transitions = ["Start", "rifle", SubResource("AnimationNodeStateMachineTransition_3both"), "rifle", "pistol", SubResource("AnimationNodeStateMachineTransition_rhe48"), "pistol", "rifle", SubResource("AnimationNodeStateMachineTransition_jh44t"), "pistol", "End", SubResource("AnimationNodeStateMachineTransition_yxhtr"), "rifle", "End", SubResource("AnimationNodeStateMachineTransition_qt8ex"), "Start", "pistol", SubResource("AnimationNodeStateMachineTransition_f0a1i"), "Start", "knife", SubResource("AnimationNodeStateMachineTransition_df55h"), "knife", "End", SubResource("AnimationNodeStateMachineTransition_5t4k1"), "knife", "rifle", SubResource("AnimationNodeStateMachineTransition_cfrbs"), "rifle", "knife", SubResource("AnimationNodeStateMachineTransition_nus5p"), "knife", "pistol", SubResource("AnimationNodeStateMachineTransition_sh5sd"), "pistol", "knife", SubResource("AnimationNodeStateMachineTransition_074bk")]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5446y"]
 animation = &"animation_library/crouched_idle"
@@ -130,11 +170,17 @@ states/walk/position = Vector2(521, 78)
 transitions = ["ground", "walk", SubResource("AnimationNodeStateMachineTransition_csdq7"), "walk", "run", SubResource("AnimationNodeStateMachineTransition_rjdav"), "run", "ground", SubResource("AnimationNodeStateMachineTransition_fpoyu"), "walk", "ground", SubResource("AnimationNodeStateMachineTransition_53pd8"), "run", "walk", SubResource("AnimationNodeStateMachineTransition_qfial"), "ground", "run", SubResource("AnimationNodeStateMachineTransition_jdw11"), "Start", "ground", SubResource("AnimationNodeStateMachineTransition_sm5w5"), "ground", "crouched", SubResource("AnimationNodeStateMachineTransition_te7cj"), "crouched", "ground", SubResource("AnimationNodeStateMachineTransition_5446y"), "run", "crouched", SubResource("AnimationNodeStateMachineTransition_v85ic"), "crouched", "run", SubResource("AnimationNodeStateMachineTransition_aae41"), "crouched", "walk", SubResource("AnimationNodeStateMachineTransition_e8g7u"), "walk", "crouched", SubResource("AnimationNodeStateMachineTransition_10ac7")]
 graph_offset = Vector2(0, 48.01256)
 
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_te7cj"]
+filter_enabled = true
+filters = ["rig/Skeleton3D:forearm.L", "rig/Skeleton3D:forearm.R", "rig/Skeleton3D:hand.L", "rig/Skeleton3D:hand.L_end", "rig/Skeleton3D:hand.R", "rig/Skeleton3D:hand.R_end", "rig/Skeleton3D:shoulder.L", "rig/Skeleton3D:shoulder.R", "rig/Skeleton3D:upper_arm.L", "rig/Skeleton3D:upper_arm.R"]
+
 [resource]
-graph_offset = Vector2(-257.32053, 59.998276)
+graph_offset = Vector2(-150.13547, 47.253693)
 nodes/output/position = Vector2(480, 140)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_sm5w5")
 nodes/StateMachine/position = Vector2(-20, 140)
-"nodes/StateMachine 2/node" = SubResource("AnimationNodeStateMachine_te7cj")
-"nodes/StateMachine 2/position" = Vector2(-60, 360)
-node_connections = [&"output", 0, &"StateMachine"]
+nodes/WeaponBlend/node = SubResource("AnimationNodeBlend2_te7cj")
+nodes/WeaponBlend/position = Vector2(280, 140)
+nodes/ItemStateMachine/node = SubResource("AnimationNodeStateMachine_cfrbs")
+nodes/ItemStateMachine/position = Vector2(-40, 360)
+node_connections = [&"output", 0, &"WeaponBlend", &"WeaponBlend", 0, &"StateMachine", &"WeaponBlend", 1, &"ItemStateMachine"]

@@ -10,6 +10,9 @@ class_name C_ItemContainer3D
 @export_group("Optional")
 @export var player: Player
 
+@export_group("Test")
+@export var state_machine:SD_NodeStateMachine
+
 var _ref: Node
 
 var _logger := SD_Logger.new(self)

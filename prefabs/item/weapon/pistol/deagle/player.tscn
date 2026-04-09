@@ -2222,6 +2222,7 @@ _animations_pickup = Array[StringName]([&"draw"])
 _animations_shoot = Array[StringName]([&"shoot1", &"shoot2"])
 _animations_reload = Array[StringName]([&"reload"])
 muzzle_flash = NodePath("Muzzleflash")
+_state = &"pistol"
 
 [node name="SourceWeaponHUDRoot" parent="." unique_id=1083771603 instance=ExtResource("2_sk8er")]
 transform = Transform3D(-3.059797e-07, -4.6201656e-14, -7, -1.0569706e-06, 7, -1.6940659e-21, -7, -1.0569706e-06, 3.059797e-07, 0.015230425, 0.0796752, -0.00843513)
