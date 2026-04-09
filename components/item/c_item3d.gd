@@ -15,7 +15,6 @@ var _object: R_WorldObject
 
 @export_group("Animation")
 @export var _state: StringName = "none"
-@export var _blend: float = 1.0
 
 func get_object() -> R_WorldObject:
 	return _object
