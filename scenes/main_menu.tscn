@@ -2,9 +2,16 @@
 
 [ext_resource type="PackedScene" uid="uid://dop27y3f5603t" path="res://scenes/main_menu_bg.tscn" id="1_ekxnf"]
 [ext_resource type="PackedScene" uid="uid://f2dnofttqgpp" path="res://scenes/menu.tscn" id="2_bqqt6"]
+[ext_resource type="AudioStream" uid="uid://b1wahilsw8kfm" path="res://audio/sfx/wind/wind1.wav" id="3_bqqt6"]
 
 [node name="MainMenu" type="Node" unique_id=441205483]
 
 [node name="MainMenuBG" parent="." unique_id=1170596978 instance=ExtResource("1_ekxnf")]
 
 [node name="Menu" parent="." unique_id=672422440 instance=ExtResource("2_bqqt6")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1732611934]
+stream = ExtResource("3_bqqt6")
+volume_db = -9.375
+pitch_scale = 0.66
+autoplay = true

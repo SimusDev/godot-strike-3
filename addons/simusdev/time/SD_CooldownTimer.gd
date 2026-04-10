@@ -36,6 +36,7 @@ func start(time: float = 0.0) -> SD_CooldownTimer:
 		return self
 	
 	__timer = SimusDev.get_tree().create_timer(__last_cooldown, false)
+	
 	__timer.timeout.connect(__on_timeout)
 	__is_active = true
 	return self

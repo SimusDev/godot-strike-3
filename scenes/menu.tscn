@@ -90,7 +90,6 @@ offset_top = 120.0
 offset_right = 487.0
 offset_bottom = 148.0
 text = "Host"
-flat = true
 
 [node name="Connect" type="Button" parent="Popups/Main/Popup/Content" index="5" unique_id=1835903265]
 layout_mode = 0
@@ -99,7 +98,6 @@ offset_top = 152.0
 offset_right = 487.0
 offset_bottom = 180.0
 text = "Connect"
-flat = true
 
 [node name="Connect" type="Control" parent="Popups" unique_id=1950108234]
 layout_mode = 1
