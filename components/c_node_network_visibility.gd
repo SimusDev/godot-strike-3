@@ -42,6 +42,9 @@ func _auto_bind_target() -> void:
 	_target = get_parent()
 
 func _update():
+	if Engine.is_editor_hint():
+		return
+	
 	var target = get_target()
 	
 	if not target:
