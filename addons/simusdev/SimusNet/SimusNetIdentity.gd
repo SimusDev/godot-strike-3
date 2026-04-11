@@ -117,7 +117,8 @@ func _deinitialize_dynamic() -> void:
 	_unique_id = -1
 	is_initialized = false
 	is_ready = false
-	_initialize_dynamic()
+	if is_instance_valid(self):
+		_initialize_dynamic()
 
 func _tree_entered() -> void:
 	_try_generate_generated_id()
