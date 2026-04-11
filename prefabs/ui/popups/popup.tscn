@@ -49,6 +49,9 @@ metadata/_edit_use_anchors_ = true
 script = ExtResource("1_4ishx")
 target = NodePath("..")
 open_at_start = true
+close_on_escape = false
+can_open = false
+can_close = false
 metadata/_custom_type_script = "uid://d1l1jkmj6s53f"
 
 [node name="SD_UIDragAndDrop" type="Node2D" parent="." unique_id=1848855929 node_paths=PackedStringArray("input_node", "draggable_node", "drop_node")]
