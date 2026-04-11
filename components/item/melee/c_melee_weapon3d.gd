@@ -19,16 +19,6 @@ func get_object() -> R_MeleeWeapon:
 func _ready() -> void:
 	super()
 	
-	_raycast = SD_ECS.node_find_above_by_component(self, C_EntityRaycastFireArm)
-	
-	if !_raycast:
-		if player:
-			if !player.is_local():
-				return
-		_logger.debug("Cant Find C_EntityRaycastFireArm above!", SD_ConsoleCategories.ERROR)
-	
-	_play_animation(_animation_pickup)
-	
 	SimusNetRPC.register(
 		[
 			_swing_rpc,
@@ -43,6 +33,18 @@ func _ready() -> void:
 		], SimusNetRPCConfig.new().flag_mode_authority().
 		flag_set_channel(s_Networking.CHANNELS.SHOOTING).flag_immediate()
 	)
+	
+	_raycast = SD_ECS.node_find_above_by_component(self, C_EntityRaycastFireArm)
+	
+	if !_raycast:
+		if player:
+			if !player.is_local():
+				return
+		_logger.debug("Cant Find C_EntityRaycastFireArm above!", SD_ConsoleCategories.ERROR)
+	
+	_play_animation(_animation_pickup)
+	
+
 
 func _physics_process(delta: float) -> void:
 	if !SimusNetConnection.is_server():

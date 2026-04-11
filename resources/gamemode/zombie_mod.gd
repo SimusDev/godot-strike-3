@@ -9,4 +9,5 @@ func _switched(level: C_Level3D) -> void:
 
 func _unswitched(level: C_Level3D) -> void:
 	var zm: Node = level.get_meta("ZombieMod")
-	zm.queue_free()
+	if zm:
+		zm.queue_free()
