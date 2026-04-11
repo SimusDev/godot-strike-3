@@ -74,6 +74,7 @@ func _tick(delta: float) -> void:
 			config._process_sync(self)
 			continue
 		
+		
 		var cfg_id: int = _properties_for.keys().find(config)
 		var time: float = _properties_time.get_or_add(cfg_id, 0.0)
 		time = move_toward(time, 1.0 / config._tickrate, delta)

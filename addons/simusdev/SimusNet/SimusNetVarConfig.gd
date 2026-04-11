@@ -123,14 +123,12 @@ func _process_sync(handler: SimusNetVarConfigHandler) -> void:
 	if _mode == MODE.SERVER_ONLY and !SimusNetConnection.is_server():
 		return
 	
-	
 	var changed_properties: Dictionary[StringName, Variant] = SimusNetSynchronization.get_changed_properties(handler.get_object())
 	if handler.get_object():
 		for property: String in handler.get_properties_for(self):
 			if _reliable:
 				if SimusNetVars._hook_snapshot(changed_properties, property, handler.get_object()):
-					return
-			
+					continue
 			
 			SimusNetVars.send(handler.get_object(), property)
 
