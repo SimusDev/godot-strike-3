@@ -11,6 +11,9 @@ static func get_local() -> Player:
 	return null
 
 func _enter_tree() -> void:
+	if !is_node_ready():
+		await ready
+	
 	C_Level3D.find_above(self)._players.append(self)
 	list.append(self)
 
