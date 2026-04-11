@@ -29,6 +29,17 @@ func get_item_by_network_id(id: int) -> R_ItemStack:
 			return i
 	return null
 
+func get_items() -> Array[R_ItemStack]:
+	return _items
+
+func clear() -> C_Inventory:
+	if SimusNetConnection.is_server():
+		SimusNetRPC.invoke_all(_clear_rpc)
+	return self
+
+func _clear_rpc() -> void:
+	_items.clear()
+
 func _initialize_network() -> void:
 	SimusNetRPC.register(
 		[
@@ -39,7 +50,8 @@ func _initialize_network() -> void:
 	
 	SimusNetRPC.register(
 		[
-			_receive
+			_receive,
+			_clear_rpc,
 		], SimusNetRPCConfig.new().flag_mode_server_only()
 		.flag_set_channel(s_Networking.CHANNELS.INVENTORY)
 	)
@@ -55,9 +67,8 @@ func _initialize_items() -> void:
 		_items = copied
 		
 		for i in _items:
+			i._inventory = self
 			i._ready()
-	
-	
 
 func for_async_network_ready() -> void:
 	if !is_network_ready:
@@ -84,5 +95,6 @@ func _send() -> void:
 func _receive(raw_items: Array[R_ItemStack]) -> void:
 	_items = raw_items
 	for i in _items:
+		i._inventory = self
 		i._ready()
 	on_synchronized.emit()

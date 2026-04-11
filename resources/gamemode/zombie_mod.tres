@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://cckpdulhpomoe"]
+
+[ext_resource type="Script" uid="uid://dwwyw80ng6r78" path="res://resources/gamemode/zombie_mod.gd" id="1_js67m"]
+
+[resource]
+script = ExtResource("1_js67m")
+metadata/_custom_type_script = "uid://cth4fhggdsre6"

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ua7n22ol1c45"]
+
+[ext_resource type="Script" uid="uid://bkbaq4v4squhy" path="res://prefabs/gamemode/zombie_mod/zombie_mod.gd" id="1_ueobn"]
+[ext_resource type="AudioStream" uid="uid://cjrkp2snevnsj" path="res://prefabs/gamemode/zombie_mod/audio/zombie_plague/ambience.wav" id="2_2ivrm"]
+[ext_resource type="Script" uid="uid://0air85uq3e4v" path="res://prefabs/gamemode/zombie_mod/scripts/countdown.gd" id="2_wuhd6"]
+[ext_resource type="PackedScene" uid="uid://b722isy1rfrb" path="res://prefabs/gamemode/zombie_mod/interface/countdown.tscn" id="4_mhxsh"]
+
+[node name="ZombieMod" type="Node" unique_id=690499497]
+script = ExtResource("1_ueobn")
+
+[node name="CountDown" type="Node" parent="." unique_id=1047792756]
+script = ExtResource("2_wuhd6")
+
+[node name="Ambience" type="AudioStreamPlayer" parent="." unique_id=1083304341]
+stream = ExtResource("2_2ivrm")
+volume_db = -30.0
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=466744839]
+
+[node name="Countdown" parent="CanvasLayer" unique_id=1239178731 node_paths=PackedStringArray("countdown") instance=ExtResource("4_mhxsh")]
+countdown = NodePath("../../CountDown")

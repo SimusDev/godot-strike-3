@@ -20,6 +20,14 @@ static var _current: C_Level3D
 
 static var on_current_changed: SD_Event = SD_Event.new()
 
+var _players: Array[Player] = []
+
+signal on_player_spawned(player: Player)
+signal on_player_despawned(player: Player)
+
+func get_players() -> Array[Player]:
+	return _players
+
 static func set_current(level: C_Level3D) -> void:
 	_current = level
 	on_current_changed.publish()

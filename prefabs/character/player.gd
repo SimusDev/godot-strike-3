@@ -11,9 +11,11 @@ static func get_local() -> Player:
 	return null
 
 func _enter_tree() -> void:
+	C_Level3D.find_above(self)._players.append(self)
 	list.append(self)
 
 func _exit_tree() -> void:
+	C_Level3D.find_above(self)._players.erase(self)
 	list.erase(self)
 
 func is_local() -> bool:

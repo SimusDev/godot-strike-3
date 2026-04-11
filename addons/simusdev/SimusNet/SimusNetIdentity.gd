@@ -174,6 +174,16 @@ func _tree_exited() -> void:
 	SimusNetVisibility._local_identity_delete(self)
 	
 
+static func destroy(object: Object) -> void:
+	var id: SimusNetIdentity = SimusNetIdentity.try_find_in(object)
+	if is_instance_valid(id):
+		id._owner_weak_ref = weakref(null)
+		get_dictionary_by_generated_id().erase(id.get_generated_unique_id())
+		get_dictionary_by_unique_id().erase(id.get_unique_id())
+		object.remove_meta("SimusNetIdentity")
+		object.remove_meta(SimusNetRPCConfigHandler.META)
+		object.remove_meta(SimusNetVarConfigHandler._META)
+
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_PREDELETE:
 		SimusNetVisibility._local_identity_delete(self)
