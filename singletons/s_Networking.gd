@@ -8,6 +8,7 @@ enum CHANNELS
 	USERS_UNRELIABLE,
 	ITEM,
 	SHOOTING,
+	INVENTORY,
 	
 }
 
@@ -86,6 +87,11 @@ func _receive_handshake_error(error: String) -> void:
 
 func _receive_handshake_server(data: Dictionary) -> void:
 	var peer: int = SimusNetRemote.sender_id
+	var is_dedicated_server: bool = peer == SimusNet.SERVER_ID and SimusNetConnection.is_dedicated_server() 
+	if is_dedicated_server:
+		on_handhake.emit()
+		return
+	
 	if !data.has("login"):
 		SimusNetConnection.kick_peer(peer, "handshake dictionary is empty.")
 		return

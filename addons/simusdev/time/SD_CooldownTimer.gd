@@ -6,6 +6,8 @@ var __last_cooldown: float = 0.0
 
 var __timer: SceneTreeTimer
 
+signal timeout()
+
 func set_time(time: float) -> SD_CooldownTimer:
 	__last_cooldown = time
 	return self
@@ -43,3 +45,4 @@ func start(time: float = 0.0) -> SD_CooldownTimer:
 
 func __on_timeout() -> void:
 	stop()
+	timeout.emit()

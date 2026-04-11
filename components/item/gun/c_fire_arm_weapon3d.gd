@@ -10,8 +10,8 @@ class_name C_FirearmWeapon3D
 @export_group("VFX")
 @export var muzzle_flash:W_MuzzleFlash
 
-
 var _shoot_cooldown: SD_CooldownTimer = SD_CooldownTimer.new()
+var _reload_cooldown: SD_CooldownTimer = SD_CooldownTimer.new()
 
 var _raycast: C_EntityRaycastFireArm
 
@@ -52,6 +52,8 @@ func _ready() -> void:
 			if !player.is_local():
 				return
 		_logger.debug("Cant Find C_EntityRaycastFireArm above!", SD_ConsoleCategories.ERROR)
+	else:
+		_raycast.target_position.z = -C_EntityRaycastFireArm.LENGTH
 	
 	_play_animation(_animations_pickup.pick_random())
 
@@ -108,11 +110,27 @@ func _request_reload() -> void:
 	reload()
 
 func reload() -> void:
-	if _is_animation_playing(_animations_pickup):
+	if _is_animation_playing(_animations_pickup) or !SimusNetConnection.is_server():
 		return
 	
-	if SimusNetConnection.is_server():
-		SimusNetRPC.invoke_all(_reload_local)
+	if _is_animation_playing(_animations_reload) or _reload_cooldown.is_active():
+		return
+	
+	if get_object().ammo > 0:
+		if get_object().bullets < get_object().bullets_max:
+			
+			_reload_bullets()
+			
+			SimusNetRPC.invoke_all(_reload_local)
+
+func _reload_bullets() -> void:
+	_reload_cooldown.start(get_object().reload_time)
+	await _reload_cooldown.timeout
+	while get_object().ammo > 0 and get_object().bullets < get_object().bullets_max:
+		get_object().ammo -= 1
+		get_object().bullets += 1
+	
+	_logger.debug("Gun reloaded, %s/%s" % [get_object().bullets, get_object().ammo])
 
 func _reload_local() -> void:
 	_animation_player.play(_animations_reload.pick_random())
@@ -121,7 +139,11 @@ func shoot() -> C_FirearmWeapon3D:
 	if _shoot_cooldown.is_active() or _is_animation_playing(_animations_pickup) or _is_animation_playing(_animations_reload):
 		return
 	
+	if get_object().bullets <= 0:
+		return
+	
 	if SimusNetConnection.is_server():
+		get_object().bullets -= 1
 		SimusNetRPC.invoke_all(_shoot_local)
 	return self
 

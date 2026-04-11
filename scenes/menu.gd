@@ -59,5 +59,5 @@ func _on_host_pressed() -> void:
 
 func _on_connect_pressed() -> void:
 	switch_popup_by_name("Connect")
-	#s_Networking.username = username.text
+	s_Networking.username = username.text
 	#SimusNetConnectionENet.create_client(ip.text, s_Networking.DEFAULT_PORT)

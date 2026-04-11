@@ -1,20 +1,8 @@
-[gd_resource type="Resource" script_class="R_ItemStack" format=3 uid="uid://dfyn7hgdrk6qe"]
+[gd_resource type="Resource" script_class="R_MeleeWeapon" format=3 uid="uid://dfyn7hgdrk6qe"]
 
-[ext_resource type="Script" uid="uid://c6e4h8uim3mjq" path="res://components/object/c_object_component.gd" id="1_4co46"]
-[ext_resource type="Script" uid="uid://cuf4mg7v4cifn" path="res://components/item/r_item_stack.gd" id="1_rgvr1"]
-[ext_resource type="Script" uid="uid://cjqqyew2jsxs7" path="res://components/item/c_item_component.gd" id="2_hbky0"]
+[ext_resource type="Script" uid="uid://dem0crd4dqlbn" path="res://components/item/melee/r_melee_weapon.gd" id="1_rgvr1"]
 [ext_resource type="PackedScene" uid="uid://bdnq7upl5cejq" path="res://prefabs/item/weapon/melee/knife/player.scn" id="2_rgvr1"]
 [ext_resource type="Script" uid="uid://nyv84jnv4lcd" path="res://components/viewmodel/r_viewmodel_prefabs.gd" id="3_hpolw"]
-[ext_resource type="Script" uid="uid://1sr8dx2eqesh" path="res://components/item/c_item_components.gd" id="3_yd671"]
-
-[sub_resource type="Resource" id="Resource_gxuqp"]
-script = ExtResource("2_hbky0")
-metadata/_custom_type_script = "uid://cjqqyew2jsxs7"
-
-[sub_resource type="Resource" id="Resource_ufvke"]
-script = ExtResource("3_yd671")
-_list = Array[ExtResource("1_4co46")]([SubResource("Resource_gxuqp")])
-metadata/_custom_type_script = "uid://1sr8dx2eqesh"
 
 [sub_resource type="Resource" id="Resource_4co46"]
 script = ExtResource("3_hpolw")
@@ -23,6 +11,7 @@ metadata/_custom_type_script = "uid://nyv84jnv4lcd"
 
 [resource]
 script = ExtResource("1_rgvr1")
-components_networked = SubResource("Resource_ufvke")
+swing_range = 2.0
+swing_range_alt = 1.3
 viewmodel = SubResource("Resource_4co46")
 metadata/_custom_type_script = "uid://byr4yde8cnrlk"

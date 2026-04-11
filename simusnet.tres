@@ -1,8 +1,12 @@
 [gd_resource type="Resource" script_class="SimusNetSettings" format=3 uid="uid://em8u6ghrcf2f"]
 
 [ext_resource type="Script" uid="uid://mvkfnwik8m3v" path="res://addons/simusdev/SimusNet/SimusNetSettings.gd" id="1_ab4t6"]
-[ext_resource type="Resource" uid="uid://bwi2ceth163on" path="res://local_data/server_info.tres" id="2_hjdl5"]
+[ext_resource type="Script" uid="uid://bat86rfqq0w14" path="res://addons/simusdev/SimusNet/SimusNetServerInfo.gd" id="2_hjdl5"]
 [ext_resource type="Script" uid="uid://b8jodbg6aiq8w" path="res://addons/simusdev/SimusNet/singletons/SimusNetTransportConfig.gd" id="2_v3cy0"]
+
+[sub_resource type="Resource" id="Resource_v3cy0"]
+script = ExtResource("2_hjdl5")
+metadata/_custom_type_script = "uid://bat86rfqq0w14"
 
 [sub_resource type="Resource" id="Resource_hjdl5"]
 script = ExtResource("2_v3cy0")
@@ -14,5 +18,5 @@ script = ExtResource("2_v3cy0")
 script = ExtResource("1_ab4t6")
 transport_rpc_config = SubResource("Resource_hjdl5")
 transport_var_config = SubResource("Resource_m584x")
-server_info = ExtResource("2_hjdl5")
+server_info = SubResource("Resource_v3cy0")
 hashing_resource_folders_to_hash = PackedStringArray("res://resources", "res://components", "res://interface", "res://prefabs", "res://audio", "res://objects")

@@ -6,6 +6,7 @@ class_name C_ItemContainer3D
 @export var _objects: Array[R_WorldObject] = []
 @export var _object: R_WorldObject : set = set_object
 
+@export var inventory: C_Inventory
 
 @export_group("Optional")
 @export var player: Player
@@ -56,13 +57,14 @@ func _ready() -> void:
 	if root is Player:
 		player = root
 	
+	if SimusNetConnection.is_server():
+		set_object(inventory._items.get(0))
 	if player:
 		await SD_Nodes.async_for_ready(player)
 		enable_input = player.is_local()
 		visible = player.is_local()
 	else:
 		hide()
-	
 	
 	set_process_input(enable_input)
 
@@ -78,13 +80,13 @@ func request_switch(slot: int) -> void:
 	SimusNetRPC.invoke_on_server(_request_switch_rpc, slot)
 
 func _request_switch_rpc(slot: int) -> void:
-	if slot > _objects.size() - 1 or _objects.is_empty():
+	if slot > inventory._items.size() - 1 or inventory._items.is_empty():
 		return
 	
 	if _cooldown.is_active():
 		return
 	
-	set_object(_objects[slot])
+	set_object(inventory._items[slot])
 	_cooldown.start(0.2)
 
 func set_object(object: R_WorldObject) -> void:

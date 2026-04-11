@@ -12,5 +12,9 @@ metadata/_custom_type_script = "uid://nyv84jnv4lcd"
 [resource]
 script = ExtResource("1_7xpb3")
 damage = 20.0
+bullets = 30
+bullets_max = 30
+ammo = 90
+reload_time = 2.0
 viewmodel = SubResource("Resource_c4xv5")
 metadata/_custom_type_script = "uid://c823wp7jcptg8"
