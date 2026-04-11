@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://b722isy1rfrb"]
 
 [ext_resource type="Script" uid="uid://bj3tmoex62cs1" path="res://prefabs/gamemode/zombie_mod/interface/countdown.gd" id="1_gtilo"]
+[ext_resource type="AudioStream" uid="uid://hyeywj8tjp5q" path="res://audio/sfx/clock_tick1.ogg" id="2_7ph6g"]
+[ext_resource type="AudioStream" uid="uid://cnjlcltgnehon" path="res://audio/sfx/clock_tick2.ogg" id="3_2frum"]
+[ext_resource type="AudioStream" uid="uid://qisonedbmcnl" path="res://audio/sfx/clock_tick3.ogg" id="4_v84il"]
 
 [node name="Countdown" type="Control" unique_id=1239178731]
 layout_mode = 3
@@ -10,6 +13,7 @@ offset_bottom = 52.0
 grow_horizontal = 2
 mouse_filter = 2
 script = ExtResource("1_gtilo")
+_audio = Array[AudioStream]([ExtResource("2_7ph6g"), ExtResource("3_2frum"), ExtResource("4_v84il")])
 
 [node name="Label" type="Label" parent="." unique_id=331920704]
 layout_mode = 1
@@ -21,3 +25,5 @@ theme_override_font_sizes/font_size = 48
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=879329311]

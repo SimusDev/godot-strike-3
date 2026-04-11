@@ -67,7 +67,7 @@ func _initialize_items() -> void:
 		_items = copied
 		
 		for i in _items:
-			i._inventory = self
+			#i._inventory = self
 			i._ready()
 
 func for_async_network_ready() -> void:
@@ -95,6 +95,6 @@ func _send() -> void:
 func _receive(raw_items: Array[R_ItemStack]) -> void:
 	_items = raw_items
 	for i in _items:
-		i._inventory = self
+		#i._inventory = self
 		i._ready()
 	on_synchronized.emit()
