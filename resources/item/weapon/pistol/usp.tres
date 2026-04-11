@@ -2,12 +2,28 @@
 
 [ext_resource type="Script" uid="uid://c823wp7jcptg8" path="res://components/item/gun/r_fire_arm_weapon.gd" id="1_bo2xy"]
 [ext_resource type="PackedScene" uid="uid://rrbd5m4oef6i" path="res://prefabs/item/weapon/pistol/usp/player.scn" id="2_qkd2s"]
-[ext_resource type="Script" uid="uid://nyv84jnv4lcd" path="res://components/viewmodel/r_viewmodel_prefabs.gd" id="3_deohc"]
+[ext_resource type="Script" uid="uid://ffqvshpp2bms" path="res://components/viewmodel/r_viewmodel_resource.gd" id="3_n3ccf"]
+[ext_resource type="Script" uid="uid://dhddkexk2y8sf" path="res://components/viewmodel/r_viewmodel_resources.gd" id="4_83wff"]
+[ext_resource type="PackedScene" uid="uid://c0rvpao14a4nc" path="res://prefabs/item/weapon/pistol/usp/model_view_usp.glb" id="5_8qsq1"]
 
-[sub_resource type="Resource" id="Resource_n3ccf"]
-script = ExtResource("3_deohc")
-player = ExtResource("2_qkd2s")
-metadata/_custom_type_script = "uid://nyv84jnv4lcd"
+[sub_resource type="Resource" id="Resource_j57g2"]
+script = ExtResource("3_n3ccf")
+prefab = ExtResource("2_qkd2s")
+metadata/_custom_type_script = "uid://ffqvshpp2bms"
+
+[sub_resource type="Resource" id="Resource_3eyo3"]
+script = ExtResource("3_n3ccf")
+prefab = ExtResource("5_8qsq1")
+position = Vector3(-0.033550277, 0.005217433, 0.010564208)
+rotation_degrees = Vector3(0.17, 1.474, 1.641)
+scale = Vector3(2, 2, 2)
+metadata/_custom_type_script = "uid://ffqvshpp2bms"
+
+[sub_resource type="Resource" id="Resource_ivdon"]
+script = ExtResource("4_83wff")
+player = SubResource("Resource_j57g2")
+view = SubResource("Resource_3eyo3")
+metadata/_custom_type_script = "uid://dhddkexk2y8sf"
 
 [resource]
 script = ExtResource("1_bo2xy")
@@ -17,5 +33,5 @@ bullets = 12
 bullets_max = 12
 ammo = 24
 reload_time = 2.5
-viewmodel = SubResource("Resource_n3ccf")
+viewmodel = SubResource("Resource_ivdon")
 metadata/_custom_type_script = "uid://c823wp7jcptg8"

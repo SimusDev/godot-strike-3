@@ -37,7 +37,7 @@ animation = &"animation_library/rifle_idle"
 states/knife/node = SubResource("AnimationNodeAnimation_te7cj")
 states/knife/position = Vector2(480, 211)
 states/pistol/node = SubResource("AnimationNodeAnimation_df55h")
-states/pistol/position = Vector2(480, 64)
+states/pistol/position = Vector2(480, 62)
 states/rifle/node = SubResource("AnimationNodeAnimation_5t4k1")
 states/rifle/position = Vector2(480, 145)
 transitions = ["Start", "rifle", SubResource("AnimationNodeStateMachineTransition_3both"), "rifle", "pistol", SubResource("AnimationNodeStateMachineTransition_rhe48"), "pistol", "rifle", SubResource("AnimationNodeStateMachineTransition_jh44t"), "pistol", "End", SubResource("AnimationNodeStateMachineTransition_yxhtr"), "rifle", "End", SubResource("AnimationNodeStateMachineTransition_qt8ex"), "Start", "pistol", SubResource("AnimationNodeStateMachineTransition_f0a1i"), "Start", "knife", SubResource("AnimationNodeStateMachineTransition_df55h"), "knife", "End", SubResource("AnimationNodeStateMachineTransition_5t4k1"), "knife", "rifle", SubResource("AnimationNodeStateMachineTransition_cfrbs"), "rifle", "knife", SubResource("AnimationNodeStateMachineTransition_nus5p"), "knife", "pistol", SubResource("AnimationNodeStateMachineTransition_sh5sd"), "pistol", "knife", SubResource("AnimationNodeStateMachineTransition_074bk")]
@@ -184,7 +184,7 @@ filter_enabled = true
 filters = ["rig/Skeleton3D:forearm.L", "rig/Skeleton3D:forearm.R", "rig/Skeleton3D:hand.L", "rig/Skeleton3D:hand.L_end", "rig/Skeleton3D:hand.R", "rig/Skeleton3D:hand.R_end", "rig/Skeleton3D:shoulder.L", "rig/Skeleton3D:shoulder.R", "rig/Skeleton3D:upper_arm.L", "rig/Skeleton3D:upper_arm.R"]
 
 [resource]
-graph_offset = Vector2(-177.80621, 63.215515)
+graph_offset = Vector2(-155.5057, -46.275116)
 nodes/output/position = Vector2(700, 240)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_sm5w5")
 nodes/StateMachine/position = Vector2(-20, 140)
