@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cf6oya04kct6m"]
+
+[ext_resource type="Script" uid="uid://chtmecj8ic6lu" path="res://interface/shop/shop_interface.gd" id="1_d8ymv"]
+[ext_resource type="Script" uid="uid://csorstbki476x" path="res://addons/simusdev/ui/SD_UICanvasItemInterface.gd" id="2_goai8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_goai8"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="ShopInterface" type="Control" unique_id=311467892]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_d8ymv")
+metadata/_edit_horizontal_guides_ = [557.0]
+
+[node name="Panel" type="Panel" parent="." unique_id=543761918]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -283.0
+offset_top = -261.5
+offset_right = 283.0
+offset_bottom = 261.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_goai8")
+
+[node name="_ItemInterface" type="ItemList" parent="Panel" unique_id=1552425264]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.87500006
+offset_bottom = -0.12503052
+grow_horizontal = 2
+grow_vertical = 2
+item_count = 2
+item_0/text = "item.ak47"
+item_1/text = "item.deagle"
+
+[node name="Buy" type="Button" parent="Panel" unique_id=1629969282]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.87700003
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.17102051
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "BUY"
+
+[node name="SD_UICanvasItemInterface" type="Node" parent="." unique_id=781884080 node_paths=PackedStringArray("targets")]
+script = ExtResource("2_goai8")
+targets = [NodePath("..")]
+metadata/_custom_type_script = "uid://csorstbki476x"
+
+[connection signal="pressed" from="Panel/Buy" to="." method="_on_buy_pressed"]

@@ -20,6 +20,9 @@ func _ready() -> void:
 	set_collision_mask_value(C_Collisions.LAYERS.INTERACTION, true)
 	set_collision_mask_value(C_Collisions.LAYERS.HITBOX, true)
 	
+	if _entity is CollisionObject3D:
+		add_exception(_entity)
+	
 	if !Engine.is_editor_hint():
 		if not SimusNet.is_network_authority(self):
 			if !SimusNetConnection.is_server():

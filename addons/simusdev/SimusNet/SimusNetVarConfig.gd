@@ -131,6 +131,7 @@ func _process_sync(handler: SimusNetVarConfigHandler) -> void:
 				if SimusNetVars._hook_snapshot(changed_properties, property, handler.get_object()):
 					return
 			
+			
 			SimusNetVars.send(handler.get_object(), property)
 
 func _network_ready(handler: SimusNetVarConfigHandler) -> void:

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c430x2ff3kcte" path="res://interface/health.tscn" id="3_70n32"]
 [ext_resource type="PackedScene" uid="uid://dyade2q4x1dci" path="res://interface/money.tscn" id="4_7jhck"]
 [ext_resource type="Script" uid="uid://c7j3r1udn5841" path="res://interface/ui_weapon_zoom.gd" id="5_16fqb"]
+[ext_resource type="PackedScene" uid="uid://cf6oya04kct6m" path="res://interface/shop/shop_interface.tscn" id="6_aasth"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jhck"]
 content_margin_left = 0.0
@@ -82,3 +83,8 @@ grow_vertical = 2
 mouse_filter = 2
 expand_mode = 1
 stretch_mode = 6
+
+[node name="Interfaces" type="CanvasLayer" parent="." unique_id=159985786]
+layer = 2
+
+[node name="ShopInterface" parent="Interfaces" unique_id=311467892 instance=ExtResource("6_aasth")]
