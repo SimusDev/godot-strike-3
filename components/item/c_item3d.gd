@@ -13,7 +13,7 @@ const ACTION_USE_ALT: String = "use_alt"
 
 var _object: R_WorldObject
 
-var player_model:W_AnimatedModel3D
+var player_model:C_AnimatedModel3D
 
 @export_group("Animation")
 @export var _state: StringName = "none"
@@ -59,15 +59,21 @@ func _ready() -> void:
 	
 	set_process_input(is_local())
 	
-	player_model = SD_ECS.find_first_component_by_script(player, [W_AnimatedModel3D])
+	player_model = SD_ECS.find_first_component_by_script(player, [C_AnimatedModel3D])
 	
 	if player_model:
 		var state_machine:SD_NodeStateMachine = player_model.get("item_state_machine") as SD_NodeStateMachine
 		if state_machine:
 			state_machine.switch_by_name(_state)
 
-func _play_use_animation() -> void:
-	pass
+func _play_model_animation(animation_name:StringName) -> void:
+	player_model.play_tree_oneshot_by_name(animation_name)
+
+func _play_model_animation_by_array(array:Array[StringName]) -> void:
+	if array.is_empty():
+		return
+	
+	_play_model_animation(array.pick_random())
 
 func _input(event: InputEvent) -> void:
 	if !player:

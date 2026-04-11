@@ -85,6 +85,7 @@ func _swing_rpc() -> void:
 		_raycast.force_raycast_update()
 		_check_collider()
 		_raycast.enabled = false
+	_play_model_animation_by_array(_use_animations)
 	_play_animation(_animation_swing)
 
 func _swing_alt_rpc() -> void:
@@ -96,6 +97,7 @@ func _swing_alt_rpc() -> void:
 		_raycast.force_raycast_update()
 		_check_collider()
 		_raycast.enabled = false
+	_play_model_animation_by_array(_alt_use_animations)
 	_play_animation(_animation_swing_alt)
 
 func _check_collider() -> void:

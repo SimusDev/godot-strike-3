@@ -50,7 +50,6 @@ script = ExtResource("1_4ishx")
 target = NodePath("..")
 open_at_start = true
 close_on_escape = false
-can_open = false
 can_close = false
 metadata/_custom_type_script = "uid://d1l1jkmj6s53f"
 
