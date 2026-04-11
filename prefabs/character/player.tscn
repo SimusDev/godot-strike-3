@@ -25,6 +25,7 @@
 [ext_resource type="Resource" uid="uid://dyj60nohq3yyc" path="res://resources/item/weapon/rifle/ak47.tres" id="16_gfids"]
 [ext_resource type="Resource" uid="uid://da868888xx0gr" path="res://resources/item/weapon/sniper/awp.tres" id="17_chu5k"]
 [ext_resource type="Script" uid="uid://doj1n15n4al20" path="res://components/entity/c_entity_raycast_fire_arm.gd" id="17_xjhnu"]
+[ext_resource type="Script" uid="uid://bjlfgb2cevep3" path="res://components/entity/c_entity_raycast_interaction.gd" id="19_lpfs7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gck7o"]
 radius = 0.2
@@ -55,6 +56,7 @@ metadata/_custom_type_script = "uid://cf6vy8vtl307n"
 
 [node name="C_CharacterAttributes" type="Node" parent="." unique_id=1211457163]
 script = ExtResource("2_l4gda")
+money = 5000
 metadata/_custom_type_script = "uid://dllp8gui22y0w"
 
 [node name="C_PlayerUIInstantiator" type="Node" parent="." unique_id=1783389691 node_paths=PackedStringArray("_player")]
@@ -108,6 +110,14 @@ key_crouch = "crouch"
 [node name="Camera" parent="." unique_id=1107208501 node_paths=PackedStringArray("body") instance=ExtResource("6_axr2b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 body = NodePath("..")
+
+[node name="C_EntityRaycastInteraction" type="RayCast3D" parent="Camera" unique_id=781039367 node_paths=PackedStringArray("_entity")]
+target_position = Vector3(0, 0, -1.5)
+collision_mask = 7
+collide_with_areas = true
+script = ExtResource("19_lpfs7")
+_entity = NodePath("../..")
+metadata/_custom_type_script = "uid://bjlfgb2cevep3"
 
 [node name="C_EntityEyes" type="Node" parent="Camera" unique_id=1830981472 node_paths=PackedStringArray("_entity", "_camera")]
 script = ExtResource("10_c4m1b")
@@ -182,57 +192,52 @@ movement = NodePath("../Movement")
 item_state_machine = NodePath("../ItemStateMachine")
 
 [node name="rig" parent="AnimatedModel/model3d" parent_id_path=PackedInt32Array(1690152358, 125080953) index="0" unique_id=1525161330]
-transform = Transform3D(0.9965513, -0.080124184, 0.021563558, -0.022989854, -0.016921367, 0.99959236, -0.07972664, -0.9966411, -0.018705063, -0.021770814, -0.005234818, 0.019840674)
+transform = Transform3D(0.9968275, -0.07646267, 0.022081066, -0.02317057, -0.01339111, 0.9996417, -0.07613957, -0.9969824, -0.015120318, -0.0213881, -0.005578368, 0.015854143)
 
 [node name="FABRIK3D" parent="AnimatedModel/model3d/rig/Skeleton3D" parent_id_path=PackedInt32Array(1690152358, 125080953, 1564758600) index="1" unique_id=712842292 node_paths=PackedStringArray("entity_eyes")]
 entity_eyes = NodePath("../../../../../Camera/C_EntityEyes")
 
-[node name="AnimationTree" parent="AnimatedModel" index="2" unique_id=900602812]
-parameters/OneShot/active = false
-parameters/OneShot/internal_active = false
-parameters/OneShot/request = 0
-
 [node name="Head" parent="AnimatedModel/Hitboxes" parent_id_path=PackedInt32Array(1690152358, 628207090) index="0" unique_id=949861060]
-transform = Transform3D(-0.9954717, -0.048707955, -0.08162719, -0.06266919, 0.9819754, 0.17831534, 0.07147055, 0.18262337, -0.98058134, -0.02060166, 1.5538981, 0.095798865)
+transform = Transform3D(-0.9956998, -0.049820744, -0.078097284, -0.0628781, 0.982587, 0.17483978, 0.06802671, 0.1789984, -0.98149467, -0.022109777, 1.5539309, 0.09416075)
 
 [node name="Neck" parent="AnimatedModel/Hitboxes" parent_id_path=PackedInt32Array(1690152358, 628207090) index="1" unique_id=2105621560]
-transform = Transform3D(-0.99542224, -0.06694256, -0.068209454, -0.059572496, 0.9926986, -0.104882725, 0.074732564, -0.100339204, -0.9921424, -0.013117097, 1.4429086, 0.10701737)
+transform = Transform3D(-0.9956638, -0.06701848, -0.06450991, -0.059769973, 0.99230987, -0.108390875, 0.071278, -0.10406533, -0.99201304, -0.014616728, 1.4429849, 0.105795845)
 
 [node name="Chest" parent="AnimatedModel/Hitboxes" parent_id_path=PackedInt32Array(1690152358, 628207090) index="2" unique_id=796290548]
-transform = Transform3D(-0.99536276, -0.043812033, -0.08563239, -0.056399293, 0.98698515, 0.15059638, 0.07791997, 0.15472767, -0.9848793, 0.00049689785, 1.1362165, 0.05893783)
+transform = Transform3D(-0.99561745, -0.044824425, -0.08207418, -0.056585584, 0.98750114, 0.1471041, 0.07445446, 0.1511035, -0.98571014, -0.0006881468, 1.1361324, 0.058842488)
 
 [node name="Spine" parent="AnimatedModel/Hitboxes" parent_id_path=PackedInt32Array(1690152358, 628207090) index="3" unique_id=1648957366]
-transform = Transform3D(-0.9963004, -0.0072504235, -0.08562852, -0.032687802, 0.9535074, 0.29959115, 0.07947527, 0.30128187, -0.950217, 0.001460677, 1.0094693, 0.018889207)
+transform = Transform3D(-0.99657136, -0.008787482, -0.08226479, -0.032869224, 0.9545541, 0.2962194, 0.07592314, 0.29790774, -0.95157063, 0.00047994964, 1.0092459, 0.01924236)
 
 [node name="Hips" parent="AnimatedModel/Hitboxes" parent_id_path=PackedInt32Array(1690152358, 628207090) index="4" unique_id=1687161286]
-transform = Transform3D(-0.9965513, -0.038372494, -0.073569514, -0.022989806, 0.9796202, -0.1995383, 0.07972696, -0.19715887, -0.97712415, 0.0065436885, 0.8797039, 0.045005854)
+transform = Transform3D(-0.9968275, -0.03808634, -0.06988269, -0.023170521, 0.9789053, -0.20299578, 0.07613989, -0.20073265, -0.9766826, 0.005525058, 0.8795751, 0.04583241)
 
 [node name="LeftUpperArm" parent="AnimatedModel/Hitboxes" parent_id_path=PackedInt32Array(1690152358, 628207090) index="5" unique_id=8313087]
-transform = Transform3D(0.94401747, -0.18179403, 0.27529192, -0.17917037, -0.98320067, -0.03487509, 0.27700832, -0.01640162, -0.9607282, -0.17875436, 1.3737311, 0.08626653)
+transform = Transform3D(0.94307166, -0.18129095, 0.27884194, -0.17776239, -0.98333615, -0.038114876, 0.28110638, -0.013622554, -0.95958084, -0.18014541, 1.3736584, 0.08467841)
 
 [node name="LeftLowerArm" parent="AnimatedModel/Hitboxes" parent_id_path=PackedInt32Array(1690152358, 628207090) index="6" unique_id=1482254362]
-transform = Transform3D(0.9709075, -0.14541328, 0.190272, -0.17288446, -0.9754088, 0.1367327, 0.16571139, -0.1656493, -0.972165, -0.23679554, 1.0598309, 0.08102557)
+transform = Transform3D(0.97036856, -0.14436457, 0.19378771, -0.17185418, -0.9760502, 0.13341251, 0.16988783, -0.1627617, -0.971932, -0.23802592, 1.0597149, 0.08032469)
 
 [node name="RightUpperArm" parent="AnimatedModel/Hitboxes" parent_id_path=PackedInt32Array(1690152358, 628207090) index="7" unique_id=1198981360]
-transform = Transform3D(0.8970862, 0.4417889, -0.007989104, 0.44181305, -0.8971091, 0.0014913715, -0.006508151, -0.0048676226, -0.9999692, 0.15344235, 1.388006, 0.060303714)
+transform = Transform3D(0.8969052, 0.4422065, -0.0043090214, 0.4422017, -0.8969165, -0.0020170286, -0.004756684, -9.622052e-05, -0.9999907, 0.15213819, 1.3879956, 0.059888147)
 
 [node name="RightLowerArm" parent="AnimatedModel/Hitboxes" parent_id_path=PackedInt32Array(1690152358, 628207090) index="8" unique_id=322258329]
-transform = Transform3D(0.992295, 0.006780549, -0.123743534, 0.11891505, 0.22904494, 0.9661299, 0.034893587, -0.9733954, 0.22647306, 0.29449037, 1.1015899, 0.058749672)
+transform = Transform3D(0.99210584, 0.010260536, -0.1250101, 0.119494766, 0.225635, 0.96686035, 0.0381271, -0.9741607, 0.22262692, 0.29331952, 1.1016408, 0.05985745)
 
 [node name="LeftUpperLeg" parent="AnimatedModel/Hitboxes" parent_id_path=PackedInt32Array(1690152358, 628207090) index="9" unique_id=367248935]
-transform = Transform3D(-0.9755393, -0.06608954, 0.2096519, 0.03877881, -0.9905173, -0.1318007, 0.21637578, -0.12044745, 0.9688461, -0.11366134, 0.9321292, 0.017879065)
+transform = Transform3D(-0.9763464, -0.06520099, 0.20614338, 0.03908636, -0.9909638, -0.12830731, 0.21264765, -0.117215715, 0.9700671, -0.11460282, 0.93184954, 0.018079853)
 
 [node name="LeftLowerLeg" parent="AnimatedModel/Hitboxes" parent_id_path=PackedInt32Array(1690152358, 628207090) index="10" unique_id=1350633474]
-transform = Transform3D(-0.9653435, -0.01548446, 0.26052067, 0.08116446, -0.9665485, 0.24330273, 0.2480396, 0.2560131, 0.93430305, -0.14212868, 0.5054748, -0.03400234)
+transform = Transform3D(-0.9662862, -0.015992746, 0.25697052, 0.08158743, -0.9656522, 0.24669622, 0.24419998, 0.25934213, 0.9343964, -0.14268744, 0.5050028, -0.03240952)
 
 [node name="RightUpperLeg" parent="AnimatedModel/Hitboxes" parent_id_path=PackedInt32Array(1690152358, 628207090) index="11" unique_id=38768002]
-transform = Transform3D(-0.9875369, 0.11039598, -0.112172775, -0.105853185, -0.9933313, -0.045695286, -0.11647001, -0.033252105, 0.9926316, 0.11838078, 0.9374823, -0.00068491325)
+transform = Transform3D(-0.9870538, 0.1109636, -0.11580528, -0.10671687, -0.9933906, -0.04226772, -0.119730815, -0.029362282, 0.9923664, 0.11750361, 0.93724465, 0.00035110675)
 
 [node name="RightLowerLeg" parent="AnimatedModel/Hitboxes" parent_id_path=PackedInt32Array(1690152358, 628207090) index="12" unique_id=1283813259]
-transform = Transform3D(-0.9626413, 0.09979236, -0.2517189, -0.15199251, -0.968487, 0.19731028, -0.22409657, 0.22819686, 0.9474679, 0.16593263, 0.50961584, -0.015007892)
+transform = Transform3D(-0.9617415, 0.09938654, -0.2552933, -0.15322162, -0.9676351, 0.20051357, -0.22710256, 0.2319572, 0.9458376, 0.16529997, 0.5093526, -0.012296373)
 
 [node name="WeaponAttachment3D" parent="AnimatedModel" index="4" unique_id=1036447807]
-transform = Transform3D(0.93944836, -0.06264181, -0.3369279, 0.34205243, 0.110954046, 0.93311423, -0.021068119, -0.99185187, 0.12566252, 0.2918996, 1.1707046, -0.27157095)
+transform = Transform3D(0.93936527, -0.05904033, -0.337807, 0.34241018, 0.10744812, 0.9333931, -0.01881075, -0.9924582, 0.12114912, 0.2919135, 1.1695962, -0.27071062)
 
 [editable path="Movement"]
 [editable path="Camera"]

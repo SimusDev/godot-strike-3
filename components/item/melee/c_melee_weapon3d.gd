@@ -43,8 +43,6 @@ func _ready() -> void:
 		_logger.debug("Cant Find C_EntityRaycastFireArm above!", SD_ConsoleCategories.ERROR)
 	
 	_play_animation(_animation_pickup)
-	
-
 
 func _physics_process(delta: float) -> void:
 	if !SimusNetConnection.is_server():
