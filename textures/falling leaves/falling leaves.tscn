@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf645krbngotl"]
+
+[ext_resource type="Texture2D" uid="uid://c3wx4nsx07b5k" path="res://falling leaves/pngwing.com.png" id="1_ua62q"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_83g60"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 10, 20)
+particle_flag_rotate_y = true
+spread = 180.0
+gravity = Vector3(0, -7, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+angular_velocity_max = 120.0
+linear_accel_max = 6.0
+damping_min = 5.0
+damping_max = 7.0
+angle_min = -8.8
+angle_max = 720.0
+turbulence_enabled = true
+turbulence_noise_strength = 20.0
+turbulence_noise_speed_random = 1.0
+turbulence_influence_min = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktxuq"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_ua62q")
+backlight_enabled = true
+backlight = Color(0.694118, 0.694118, 0.694118, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_jd8fy"]
+material = SubResource("StandardMaterial3D_ktxuq")
+
+[node name="GPUParticles3D" type="GPUParticles3D"]
+transform = Transform3D(1, -6.27182e-10, 0, 5.96856e-13, 1, -2.56114e-09, 0, 2.56114e-09, 1, 0.00479902, 27.3935, 2.67421)
+amount = 50
+lifetime = 10.0
+randomness = 1.0
+visibility_aabb = AABB(-19.2029, -15.2933, -18.2888, 38.406, 30.5865, 36.5775)
+process_material = SubResource("ParticleProcessMaterial_83g60")
+draw_pass_1 = SubResource("QuadMesh_jd8fy")

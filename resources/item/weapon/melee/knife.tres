@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="R_MeleeWeapon" format=3 uid="uid://dfyn7hgdrk6qe"]
 
-[ext_resource type="Script" uid="uid://dem0crd4dqlbn" path="res://components/item/melee/r_melee_weapon.gd" id="1_rgvr1"]
-[ext_resource type="Script" path="res://components/viewmodel/r_viewmodel_resources.gd" id="2_ma28h"]
+[ext_resource type="Script" path="res://components/item/melee/r_melee_weapon.gd" id="1_rgvr1"]
+[ext_resource type="Script" uid="uid://dhddkexk2y8sf" path="res://components/viewmodel/r_viewmodel_resources.gd" id="2_ma28h"]
 [ext_resource type="PackedScene" uid="uid://bdnq7upl5cejq" path="res://prefabs/item/weapon/melee/knife/player.scn" id="2_rgvr1"]
-[ext_resource type="Script" path="res://components/viewmodel/r_viewmodel_resource.gd" id="3_hpolw"]
+[ext_resource type="Script" uid="uid://ffqvshpp2bms" path="res://components/viewmodel/r_viewmodel_resource.gd" id="3_hpolw"]
 [ext_resource type="PackedScene" uid="uid://bwysh55kb1sm7" path="res://prefabs/item/weapon/melee/knife/model_view.glb" id="4_va0fg"]
 
 [sub_resource type="Resource" id="Resource_4co46"]

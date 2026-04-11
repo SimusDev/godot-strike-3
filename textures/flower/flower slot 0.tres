@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://npl2ulq33ph0"]
+
+[ext_resource type="Texture2D" uid="uid://c02782f0eaha0" path="res://flower/flower_3_Mat_Color-3_Mat_Opacity.png" id="1_o4jx6"]
+[ext_resource type="Texture2D" uid="uid://dpcih743hyf3l" path="res://flower/flower_9_Normal.jpg" id="2_qrblx"]
+
+[resource]
+resource_name = "3_Mat"
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_o4jx6")
+roughness = 0.916423
+normal_enabled = true
+normal_scale = 3.3
+normal_texture = ExtResource("2_qrblx")

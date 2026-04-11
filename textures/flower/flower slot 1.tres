@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c2dr4v75ggapf"]
+
+[ext_resource type="Texture2D" uid="uid://c02782f0eaha0" path="res://flower/flower_3_Mat_Color-3_Mat_Opacity.png" id="1_pacud"]
+[ext_resource type="Texture2D" uid="uid://dpcih743hyf3l" path="res://flower/flower_9_Normal.jpg" id="2_66ac0"]
+
+[resource]
+resource_name = "Sample_Petal_Mat"
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_pacud")
+roughness = 0.552786
+normal_enabled = true
+normal_texture = ExtResource("2_66ac0")

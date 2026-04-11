@@ -4,6 +4,7 @@ class_name C_Shop
 @export var _items: Array[R_ShopItem] = []
 
 const PURCHASE_SOUND1: AudioStream = preload("res://audio/sfx/item/gun/ak47_draw.mp3")
+const FAIL_SOUND1: AudioStream = preload("res://audio/sfx/weapon_cant_buy.wav")
 
 var _audio_player: C_AudioPlayer3D
 
@@ -69,6 +70,14 @@ func _request_buy_rpc(item_id: int) -> void:
 	if item.can_purchase(picked_player):
 		item._purchased(picked_player)
 		SimusNetRPC.invoke_all(_play_sound, PURCHASE_SOUND1)
+	else:
+		s_AudioPlayer.local_play_global(
+			FAIL_SOUND1,
+			{
+				"global_position": self.global_position,
+				"max_distance": 15.0
+				}
+			)
 
 func _play_sound(audio: AudioStream) -> void:
 	_audio_player.try_play(audio)

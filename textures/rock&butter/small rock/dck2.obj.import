@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cvg1bwvw7ccdr"
+path="res://.godot/imported/dck2.obj-e7b60c92ea8e1ca2671f39e744f94424.mesh"
+
+[deps]
+
+files=["res://.godot/imported/dck2.obj-e7b60c92ea8e1ca2671f39e744f94424.mesh"]
+
+source_file="res://textures/rock&butter/small rock/dck2.obj"
+dest_files=["res://.godot/imported/dck2.obj-e7b60c92ea8e1ca2671f39e744f94424.mesh", "res://.godot/imported/dck2.obj-e7b60c92ea8e1ca2671f39e744f94424.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

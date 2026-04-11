@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bdjubefo2r4ug"]
 
+[ext_resource type="Resource" uid="uid://btc22axbemfn5" path="res://resources/metadata_material/metal.tres" id="1_c2aa7"]
 [ext_resource type="PackedScene" uid="uid://h1gckmqhg4dn" path="res://prefabs/props/vending_machine/src/scene.gltf" id="1_fwdgh"]
 [ext_resource type="Script" uid="uid://cxw5jyv26mwl2" path="res://components/shop/c_shop.gd" id="2_2royf"]
 [ext_resource type="Script" uid="uid://bg6kj6pafnyut" path="res://components/shop/r_shop_item.gd" id="3_2royf"]
@@ -11,7 +12,7 @@
 [ext_resource type="Resource" uid="uid://dyj60nohq3yyc" path="res://resources/item/weapon/rifle/ak47.tres" id="8_0878p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1gh12"]
-size = Vector3(0.9291992, 1.8613892, 1)
+size = Vector3(0.9291992, 1.8379211, 1.1478516)
 
 [sub_resource type="Resource" id="Resource_c2aa7"]
 script = ExtResource("4_6faqv")
@@ -43,12 +44,13 @@ cost = 800
 metadata/_custom_type_script = "uid://bmjs2hfcsfsjq"
 
 [node name="VendingMachine" type="StaticBody3D" unique_id=370761488]
+metadata/SD_Metadata_List = [ExtResource("1_c2aa7")]
 
 [node name="Sketchfab_Scene" parent="." unique_id=1661133140 instance=ExtResource("1_fwdgh")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1134556187]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0012207031, 0.9278259, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0012207031, 0.9160919, -0.02607423)
 shape = SubResource("BoxShape3D_1gh12")
 
 [node name="C_Shop" type="Node3D" parent="." unique_id=1384936931]
