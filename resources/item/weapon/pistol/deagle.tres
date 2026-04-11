@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c823wp7jcptg8" path="res://components/item/gun/r_fire_arm_weapon.gd" id="1_b23f3"]
 [ext_resource type="PackedScene" uid="uid://7jj26xqmmmnl" path="res://prefabs/item/weapon/pistol/deagle/player.tscn" id="2_c3a46"]
-[ext_resource type="Script" uid="uid://ffqvshpp2bms" path="res://components/viewmodel/r_viewmodel_resource.gd" id="3_h0amq"]
-[ext_resource type="Script" uid="uid://dhddkexk2y8sf" path="res://components/viewmodel/r_viewmodel_resources.gd" id="4_cjejn"]
+[ext_resource type="Script" path="res://components/viewmodel/r_viewmodel_resource.gd" id="3_h0amq"]
+[ext_resource type="Script" path="res://components/viewmodel/r_viewmodel_resources.gd" id="4_cjejn"]
 [ext_resource type="PackedScene" uid="uid://40hwy27bohvw" path="res://prefabs/item/weapon/pistol/deagle/model_view_deagle.glb" id="5_cjejn"]
 
 [sub_resource type="Resource" id="Resource_oan3o"]
