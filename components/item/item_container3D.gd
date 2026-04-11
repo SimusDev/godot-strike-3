@@ -1,6 +1,8 @@
 extends Node3D
 class_name C_ItemContainer3D
 
+signal object_changed(new_object: R_WorldObject)
+
 @export var root: Node3D
 @export var type: R_ViewModel.TYPE = R_ViewModel.TYPE.VIEW
 @export var _objects: Array[R_WorldObject] = []
@@ -94,6 +96,7 @@ func set_object(object: R_WorldObject) -> void:
 		return
 	
 	_object = object
+	object_changed.emit(object)
 	
 	if !is_node_ready():
 		await ready

@@ -1,6 +1,8 @@
 @tool
 class_name C_AnimatedModel3D extends W_AnimatedModel3D
 
+
+@export_group("References")
 @export var movement:W_FPCSourceLikeMovement
 @export var item_state_machine:SD_NodeStateMachine
 
@@ -21,7 +23,7 @@ func _ready() -> void:
 	
 	state_machine_playback = tree.get("parameters/StateMachine/playback") as AnimationNodeStateMachinePlayback
 	item_state_machine_playback = tree.get("parameters/ItemStateMachine/playback") as AnimationNodeStateMachinePlayback
-	visible = !is_multiplayer_authority()
+	#visible = !is_multiplayer_authority()
 
 func _on_state_enter(state:SD_State) -> void:
 	state_machine_playback.travel(state.name)
