@@ -40,9 +40,16 @@ func _ready() -> void:
 			_request_reload,
 			_bullet_collided_with,
 		], SimusNetRPCConfig.new()
-		.flag_mode_authority()
-		.flag_set_channel(s_Networking.CHANNELS.SHOOTING)
-		.flag_immediate()
+			.flag_mode_authority()
+			.flag_set_channel(s_Networking.CHANNELS.SHOOTING)
+			.flag_immediate()
+	)
+	
+	SimusNetRPC.register(
+		[
+			_local_spawn_bullet_tracer
+		], SimusNetRPCConfig.new()
+			.flag_mode_any_peer()
 	)
 	
 	_raycast = SD_ECS.node_find_above_by_component(self, C_EntityRaycastFireArm)
@@ -218,6 +225,10 @@ func _collider_spawn_sound(collider:Object, collide_position:Vector3, metadata:S
 	new_ap.play()
 
 func _spawn_bullet_tracer(target_position:Vector3) -> void:
+	_local_spawn_bullet_tracer(target_position)
+	SimusNetRPC.invoke(_local_spawn_bullet_tracer, target_position)
+
+func _local_spawn_bullet_tracer(target_position:Vector3) -> void:
 	var dir = (target_position - muzzle_flash.global_position).normalized()
 	var start_pos = muzzle_flash.global_position - (dir * 0.25)
 	
