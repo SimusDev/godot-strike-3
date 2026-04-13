@@ -20,6 +20,7 @@ func _purchased(entity: Node) -> void:
 	var attributes: Array[Node] = SD_ECS.find_children_by_script(entity, C_CharacterAttributes)
 	for attribute: C_CharacterAttributes in attributes:
 		attribute.money -= cost
+	
 
 func simusnet_serialize(buffer: SimusNetCustomSerialization) -> void:
 	buffer.pack(get_script())

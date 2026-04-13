@@ -37,6 +37,10 @@ func find_user_by_id(id:int) -> R_User:
 	return null
 
 func _ready() -> void:
+	#var scene_multiplayer: SceneMultiplayer = SceneMultiplayer.new()
+	#get_tree().set_multiplayer(scene_multiplayer)
+	#_gdnet_transport =  GDNetTransport.new().initialize(get_tree(), scene_multiplayer, GDNetTransportConfig.new())
+	#
 	
 	SimusNetRPC.register(
 		[

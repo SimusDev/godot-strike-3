@@ -8,7 +8,11 @@ extends Control
 var current_popup:String = "Main"
 
 func _ready() -> void:
+	_buffer_test()
 	back_button.pressed.connect(_on_back_pressed)
+
+func _buffer_test() -> void:
+	pass
 
 func _on_back_pressed() -> void:
 	switch_popup_by_name("Main")

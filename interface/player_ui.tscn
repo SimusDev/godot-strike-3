@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dyade2q4x1dci" path="res://interface/money.tscn" id="4_7jhck"]
 [ext_resource type="Script" uid="uid://c7j3r1udn5841" path="res://interface/ui_weapon_zoom.gd" id="5_16fqb"]
 [ext_resource type="PackedScene" uid="uid://cf6oya04kct6m" path="res://interface/shop/shop_interface.tscn" id="6_aasth"]
+[ext_resource type="PackedScene" uid="uid://de2fkvvjmxo4r" path="res://interface/spawner/spawner.tscn" id="7_lf3oi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jhck"]
 content_margin_left = 0.0
@@ -88,3 +89,5 @@ stretch_mode = 6
 layer = 2
 
 [node name="ShopInterface" parent="Interfaces" unique_id=311467892 instance=ExtResource("6_aasth")]
+
+[node name="Spawner" parent="Interfaces" unique_id=2033626791 instance=ExtResource("7_lf3oi")]

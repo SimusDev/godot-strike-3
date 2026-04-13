@@ -110,7 +110,56 @@ func _network_init() -> void:
 		.flag_replication(false)
 	)
 	
+	SimusNetRPC.register(
+		[
+			_request_spawn_rpc,
+		], SimusNetRPCConfig.new().flag_mode_to_server()
+		.flag_set_channel(s_Networking.CHANNELS.NODE_REPLICATION)
+	)
+	
 	gamemode = await SimusNetVars.replicate_async(self, "gamemode")
+
+func request_spawn(object: R_WorldObject) -> C_Level3D:
+	if Player.get_local():
+		SimusNetRPC.invoke_on_server(_request_spawn_rpc, object)
+	return self
+
+func _request_spawn_rpc(object: R_WorldObject) -> void:
+	if !is_instance_valid(object):
+		return
+	
+	var picked_player: Player
+	for i in get_players():
+		if i.get_multiplayer_authority() == SimusNetRemote.sender_id:
+			picked_player = i
+	
+	if !is_instance_valid(picked_player):
+		return
+	
+	var raycast: C_EntityRaycastInteraction = SD_ECS.find_first_component_by_script(picked_player, [C_EntityRaycastInteraction])
+	if !raycast:
+		return
+	
+	var node: Node = spawn(object)
+	if is_instance_valid(node):
+		if node is Node3D:
+			node.global_position = raycast.global_position
+
+func spawn(object: R_WorldObject) -> Node:
+	if !is_instance_valid(object):
+		return
+	
+	if !object.viewmodel:
+		push_error("%s viewmodel property is null" % object.resource_path)
+		return
+	
+	var instance: Node = object.viewmodel.instantiate_world()
+	if is_instance_valid(instance):
+		var section_id: String = object.get_script().get_global_name().to_camel_case().validate_node_name()
+		_sections.get_node(section_id).add_child(instance)
+	else:
+		push_error("%s instantiated object is null" % object.resource_path)
+	return instance
 
 static func find_above(from: Node) -> C_Level3D:
 	return SD_ECS.node_find_above_by_script(from, C_Level3D)

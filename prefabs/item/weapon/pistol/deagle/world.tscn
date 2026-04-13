@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c01yn0niinfoc"]
+
+[ext_resource type="PackedScene" uid="uid://40hwy27bohvw" path="res://prefabs/item/weapon/pistol/deagle/model_view_deagle.glb" id="1_ttcii"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ttcii"]
+size = Vector3(0.066345215, 0.27294922, 0.46929932)
+
+[node name="World" type="RigidBody3D" unique_id=716850452]
+
+[node name="Sketchfab_Scene" parent="." unique_id=251565415 instance=ExtResource("1_ttcii")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=317982097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0018615723, -0.06225586, 0.06137085)
+shape = SubResource("BoxShape3D_ttcii")
