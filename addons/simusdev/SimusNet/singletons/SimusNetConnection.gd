@@ -146,7 +146,8 @@ static func get_connected_peers_include_self() -> PackedInt32Array:
 
 static func get_unique_id() -> int:
 	if is_active():
-		return singleton.api.get_unique_id()
+		if singleton.api:
+			return singleton.api.get_unique_id()
 	return SERVER_ID
 
 static func connect_network_node_callables(object: Object, on_ready: Callable, on_disconnect: Callable, on_not_connected: Callable) -> void:

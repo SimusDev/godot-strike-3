@@ -13,12 +13,10 @@ const _view_scene: PackedScene = preload("uid://qyvoef4qc0xg")
 var _view: Control
 
 func _enable_plugin() -> void:
-	return
 	for s in AUTOLOAD:
 		add_autoload_singleton(s, AUTOLOAD[s])
 
 func _disable_plugin() -> void:
-	return
 	for s in AUTOLOAD:
 		remove_autoload_singleton(s)
 
@@ -29,7 +27,7 @@ func _enter_tree() -> void:
 		editor_plugins = SD_EditorPlugins.new()
 		add_child(editor_plugins)
 #чут чут нормально
-	inspector_plugin = SD_MetadataMaterial.SD_MetadataButtonInspectorPlugin.new()
+	#inspector_plugin = SD_MetadataMaterial.SD_MetadataButtonInspectorPlugin.new()
 	add_inspector_plugin(inspector_plugin)
 	
 	for s in AUTOLOAD:

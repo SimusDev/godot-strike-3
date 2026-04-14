@@ -5,8 +5,7 @@ func get_item_name() -> String:
 	return "weapon.ammo"
 
 func can_purchase(entity: Node) -> bool:
-	var result: bool = super(entity)
-	return result
+	return super(entity)
 
 func _purchased(entity: Node) -> void:
 	super(entity)
@@ -18,4 +17,3 @@ func _purchased(entity: Node) -> void:
 	for item in inventory.get_items():
 		if item is R_FireArmWeapon:
 			item.ammo += item.bullets_max
-	

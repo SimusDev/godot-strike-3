@@ -24,7 +24,10 @@ class_name SimusNetSingleton
 
 var info: Node
 
-var api: SceneMultiplayer
+var api: SceneMultiplayer : get = get_api
+
+func get_api() -> SceneMultiplayer:
+	return multiplayer
 
 var __static_class_list: Array[Object] = [
 	SimusNet.new(),

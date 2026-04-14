@@ -28,7 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://b1wahilsw8kfm" path="res://audio/sfx/wind/wind1.wav" id="26_xbqx0"]
 [ext_resource type="PackedScene" uid="uid://bdjubefo2r4ug" path="res://prefabs/props/vending_machine/vending_machine.tscn" id="27_xjduu"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3obig"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xjduu"]
 render_priority = 0
 shader = ExtResource("2_1f30m")
 shader_parameter/albedo = Color(1, 1, 1, 1)
@@ -148,8 +148,8 @@ shader_parameter/cirrus_sky_tint_fade = 0.5
 shader_parameter/cirrus_intensity = 10.0
 shader_parameter/cirrus_size = 1.0
 shader_parameter/cirrus_uv = Vector2(0.16, 0.11)
-shader_parameter/cirrus_position1 = Vector2(0.04935552, 0.04935552)
-shader_parameter/cirrus_position2 = Vector2(0.04935552, 0.04935552)
+shader_parameter/cirrus_position1 = Vector2(0.01979885, 0.01979885)
+shader_parameter/cirrus_position2 = Vector2(0.01979885, 0.01979885)
 shader_parameter/cirrus_day_color = Color(0.824, 0.875, 1, 1)
 shader_parameter/cirrus_horizon_light_color = Color(0.98, 0.43, 0.15, 1)
 shader_parameter/cirrus_night_color = Color(0.09, 0.094, 0.129, 1)
@@ -162,7 +162,7 @@ shader_parameter/cumulus_noise_freq = 2.7
 shader_parameter/cumulus_sky_tint_fade = 0.0
 shader_parameter/cumulus_intensity = 0.6
 shader_parameter/cumulus_size = 0.5
-shader_parameter/cumulus_position = Vector2(0.24678327, 0.24678327)
+shader_parameter/cumulus_position = Vector2(0.09899525, 0.09899525)
 shader_parameter/cumulus_texture = ExtResource("11_ywxqy")
 shader_parameter/cumulus_day_color = Color(0.823529, 0.87451, 1, 1)
 shader_parameter/cumulus_horizon_light_color = Color(0.98, 0.43, 0.15, 1)
@@ -197,7 +197,7 @@ ssr_enabled = true
 
 [node name="SimpleGrassTextured" type="MultiMeshInstance3D" parent="." unique_id=2045327379]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.529, 0)
-material_override = SubResource("ShaderMaterial_3obig")
+material_override = SubResource("ShaderMaterial_xjduu")
 multimesh = SubResource("MultiMesh_xbcbm")
 script = ExtResource("5_0vx4i")
 texture_albedo = ExtResource("3_wo5hv")

@@ -8,6 +8,9 @@ static var _stream_buffer: StreamPeerBuffer = StreamPeerBuffer.new()
 
 enum PACKET {
 	RPC,
+	RPC_TARGET,
+	RPC_EXCEPT,
+	
 	VARIABLE_REPLICATE,
 	VARIABLES,
 }

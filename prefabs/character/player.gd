@@ -31,7 +31,7 @@ func _ready() -> void:
 	SimusNetVars.register(
 		self,
 		["velocity"],
-		SimusNetVarConfig.new().flag_mode_authority().flag_serialization().flag_replication()
+		SimusNetVarConfig.new().flag_mode_authority().flag_tickrate(32.0).flag_replication()
 	)
 	
 	SimusNetRPC.register(

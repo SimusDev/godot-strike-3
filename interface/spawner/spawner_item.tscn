@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://d0e0i8v2wb8o8"]
+
+[ext_resource type="Script" uid="uid://dt4micm8ymhw" path="res://interface/spawner/spawner_item.gd" id="1_3jwys"]
+
+[node name="SpawnerItem" type="Button" unique_id=1914358986]
+custom_minimum_size = Vector2(205, 218)
+offset_right = 205.0
+offset_bottom = 218.0
+script = ExtResource("1_3jwys")
+metadata/_edit_horizontal_guides_ = [180.0]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1248979907]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.82600003
+offset_bottom = -0.06800842
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=279926494]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.82600003
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.06800842
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=1311204409]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "spawner.item"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

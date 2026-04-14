@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dl13vvquneokj"]
+
+[ext_resource type="Script" uid="uid://bxtjga4nt6wnt" path="res://addons/GDNet/singleton/GDNetSingleton.cs" id="1_yrri8"]
+[ext_resource type="Script" uid="uid://bs33s3j8mxo0o" path="res://addons/GDNet/sharp/GDNetConnection.cs" id="2_x54o7"]
+[ext_resource type="Script" uid="uid://dprv6aphuqv4b" path="res://addons/GDNet/sharp/GDNetStorage.cs" id="3_ctd6o"]
+
+[node name="GDNetSingleton" type="Node" unique_id=860418482 node_paths=PackedStringArray("connection", "storage")]
+script = ExtResource("1_yrri8")
+connection = NodePath("GDNetConnection")
+storage = NodePath("GDNetStorage")
+
+[node name="GDNetConnection" type="Node" parent="." unique_id=1488856406]
+script = ExtResource("2_x54o7")
+metadata/_custom_type_script = "uid://bs33s3j8mxo0o"
+
+[node name="GDNetStorage" type="Node" parent="." unique_id=765958549]
+script = ExtResource("3_ctd6o")
+metadata/_custom_type_script = "uid://dprv6aphuqv4b"
