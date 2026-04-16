@@ -250,7 +250,7 @@ metadata/_custom_type_script = "uid://pf622qfdiljm"
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="rig" parent="model3d" index="0" unique_id=1229230295]
-transform = Transform3D(0.99493283, -0.09805956, -0.022188481, 0.020414796, -0.01905439, 0.9996099, -0.09844416, -0.99499774, -0.016955981, -0.031444512, -0.00019439805, 0.027917407)
+transform = Transform3D(0.9962589, -0.082383424, -0.026085002, 0.025689326, -0.0058593266, 0.9996527, -0.082507655, -0.99658316, -0.003721034, -0.03154097, -0.0043075024, 0.011411918)
 
 [node name="Skeleton3D" parent="model3d/rig" index="0" unique_id=392328757]
 bones/1/position = Vector3(-1.862645e-09, 0.13246511, -2.0222924e-08)
@@ -340,7 +340,7 @@ parameters/OneShot/request = 0
 [node name="Hitboxes" type="Node3D" parent="." unique_id=628207090]
 
 [node name="Head" type="BoneAttachment3D" parent="Hitboxes" unique_id=949861060]
-transform = Transform3D(-0.9957318, -0.0026046354, -0.09225518, -0.019284979, 0.98340726, 0.18038279, 0.09025466, 0.1813918, -0.9792602, 0.05895236, 1.5594611, 0.08514236)
+transform = Transform3D(-0.9970949, -0.0013477989, -0.076154105, -0.014115062, 0.9857941, 0.16736329, 0.07484671, 0.1679518, -0.9829495, 0.06377295, 1.5566249, 0.080867365)
 bone_name = "head"
 bone_idx = 4
 use_external_skeleton = true
@@ -359,7 +359,7 @@ damage_multiplier = 2.0
 shape = SubResource("BoxShape3D_xmso4")
 
 [node name="Neck" type="BoneAttachment3D" parent="Hitboxes" unique_id=2105621560]
-transform = Transform3D(-0.9954867, -0.025679605, -0.09135902, -0.016188998, 0.99453443, -0.10314602, 0.0935085, -0.101201646, -0.99046147, 0.061823487, 1.4482664, 0.09645728)
+transform = Transform3D(-0.9968879, -0.019947337, -0.07626398, -0.010975953, 0.9931542, -0.11629331, 0.07806163, -0.11509451, -0.9902824, 0.06600317, 1.4455845, 0.093735576)
 bone_name = "neck"
 bone_idx = 3
 use_external_skeleton = true
@@ -379,7 +379,7 @@ transform = Transform3D(0.9998929, -0.00868919, -0.012416095, 0.004829215, 0.959
 shape = SubResource("BoxShape3D_xhteq")
 
 [node name="Chest" type="BoneAttachment3D" parent="Hitboxes" unique_id=796290548]
-transform = Transform3D(-0.99522954, 0.001978118, -0.09753961, -0.013017122, 0.98816246, 0.15285821, 0.09668741, 0.15339851, -0.98342264, 0.06120881, 1.1412083, 0.048790768)
+transform = Transform3D(-0.9966673, 0.0036926046, -0.081487335, -0.0077620205, 0.9901486, 0.13980557, 0.08120079, 0.13997199, -0.98682016, 0.06485574, 1.1379093, 0.050241183)
 bone_name = "chest"
 bone_idx = 2
 use_external_skeleton = true
@@ -398,7 +398,7 @@ transform = Transform3D(0.9996831, -0.018456746, -0.01711689, 0.007924449, 0.876
 shape = SubResource("BoxShape3D_nbqfj")
 
 [node name="Spine" type="BoneAttachment3D" parent="Hitboxes" unique_id=1648957366]
-transform = Transform3D(-0.99510777, 0.039804626, -0.09041791, 0.010714776, 0.95332414, 0.30175838, 0.09820899, 0.29931322, -0.949087, 0.05591768, 1.0144854, 0.009003816)
+transform = Transform3D(-0.99647063, 0.039083637, -0.074283905, 0.015987769, 0.9571559, 0.28913122, 0.08240157, 0.286923, -0.95440286, 0.059660453, 1.010677, 0.012101232)
 bone_name = "spine"
 bone_idx = 1
 use_external_skeleton = true
@@ -417,7 +417,7 @@ transform = Transform3D(0.99968314, -0.018458072, -0.01711591, 0.007926066, 0.87
 shape = SubResource("BoxShape3D_vfkn1")
 
 [node name="Hips" type="BoneAttachment3D" parent="Hitboxes" unique_id=1687161286]
-transform = Transform3D(-0.99493283, 0.0004685875, -0.10053781, 0.020414844, 0.98009837, -0.19745947, 0.09844448, -0.1985114, -0.9751416, 0.055855606, 0.88465655, 0.035299636)
+transform = Transform3D(-0.9962589, 0.0076613557, -0.08607447, 0.025689377, 0.97728807, -0.21035187, 0.082507975, -0.21177617, -0.97382885, 0.058645587, 0.88122046, 0.040154167)
 bone_name = "hips"
 bone_idx = 0
 use_external_skeleton = true
@@ -437,7 +437,7 @@ transform = Transform3D(1, 9.313226e-10, 7.8976154e-07, 2.9802322e-08, 1, 1.4901
 shape = SubResource("BoxShape3D_5i7ht")
 
 [node name="LeftUpperArm" type="BoneAttachment3D" parent="Hitboxes" unique_id=8313087]
-transform = Transform3D(0.9404, -0.2245639, 0.25538704, -0.2196266, -0.9743998, -0.048079498, 0.2596469, -0.010875795, -0.96564287, -0.10702087, 1.3863192, 0.0789641)
+transform = Transform3D(0.9352947, -0.22842401, 0.27027723, -0.21977785, -0.9735622, -0.062264275, 0.27735537, -0.0011654969, -0.9607673, -0.102803126, 1.3840723, 0.07443393)
 bone_name = "upper_arm.L"
 bone_idx = 8
 use_external_skeleton = true
@@ -457,7 +457,7 @@ transform = Transform3D(0.9923332, -0.07650748, -0.09706442, 0.031247374, 0.9151
 shape = SubResource("BoxShape3D_lmael")
 
 [node name="LeftLowerArm" type="BoneAttachment3D" parent="Hitboxes" unique_id=1482254362]
-transform = Transform3D(0.9654368, -0.19069466, 0.17769396, -0.2146627, -0.96839285, 0.12704326, 0.14785203, -0.1607954, -0.97585404, -0.17871702, 1.0752288, 0.07548712)
+transform = Transform3D(0.9620999, -0.19218613, 0.19348395, -0.2164393, -0.969736, 0.113008544, 0.16591072, -0.15060201, -0.97457653, -0.1757316, 1.0732492, 0.07405709)
 bone_name = "forearm.L"
 bone_idx = 9
 use_external_skeleton = true
@@ -477,7 +477,7 @@ transform = Transform3D(0.9923332, -0.07650748, -0.09706442, 0.031247374, 0.9151
 shape = SubResource("BoxShape3D_lqvlr")
 
 [node name="RightUpperArm" type="BoneAttachment3D" parent="Hitboxes" unique_id=1198981360]
-transform = Transform3D(0.91513216, 0.4022743, -0.02673744, 0.40243044, -0.9154543, 0.00050207414, -0.024274942, -0.011219317, -0.9996444, 0.22493485, 1.38612, 0.04674758)
+transform = Transform3D(0.91706896, 0.39858282, -0.011075213, 0.398441, -0.9171052, -0.013036472, -0.0153532075, 0.00754263, -0.99985576, 0.22961274, 1.3821212, 0.047444604)
 bone_name = "upper_arm.R"
 bone_idx = 13
 use_external_skeleton = true
@@ -497,7 +497,7 @@ transform = Transform3D(0.9923332, -0.07650748, -0.09706442, 0.031247374, 0.9151
 shape = SubResource("BoxShape3D_lmael")
 
 [node name="RightLowerArm" type="BoneAttachment3D" parent="Hitboxes" unique_id=322258329]
-transform = Transform3D(0.99700165, -0.0016097263, -0.07741836, 0.07575774, 0.22723469, 0.97089386, 0.01602907, -0.9738403, 0.22667433, 0.3533672, 1.0938468, 0.04316566)
+transform = Transform3D(0.9969352, 0.01458978, -0.07691305, 0.07202777, 0.2139261, 0.9741958, 0.03066685, -0.97674257, 0.21221866, 0.3568665, 1.0893209, 0.049852733)
 bone_name = "forearm.R"
 bone_idx = 14
 use_external_skeleton = true
@@ -517,7 +517,7 @@ transform = Transform3D(0.9923332, -0.07650748, -0.09706442, 0.031247374, 0.9151
 shape = SubResource("BoxShape3D_lqvlr")
 
 [node name="LeftUpperLeg" type="BoneAttachment3D" parent="Hitboxes" unique_id=367248935]
-transform = Transform3D(-0.96869195, -0.11126473, 0.2219341, 0.08139509, -0.9868728, -0.13948725, 0.23454218, -0.11705651, 0.9650265, -0.062450554, 0.9422163, 0.010318389)
+transform = Transform3D(-0.97189903, -0.113528684, 0.20620932, 0.088417344, -0.9879311, -0.12717877, 0.21816029, -0.105373055, 0.9702015, -0.059013937, 0.938901, 0.01253686)
 bone_name = "thigh.L"
 bone_idx = 17
 use_external_skeleton = true
@@ -537,7 +537,7 @@ transform = Transform3D(0.99233353, -0.076507494, -0.097064376, 0.031247705, 0.9
 shape = SubResource("BoxShape3D_isk24")
 
 [node name="LeftLowerLeg" type="BoneAttachment3D" parent="Hitboxes" unique_id=1350633474]
-transform = Transform3D(-0.9560723, -0.052590244, 0.28837278, 0.12334021, -0.96462154, 0.23300683, 0.26591808, 0.25833666, 0.9287293, -0.11037661, 0.5171316, -0.040102415)
+transform = Transform3D(-0.9595976, -0.060648672, 0.27475983, 0.13073659, -0.9607902, 0.24451967, 0.24915794, 0.27055904, 0.9298958, -0.10791516, 0.51336056, -0.032851424)
 bone_name = "shin.L"
 bone_idx = 18
 use_external_skeleton = true
@@ -557,7 +557,7 @@ transform = Transform3D(0.99233353, -0.076507494, -0.097064376, 0.031247705, 0.9
 shape = SubResource("BoxShape3D_isk24")
 
 [node name="RightUpperLeg" type="BoneAttachment3D" parent="Hitboxes" unique_id=38768002]
-transform = Transform3D(-0.99321723, 0.06654239, -0.09534624, -0.06302367, -0.99723184, -0.039455745, -0.097708285, -0.033179227, 0.99465585, 0.16921473, 0.9374628, -0.012603873)
+transform = Transform3D(-0.99181896, 0.06289821, -0.11107662, -0.06042479, -0.997847, -0.025498765, -0.11244195, -0.018578455, 0.99347866, 0.17296012, 0.9329194, -0.0066746664)
 bone_name = "thigh.R"
 bone_idx = 22
 use_external_skeleton = true
@@ -577,7 +577,7 @@ transform = Transform3D(0.99233353, -0.076507494, -0.097064376, 0.031247705, 0.9
 shape = SubResource("BoxShape3D_isk24")
 
 [node name="RightLowerLeg" type="BoneAttachment3D" parent="Hitboxes" unique_id=1283813259]
-transform = Transform3D(-0.9723774, 0.061949864, -0.22504145, -0.11034423, -0.9716015, 0.20932004, -0.20568313, 0.22836846, 0.9515936, 0.19787712, 0.50791615, -0.02689546)
+transform = Transform3D(-0.96948797, 0.05431667, -0.23904377, -0.1092967, -0.9686312, 0.22317682, -0.21942306, 0.24249242, 0.94500744, 0.20005281, 0.5031078, -0.014677132)
 bone_name = "shin.R"
 bone_idx = 23
 use_external_skeleton = true
@@ -597,7 +597,7 @@ transform = Transform3D(0.99233353, -0.076507494, -0.097064376, 0.031247705, 0.9
 shape = SubResource("BoxShape3D_isk24")
 
 [node name="WeaponAttachment3D" type="BoneAttachment3D" parent="." unique_id=1036447807]
-transform = Transform3D(0.95284283, -0.076426156, -0.2936941, 0.30090442, 0.112245336, 0.9470318, -0.03941174, -0.9907375, 0.12994936, 0.34756094, 1.1625677, -0.28719562)
+transform = Transform3D(0.9545887, -0.060431294, -0.29174492, 0.29656956, 0.09901349, 0.9498708, -0.02851476, -0.99324983, 0.11243941, 0.35652152, 1.1535487, -0.28146213)
 bone_name = "hand.R_end"
 bone_idx = 16
 use_external_skeleton = true
@@ -610,7 +610,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 
 [node name="C_NodeNetworkVisibility" type="Node" parent="." unique_id=151926386]
 script = ExtResource("5_nbqfj")
-mode = 2
 metadata/_custom_type_script = "uid://b56ba311e7gk8"
 
 [editable path="model3d"]
