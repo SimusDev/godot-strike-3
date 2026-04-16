@@ -4,6 +4,7 @@
 [ext_resource type="Animation" uid="uid://baqhqli6fkm51" path="res://prefabs/character/model/skeleton/animation/res/crouched_idle.anim" id="1_k1dlv"]
 [ext_resource type="Animation" uid="uid://bwejxu8m02kcy" path="res://prefabs/character/model/skeleton/animation/res/run.anim" id="2_i6h8e"]
 [ext_resource type="Animation" uid="uid://cqnkhm17o5kti" path="res://prefabs/character/model/skeleton/animation/res/crouched_walk.anim" id="2_vso4i"]
+[ext_resource type="Animation" uid="uid://cc6ce452i35sm" path="res://prefabs/character/model/skeleton/animation/res/floating.anim" id="3_o2vns"]
 [ext_resource type="Animation" uid="uid://c6d31j8nxp5h8" path="res://prefabs/character/model/skeleton/animation/res/run_left_strafe.anim" id="3_wohwm"]
 [ext_resource type="Animation" uid="uid://cpnafk8gwttc1" path="res://prefabs/character/model/skeleton/animation/res/run_right_strafe.anim" id="4_6d7sw"]
 [ext_resource type="Animation" uid="uid://bvjehxsn5v23k" path="res://prefabs/character/model/skeleton/animation/res/walk.anim" id="7_2dc2k"]
@@ -332,6 +333,7 @@ tracks/9/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
 _data = {
 &"crouched_idle": ExtResource("1_k1dlv"),
 &"crouched_walk": ExtResource("2_vso4i"),
+&"floating": ExtResource("3_o2vns"),
 &"idle": ExtResource("1_fqhff"),
 &"knife": SubResource("Animation_p0kg5"),
 &"knife_attack": SubResource("Animation_bxicn"),

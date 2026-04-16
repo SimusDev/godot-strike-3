@@ -1,6 +1,7 @@
 @tool
 class_name C_AnimatedModel3D extends W_AnimatedModel3D
 
+@export var state_exceptions:PackedStringArray
 
 @export_group("References")
 @export var movement:W_FPCSourceLikeMovement
@@ -26,6 +27,11 @@ func _ready() -> void:
 	#visible = !is_multiplayer_authority()
 
 func _on_state_enter(state:SD_State) -> void:
+	print(state)
+	
+	if state.name in state_exceptions:
+		return
+	
 	state_machine_playback.travel(state.name)
 
 func _on_state_exit(state:SD_State):
@@ -73,10 +79,15 @@ func stop_tree_oneshot(oneshot_node_name:StringName = "OneShot") -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if Engine.is_editor_hint():
+	if Engine.is_editor_hint() or not state_machine_playback:
 		return
 	
+	var current_node = state_machine_playback.get_current_node()
+	if current_node == "":
+		return
+
 	actor_velocity = movement.actor.velocity.normalized() * movement.actor.transform.basis
 	blend_position = Vector2(actor_velocity.x, -actor_velocity.z)
 
-	tree.set("parameters/StateMachine/%s/blend_position" % state_machine_playback.get_current_node(), blend_position)
+	var param_path = "parameters/StateMachine/%s/blend_position" % current_node
+	tree.set(param_path, blend_position)
