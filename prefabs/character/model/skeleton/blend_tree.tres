@@ -268,7 +268,7 @@ filter_enabled = true
 filters = ["rig/Skeleton3D:forearm.L", "rig/Skeleton3D:forearm.R", "rig/Skeleton3D:hand.L", "rig/Skeleton3D:hand.L_end", "rig/Skeleton3D:hand.R", "rig/Skeleton3D:hand.R_end", "rig/Skeleton3D:shoulder.L", "rig/Skeleton3D:shoulder.R", "rig/Skeleton3D:upper_arm.L", "rig/Skeleton3D:upper_arm.R"]
 
 [resource]
-graph_offset = Vector2(-212.82504, -72.066216)
+graph_offset = Vector2(-376.08536, 82.523865)
 nodes/output/position = Vector2(700, 240)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_sm5w5")
 nodes/StateMachine/position = Vector2(-20, 140)
